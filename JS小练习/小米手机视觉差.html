@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../code/CSS/reset.css">
+    <title>小米手机视觉差</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            width: 862px;
+            height: 515px;
+            margin: 50px auto;
+            border: 3px solid rgb(44, 44, 44);
+            position: relative;
+        }
+        #left{
+            width: 50%;
+            position: absolute;
+            left: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        #bar{
+            width: 4px;
+            height: 100%;
+            background-color: rgb(44, 44, 44);
+            position: absolute;
+            top: 0;
+            z-index: 2;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var outer = document.getElementById("outer");
+            var left = document.getElementById("left");
+            var right = document.getElementById("right");
+            var bar = document.getElementById("bar");
+            // 给outer绑定鼠标移入事件
+            // mousemove 当鼠标在元素上移动时反复触发
+            outer.onmousemove = function(event){
+                // 通过鼠标的位置来改变 left 的宽度  bar的位置
+                var leftDistance = event.clientX - this.offsetLeft -bar.offsetWidth/2;
+                if( leftDistance < 0 )//超出范围 在outer左边
+                {
+                    leftDistance = 0;
+                }
+                // 更新属性
+                bar.style.left = leftDistance + 'px';
+                bar.style.transition = "";
+                left.style.width = leftDistance + 'px';
+                left.style.transition = "";
+            }
+            // 鼠标离开时还原到之前的状态
+            outer.onmouseout = function(){
+                bar.style.left = "50%";
+                bar.style.transition = "2s";
+                left.style.width = "50%";
+                left.style.transition = "2s";
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- 外部容器 -->
+    <div id="outer">
+        <!-- 左边 -->
+        <div id="left">
+            <img src="./小米IMG/1.jpg" alt="">
+        </div>
+        <!-- 右边 -->
+        <div id="right">
+            <img src="./小米IMG/2.jpg" alt="">
+        </div>
+        <!-- 中间条条 -->
+        <div id="bar"></div>
+    </div>
+</body>
+</html>

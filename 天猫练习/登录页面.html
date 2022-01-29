@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 浏览器导航小图标  icon+svg -->
+    <link rel="icon" href="./天猫img/favicon.svg" >
+    <!-- 引入样式重置表 -->
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./登录页面图标/font_2611293_qchkqijwxmh/iconfont.css">
+    <link rel="stylesheet" href="./半角二维码/font_2611855_9y4h2wevidi/iconfont.css">
+    <title>理想生活上天猫</title>
+    <style>
+        /* 设置header样式 */
+        .header-outer{
+            width: 100%;
+            height: 88px;
+            background-color: #fff;
+            position: relative;
+        }
+        .header-logo img{
+            width:100%;
+            
+        }
+        .header-logo{
+            width: 190px;
+            height: 27px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) translateX(20%);
+            
+        }
+        /* 中间块样式 */
+        .main-outer{
+            width: 100%;
+            height: 600px;
+            background-color: #dd2726;
+            position: relative;
+        }
+        .bg{
+            margin: 0px auto;
+        }
+        /* 登录外部容器 */
+        .login-enroll-outer{
+            width: 300px;
+            height: 354px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 10%;
+            background-color: #fff;
+            padding: 25px;
+        }
+        /* 上部密码登录or短信登录 */
+        .passwords,.massage{
+            display: inline-block;
+            height: 18px;
+            text-decoration: none;
+            line-height: 5px;
+            font-size: 16px;
+            color: #3c3c3c;
+            
+            font-weight: 700;
+            margin: 19px 0px 20px 10px;
+        }
+        /* 密码登录底部边框 */
+        .passwords{
+            border-bottom: 2px #3c3c3c solid;
+        }
+        /* 用户名输入 密码输入样式 */
+        .name-outer,.password-outer
+        {
+            width: 298px;
+            height: 40px;
+            border: 1px solid #f1eeee;
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+        /* 移入样式 */
+        .name-outer:hover{
+            border-color: #dd2726;
+        }
+        .password-outer:hover{
+            border-color: #dd2726;
+        }
+        /* 人 锁 样式 */
+        .i-name,.i-password{
+            display: inline-block;
+            width:40px ;
+            height: 100%;
+            background-color: #ccc;
+            position: relative;
+        }
+        .i-name i,.i-password i{
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            font-size: 22px;
+            color: #fff;
+            
+        }
+        .kuang {
+            position: absolute;
+            width: 254px;
+            height: 38px;
+            border: none;
+        }
+        /* 设置二维码样式 */
+        .qr-outer{
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+        }
+        .qr-outer i{
+            font-size: 60px;
+        }
+        .qr-outer .san{
+            font-size: 62px;
+            color: #fff;
+            position: absolute;
+            left: -2px;
+        }
+        .qr{
+            color: #FF0036;
+        }
+        .login{
+            width: 300px;
+            height: 40px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #FF0036;
+            
+        }
+        /* 设置下面三小块外部 */
+        .three-outer
+        {
+            padding-left: 40%;
+            margin-top: 15px;
+            text-align: center;
+        }
+        /* 每一个 */
+        .three-outer a{
+            text-decoration: none;
+            font-size: 12px;
+            color:#646363;
+        }
+        /* 设置扫码登录更方便 */
+        .scan-outer{
+            width: 104px;
+            height: 26px;
+            color: #ff9000;
+            font-size: 12px;
+            line-height: 26px;
+            position: absolute;
+            border: 1px solid #f3d995;
+            background: #fefcee;
+            text-align: center;
+            top: 1%;
+            left: 50%;
+        }
+        .footer{
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <!-- logo -->
+    <div class="header-outer">
+        <a class="header-logo"><img src="./天猫img/登录页面左上角logo.png" alt=""></a>
+    </div>
+    <!-- main -->
+    <div class="main-outer">
+        <a href="" class="bg"><img src="./天猫img/登录页面背景.png" alt=""></a>
+        <div class="login-enroll-outer">
+            <a href="" class="passwords">密码登录</a>
+            <a href="" class="massage">短信登录</a>
+            <form action="">
+                <!-- 用户名的输入 -->
+                <div class="name-outer">
+                <div class="i-name"><i class="iconfont">&#xe659;</i></div>
+                <input type="text" style=" outline: none;" class="kuang" placeholder="  会员名 /  邮箱 /  手机号">
+                </div>
+                <!-- 密码的输入 -->
+                <div class="password-outer">
+                    <div class="i-password"><i class="iconfont">&#xe644;</i></div>
+                    <input type="text " style=" outline: none;" class="kuang" placeholder="  请输入登录密码" >
+                </div>
+                <a href=""><input class="login" type="submit" name="" id="" value="登录" style=" outline: none; border-radius: 2px; border: 0px;" ></a>
+            </form>
+            <div class="three-outer">
+                <a href="">忘记密码</a>
+                <a href="">忘记用户名</a>
+                <a href="">免费注册</a>
+            </div>
+            
+            
+            <!-- 扫码登录更安全 -->
+            <div class="scan-outer">
+                扫码登录更安全
+            </div>
+            <!-- 二维码 -->
+            <div class="qr-outer">
+                <i class="qr iconfont">&#xe642;</i>
+                <i class="san iconfont">&#xe652;</i>
+            </div>
+        </div>
+    </div>
+    <!-- bottom -->
+    <div class="footer">
+
+    </div>
+</body>
+</html>

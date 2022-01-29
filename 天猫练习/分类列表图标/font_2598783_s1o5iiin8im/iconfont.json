@@ -1,0 +1,121 @@
+{
+  "id": "2598783",
+  "name": "分类列表",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1088",
+      "name": "沙发",
+      "font_class": "shafa",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "355273",
+      "name": "汽车",
+      "font_class": "qiche",
+      "unicode": "e656",
+      "unicode_decimal": 58966
+    },
+    {
+      "icon_id": "436157",
+      "name": "靴子",
+      "font_class": "15",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "720874",
+      "name": "T恤 ",
+      "font_class": "txuzhuanhuan",
+      "unicode": "e66d",
+      "unicode_decimal": 58989
+    },
+    {
+      "icon_id": "1274579",
+      "name": "药瓶",
+      "font_class": "yaoping",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "1330918",
+      "name": "菜单",
+      "font_class": "caidan",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "2121676",
+      "name": "口红",
+      "font_class": "kouhong",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "5091097",
+      "name": "面条",
+      "font_class": "miantiao",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "5093347",
+      "name": "手机",
+      "font_class": "shouji",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "5112072",
+      "name": "樱桃",
+      "font_class": "yingtao",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "5219556",
+      "name": "咖啡",
+      "font_class": "kafei",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "11495071",
+      "name": "钻石",
+      "font_class": "zuanshi",
+      "unicode": "e66f",
+      "unicode_decimal": 58991
+    },
+    {
+      "icon_id": "13480286",
+      "name": "婴儿车",
+      "font_class": "yingerche",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "15014815",
+      "name": "家电_outline",
+      "font_class": "jiadian_outline",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "15986026",
+      "name": "公文包",
+      "font_class": "gongwenbao",
+      "unicode": "e691",
+      "unicode_decimal": 59025
+    },
+    {
+      "icon_id": "17769543",
+      "name": "连衣裙 裙子 百褶裙",
+      "font_class": "lianyiqunqunzibaizhequn",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    }
+  ]
+}

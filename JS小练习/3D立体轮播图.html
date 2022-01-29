@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./3D轮播/font_2738935_dnzkh16ny4p/iconfont.css">
+    <title>3D立体轮播图</title>
+    <style>
+        *{
+            margin:  0;
+            padding: 0;
+        }
+        .box-outer{
+            margin-top: 100px;
+            width: 100%;
+            height: 340px;
+            position: relative;
+            padding-top: 30px;
+            background-color: rgb(238, 214, 236);
+        }
+        .list{
+            width: 1200px;
+            height: 300px;
+            overflow: hidden;
+            /* 水平居中 */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .btn{
+            position: absolute;
+            top: 50%;
+            margin-top: -50px;
+            margin-left: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            line-height: 60px;
+            font-weight: 200;
+            color: rgb(255, 255, 255);
+            background-color: transparent;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn i{
+            color: #fff;
+        }
+        .btn:hover{
+            background-color: rgba(230, 230, 230, 0.5);
+            
+        }
+        .next{
+            right: 30px;
+        }
+        li{
+            position: absolute;
+            top: 0;
+            left: 0;
+            list-style: none;
+            opacity: 0;
+            transition: all 0.3s ease-out;
+        }
+        img{
+            width: 751px;
+            height: 300px;
+            border: none;
+            float: left;
+        }
+        /* 图片的位置 */
+        .p1{
+            transform: translate3d(-224px,0,0) scale(0.81);
+            /* opacity: 1; */
+        }
+        .p2{
+            transform: translate3d(0px,0,0) scale(0.81);
+            /* 起始位置 */
+            transform-origin: 0 50%; 
+            opacity: 0.8;
+            z-index: 2;
+        }
+        .p3{
+            transform: translate3d(224px,0,0) scale(1);
+            opacity: 1;
+            z-index: 3;
+        }
+        .p4{
+            transform: translate3d(449px,0,0) scale(0.81);
+            transform-origin: 100% 50%;
+            z-index: 2;
+            opacity: 0.8;
+        }
+        .p5{
+            transform: translate3d(672px,0,0) scale(0.81);
+            /* opacity: ; */
+        }
+        .p6{
+            transform:translate3d(896px,0,0) scale(0.81);
+            /* opacity: 1; */
+        }
+        .p7{
+            transform:translate3d(1120px,0,0) scale(0.81);
+            opacity: 1;
+        }
+        /* 给底部 条条加样式*/
+        .buttons{
+            position: absolute;
+            width: 1200px;
+            height: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            /* background-color: teal; */
+            bottom: 0;
+            text-align: center;
+            padding-top: 10px;
+        }
+        .buttons a{
+            display: inline-block;
+            width: 35px;
+            height: 5px;
+            cursor: pointer;
+            
+        }
+        span{
+            display: block;
+            width: 35px;
+            height: 5px;
+            background-color: rgb(235, 235, 235);
+            
+        }
+        .blue{
+            background-color: rgb(171, 225, 246);
+        }
+    </style>
+</head>
+<body>
+    <!-- html框架部分 -->
+    <div class="box-outer">
+        <!--  轮播图部分  -->
+        <div class="list">
+            <ul>
+                <li class="p7"><a href="#"><img src="./3D立体轮播img/网易云轮播图片/1.jpg" alt=""></a></li>
+                <li class="p6"><a href="#"><img src="./3D立体轮播img/网易云轮播图片/2.jpg" alt=""></a></li>
+                <li class="p5"><a href="#"><img src="./3D立体轮播img/网易云轮播图片/3.jpg" alt=""></a></li>
+                <li class="p4"><a href="#"><img src="./3D立体轮播img/网易云轮播图片/4.jpg" alt=""></a></li>
+                <li class="p3"><a href="#"><img src="./3D立体轮播img/网易云轮播图片/5.jpg" alt=""></a></li>
+                <li class="p2"><a href="#"><img src="./3D立体轮播img/网易云轮播图片/6.jpg" alt=""></a></li>
+                <li class="p1"><a href="#"><img src="./3D立体轮播img/网易云轮播图片/7.jpg" alt=""></a></li>
+            </ul>
+        </div>
+        <!-- 两个上下张按钮 -->
+        <a href="javascript:;" class="prev btn"><i class="iconfont" style="font-size: 22px;">&#xe643;</i></a>
+        <a href="javascript:;" class="next btn"><i class="iconfont" style="display: block; transform: rotateY(180deg);font-size: 22px;">&#xe643;</i></a>
+        <!-- 底下一组条条 -->
+        <div class="buttons">
+            <a href="javascript:;"><span class="blue"></span></a>
+            <a href="javascript:;"><span ></span></a>
+            <a href="javascript:;"><span ></span></a>
+            <a href="javascript:;"><span ></span></a>
+            <a href="javascript:;"><span ></span></a>
+            <a href="javascript:;"><span ></span></a>
+            <a href="javascript:;"><span ></span></a>
+        </div>
+    </div>
+    <script>
+        // 一组条条外壳
+        var btn = document.getElementsByClassName("buttons")[0];
+        // 一组条条
+        var buttons = btn.getElementsByTagName("a");
+        var spans = document.getElementsByTagName("span");
+        var lis = document.getElementsByTagName("li");
+        var box = document.getElementsByClassName("box-outer")[0];
+        console.dirxml(btn,buttons,spans)
+        // class数组
+        var arrClass = ["p7","p6","p5","p4","p3","p2","p1"];
+        var index = 0;
+        var lastIndex  = index;
+        var prev = document.getElementsByClassName("prev")[0];
+        var next = document.getElementsByClassName("next")[0];
+        // 给next prev 按钮绑定单击事件
+        var preving = function(){
+            // 通过修改图片对应的class来达到切换图片的效果
+            // 修改arrClass数组
+            var arrOrigin = [];
+            for(let i = 0 ; i<= 6 ; i++){
+                arrOrigin[i] = arrClass[i];
+            }
+                
+            arrClass.unshift(arrClass[6]);
+            arrClass.pop();
+            console.log(arrClass,lis.length)
+            // 遍历lis 修改对应Class
+            for(let i = 0 ; i < lis.length ; i++)
+            {
+                removeClass(lis[i],arrOrigin[i]);
+                addClass(lis[i],arrClass[i]);
+                console.log(lis[i].style);
+            }
+            // 更新index
+            lastIndex = index;
+            index--;
+            if(index < 0){
+                index = 6;
+            }
+            // 改变底部条条颜色
+            show();
+        }
+        var nexting = function nexting(){
+            var arrOrigin = [];
+            for(let i = 0 ; i<= 6 ; i++){
+                arrOrigin[i] = arrClass[i];
+            }
+            arrClass.push(arrClass[0]);
+            arrClass.shift();
+            // 遍历lis 修改对应Class
+            for(let i = 0 ; i < lis.length ; i++)
+            {
+                removeClass(lis[i],arrOrigin[i]);
+                addClass(lis[i],arrClass[i]);
+                console.log(lis[i].style);
+            }
+            lastIndex = index;
+            index++;
+            if(index > 6)
+            {
+                index = 0;
+            }
+            show();
+        }
+        prev.addEventListener("click",preving,false);
+        next.addEventListener("click",nexting,false);
+        // 通过底下的按钮点击切换
+        for(let i = 0; i <=6 ; i++)
+        {
+            buttons[i].onclick = function(){
+                var b = i - index;
+                if (b == 0){
+                    // 如果点击的button对应的就是当前页面
+                    return ;
+                }else if(b > 0){
+                    var arrOrigin = [];
+                    for(let j = 0 ; j<= 6 ; j++){
+                        arrOrigin[j] = arrClass[j];
+                    }
+                    // 点击的图片在当前index之后
+                    // 将前面0-b位挪到后面 之前被点击的i位置成为了index
+                    var newArr = arrClass.splice(0,b);//删掉 0-b 位并且返回
+                    console.log(newArr,arrClass);
+                    arrClass = arrClass.concat(newArr);//拼接
+                    console.log(arrClass);
+                    // 移除添加Class
+                    for(let j = 0 ; j < lis.length ; j++)
+                    {
+                        removeClass(lis[j],arrOrigin[j]);
+                        addClass(lis[j],arrClass[j]);
+                        console.log(lis[j].style);
+                    }
+                    // 更新index  lastindex
+                    lastIndex = index
+                    index  = i;
+                    show();
+                }else if(b < 0){
+                    var arrOrigin = [];
+                    for(let j = 0 ; j<= 6 ; j++){
+                        arrOrigin[j] = arrClass[j];
+                    }
+                    arrClass.reverse();
+                    var newArr = arrClass.splice(0, -b);//删掉 0-b 位并且返回
+                    arrClass = arrClass.concat(newArr);//拼接
+                    arrClass.reverse();
+                    // 移除添加Class
+                    for(let j = 0 ; j < lis.length ; j++)
+                    {
+                        removeClass(lis[j],arrOrigin[j]);
+                        addClass(lis[j],arrClass[j]);
+                        console.log(lis[j].style);
+                    }
+                    // 更新index  lastindex
+                    lastIndex = index
+                    index  = i;
+                    show();
+                }
+            }
+        }
+        function show(){
+            // lsatIndex对应的条去掉blue index对应的条加上blue
+            removeClass(spans[lastIndex],"blue");
+            addClass(spans[index],"blue");
+        }
+        // js实现移除,添加类的函数
+        function addClass(element, new_name) {
+            if (!element || !new_name) return false;
+            if (element.className) {
+                var old_class_name = element.className;
+                element.className = old_class_name + " " + new_name;
+            } else{
+                element.className = new_name;
+            }
+            return true;
+        }
+        function removeClass(element, class_name) {
+            if(!element || !class_name) return false;
+            if (!element.className) return false;
+            var all_names = element.className.split(" ");
+            for (var i = 0; i < all_names.length; i++) {
+                if (all_names[i] === class_name) {
+                    all_names.splice(i, 1);
+                    element.className = "";
+                    for (var j = 0; j < all_names.length; j++) {
+                        element.className += " ";
+                        element.className += all_names[j];
+                    }
+                    return true;
+                }
+            }
+        }
+        // 整定时器开始轮播
+        // 移除时开启定时器
+        // 鼠标移入box-outer 清除轮播
+        box.onmouseover = function(){
+            clearInterval(timer)
+        }
+        box.onmouseout = function(){
+            timer = setInterval(nexting,3000)
+        }
+        // 进入页面自动轮播
+        timer = setInterval(nexting,3000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "id": "2632475",
+  "name": "天猫首页logo循环",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "403868",
+      "name": "循环",
+      "font_class": "xunhuan",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    }
+  ]
+}

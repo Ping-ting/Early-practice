@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../code/CSS/reset.css">
+    <title>数码时钟</title>
+    <style>
+        body{
+            /* background: rgb(224, 224, 224); */
+        }
+        #clock{
+            width: 250px;
+            height: 80px;
+            margin: 50px auto;
+            background-color: #666;
+            padding-left: 15px;
+            padding-top: 20px;
+            border: 6px solid rgb(189, 188, 188);
+            border-radius: 10px;
+        }
+        #clock > img{
+            display: inline-block;
+            width: 25px;
+            height: 36px;
+            margin: 0 2px;
+            position: relative;
+        }
+        #clock > span{
+            font-size: 50px;
+            color: #aaa;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var imgs = document.getElementsByTagName("img")
+            var now = new Date();
+            var prevTime = addZero(now.getHours()) + addZero(now.getMinutes()) + addZero(now.getSeconds()) + ''
+            var nextTime = "";
+            var timer = null;
+            var arr = [];
+            console.log(now.getHours(),now.getMinutes(),now.getSeconds(),);
+            // charAt()方法返回对应索引的字符
+            for( var i = 0 ; i <imgs.length ;i++){
+                imgs[i].src = "./数码时钟IMG/" + prevTime.charAt(i) + ".png"
+                console.log(imgs[i].src)
+            }
+            // 1s变换一次
+            setInterval(toChange,1000);
+            // toChange();
+            // 变换函数
+            function toChange(){
+                var date = new Date();
+                var nextTime = addZero(date.getHours()) + addZero(date.getMinutes()) + addZero(date.getSeconds()) + ''
+                
+                arr = [];
+                for(let i = 0; i < prevTime.length ;i++)
+                {
+                    if(prevTime.charAt(i) != nextTime.charAt(i))
+                    {
+                        arr.push(i);
+                    }
+                }
+                for(let i = 0 ; i < arr.length ;i++)
+                
+                    {
+                        imgs[arr[i]].style.transition = "0.4s"
+                        if(imgs[arr[i]].style.transform == "rotateX(360deg)")
+                        {
+                            imgs[arr[i]].style.transform = "rotateX(-360deg)"
+                        }else imgs[arr[i]].style.transform = "rotateX(360deg)"
+                        imgs[arr[i]].src = "./数码时钟IMG/" + nextTime.charAt(arr[i]) + ".png"
+                    }
+                prevTime = nextTime;
+            }
+            function startMove(){
+                var speed = -4;
+				timer = setInterval(function(){
+					for( var i=0; i<arr.length; i++ ){
+						if( imgs[arr[i]].offsetHeight == 0 ){
+							speed = 4;
+							imgs[arr[i]].src = "./images/" + nextTime.charAt( arr[i] ) + ".png"
+						}
+						//改变数字高度时默认向底线减少，所以手动改变数字的top向上移动
+						imgs[arr[i]].style.height = imgs[arr[i]].offsetHeight + speed + "px";
+						imgs[arr[i]].style.top = imgs[arr[i]].offsetHeight/2 - 18 + "px";
+						if( imgs[arr[i]].offsetHeight ==36 ){
+							clearInterval( timer );
+						}
+					}
+				},10);
+            }
+            // 补零并且转换成字符串
+            function addZero( num ){
+                if(num < 10){
+                    num = '0' + num ;
+                }else{
+                    num = num +'';
+                }
+                return num;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="clock">
+        <img src="./数码时钟IMG/0.png" alt="">
+        <img src="./数码时钟IMG/0.png" alt="">
+        <span>:</span>
+        <img src="./数码时钟IMG/0.png" alt="">
+        <img src="./数码时钟IMG/0.png" alt="">
+        <span>:</span>
+        <img src="./数码时钟IMG/0.png" alt="">
+        <img src="./数码时钟IMG/0.png" alt="">
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../code/CSS/reset.css">
+    <title>拖拽的实现</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #outer{
+            background-color: aliceblue;
+            height: 200px;
+            position: relative;
+        }
+        #red{
+            width: 100px;
+            height: 100px;
+            background-color: #f40;
+            position: absolute;
+            display: none;
+            cursor: move;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var red = document.getElementById("red");
+            var outer = document.getElementById("outer");
+            outer.style.height = window.innerHeight + 'px';
+            //移入时出现  移除时消失
+            outer.onmouseover = function () {
+                red.style.display = "inline-block"
+            }
+            outer.onmouseout = function(){
+                red.style.display = 'none'
+            }
+            // 当鼠标在outer上移动时反复触发
+            outer.onmousemove = function (event) {
+                // 根据光标位置确定 red 的left top
+                var x = event.clientX - red.offsetWidth/2;
+                var y = event.clientY - red.offsetHeight/2;
+                // 查看边界问题
+                if( x < 0)//超过左边界
+                {
+                    x = 0;
+                }else if( x > outer.offsetWidth - red.offsetWidth)//超过右边界
+                {
+                    x = outer.offsetWidth - red.offsetWidth
+                }
+                if ( y < 0)//超过上边界
+                {
+                    y = 0;
+                }else if( y > outer.offsetHeight - red.offsetHeight )//超过下边界
+                {
+                    y = outer.offsetHeight - red.offsetHeight;
+                }
+                // 改变red的left top
+                red.style.top = y +'px';
+                red.style.left = x +'px';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <div id="red"></div>
+    </div>
+    
+</body>
+</html>

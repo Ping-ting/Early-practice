@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>任务清单</title>
+    <style>
+        .outer{
+            width: 500px;
+            height: auto;
+            margin: 50px auto;
+        }
+        #task{
+            width: 380px;
+            height: 40px;
+            border-radius: 20px;
+            border: 2px #c8c3c3 solid;
+            font-size: 16px;
+            color: #a5a5a5;
+            outline-style: none;
+            text-indent: 15px;
+        }
+        #btn{
+            width: 100px;
+            height: 40px;
+            border-radius: 20px;
+            border: 2px #c8c3c3 solid;
+            background-color: #fff;
+            font-size: 16px;
+            color:#8b8989 ;
+            cursor: pointer;
+        }
+        #btn:hover{
+            background-color: rgb(219, 219, 219);
+        }
+        .nav div{
+            display: inline-block;
+            width: 140px;
+            height: 34px;
+            line-height: 34px;
+            background-color: #e2e2e2;
+            text-align: center;
+            border-radius: 17px;
+            margin: 10px;
+            color: #6e6e6e;
+        }
+        .nav div:hover{
+            cursor: pointer;
+        }
+        li{
+            list-style: none;
+            display: block;
+            width: 480px;
+            height: 40px;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 6px;
+        }
+        li input{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 20px;
+            vertical-align: -5px;
+        }
+        li span{
+            display: inline-block;
+            width: 330px;
+            height: 35px;
+            line-height: 35px;
+            border:  2px #c8c3c3 solid;
+            border-radius: 18px;
+            text-align: center;
+            margin-right: 15px;
+            color: #6e6e6e;
+            overflow:hidden;
+            vertical-align: -13px;
+        }
+        li a{
+            display: inline-block;
+            width: 80px;
+            border:  2px #c8c3c3 solid;
+            height: 35px;
+            border-radius: 18px;
+            line-height: 35px;
+            text-align: center;
+            color: #727272;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <form action="">
+            <input type="text" name="task" id="task" placeholder=" 请输入你的任务">
+            <button id="btn">提交</button>
+        </form>
+        <div class="nav">
+            <div id="all">all</div>
+            <div id="finished">finished</div>
+            <div id="unfinished">unfinished</div>
+        </div>
+        <table id="tasklist">
+            <li  style="border:  1px transparent solid;"><input type="checkbox" name="box" id="" ><span>背单词</span><a href="javastrip:;">delete</a></li>
+            <li  style="border:  1px transparent solid;"><input type="checkbox" name="box" id="" ><span>写数学作业</span><a href="javastrip:;">delete</a></li>
+        </table>
+    </div>
+    <script>
+        var lis = document.getElementsByTagName("li");
+        var boxs = document.getElementsByName("box")
+        // 给复选框添加单击事件
+        for( let j = 0; j < boxs.length ;j++)
+        {
+            boxs[j].onclick = function () {
+                console.log(boxs[j] + j +boxs[j].checked);
+                if(boxs[j].checked == true){
+                    lis[j].style.borderColor = "#3c3c3c"
+                }else{
+                    lis[j].style.borderColor = "transparent"
+                }
+            }
+        }
+        // 删除任务
+        var allA = document.getElementsByTagName("a");
+        for(var i = 0; i < allA.length ; i++)
+        {
+            allA[i].onclick = function(){
+                // 确认删除返回true
+                if(confirm("确认删除该任务吗？"))
+                {
+                    // 获取其父元素
+                    var li = this.parentNode;
+                    // 父元素自删
+                    li.parentNode.removeChild(li);
+                }
+                return false;
+            }
+        }
+        // 添加任务
+            // 点击按钮 将内容添加为一个新任务
+            var btn = document.getElementById("btn");
+            btn.onclick = function () {
+                // 先获取填写的信息
+                var task = document.getElementById("task")
+                var taskContent = task.value;
+                console.log(taskContent.length)
+                if(taskContent == "")
+                {
+                    alert("任务不可为空！");
+                    return false;
+                }
+                // 重置
+                task.value = "";
+                var li = document.createElement("li");
+                li.innerHTML = "<input type=\"checkbox\" name=\"box\" id=\"\" class=\"box\"><span>"+taskContent+"<\/span><a href=\"javastrip:;\">delete<\/a>"
+                li.style.border = "1px transparent solid"
+                var tasklist = document.getElementById("tasklist");
+                tasklist.appendChild(li);
+                // 获取新创建的任务里的a
+                var a = li.getElementsByTagName("a")[0];
+                // 给a绑定单击删除事件
+                a.onclick = function () {
+                        if(confirm("确认删除该任务吗？"))
+                    {
+                        // 获取其父元素
+                        var li = this.parentNode;
+                        // 父元素自删
+                        li.parentNode.removeChild(li);
+                    }
+                    return false;
+                }
+                // 给复选框绑定单击响应事件
+                console.log(lis.length,boxs.length)
+                var box = boxs[boxs.length - 1];
+                box.onclick = function () {
+                    console.log(box.checked)
+                    if(box.checked == true){
+                        this.parentNode.style.borderColor = "#3c3c3c"
+                    }else{
+                        this.parentNode.style.borderColor = "transparent"
+                    }
+                }
+                return false;
+            }
+            // 添加选择显示
+            var all = document.getElementById("all");
+            var finished = document.getElementById("finished")
+            var unfinished = document.getElementById("unfinished")
+            all.style.backgroundColor = "#8b8989"
+            all.style.color = "#fff"
+            all.onclick = function() {
+                this.style.backgroundColor = "#8b8989"
+                this.style.color = "#fff"
+                finished.style.backgroundColor = "#e2e2e2"
+                finished.style.color ="#6e6e6e"
+                unfinished.style.backgroundColor = "#e2e2e2"
+                unfinished.style.color ="#6e6e6e"
+                for(let j = 0 ; j < lis.length ;j++)
+                {
+                    
+                    lis[j].style.display = "inline-block"
+                    
+                }
+            }
+            finished.onclick = function() {
+                this.style.backgroundColor = "#8b8989"
+                this.style.color = "#fff"
+                all.style.backgroundColor = "#e2e2e2"
+                all.style.color = "#6e6e6e"
+                unfinished.style.backgroundColor = "#e2e2e2"
+                unfinished.style.color ="#6e6e6e"
+                for(let j = 0 ; j < lis.length ;j++)
+                {
+                    if(boxs[j].checked == false)
+                    {
+                        lis[j].style.display = "none"
+                    }else{
+                        lis[j].style.display = "inline-block"
+                    }
+                }
+            }
+            unfinished.onclick = function() {
+                this.style.backgroundColor = "#8b8989"
+                this.style.color = "#fff"
+                finished.style.backgroundColor = "#e2e2e2"
+                finished.style.color ="#6e6e6e"
+                all.style.backgroundColor = "#e2e2e2"
+                all.style.color = "#6e6e6e"
+                for(let j = 0 ; j < lis.length ;j++)
+                {
+                    if(boxs[j].checked == true)
+                    {
+                        lis[j].style.display = "none"
+                    }else{
+                        lis[j].style.display = "inline-block"
+                    }
+                }
+            }
+    </script>
+</body>
+</html>

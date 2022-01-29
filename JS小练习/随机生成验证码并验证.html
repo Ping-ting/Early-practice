@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../code/CSS/reset.css">
+    <title>随机生成验证码并验证</title>
+    <style>
+        .wrapper{
+            width: 400px;
+            height: 44px;
+            margin: 100px auto;
+            position: relative;
+            /* background-color: aliceblue */
+        }
+        #text{
+            display: inline-block;
+            width: 220px;
+            height: 40px;
+            border-radius: 20px;
+            font-size: 14px;
+            border: 2px solid rgb(126, 126, 126);
+            outline: none;
+            text-indent: 15px;
+            margin-right: 10px;
+            margin-left: 30px;
+            opacity: 0.4;
+        }
+        #btn{
+            display: inline-block;
+            width: 80px;
+            height: 44px;
+            border: 2px solid rgb(170, 170, 170);
+            border-radius: 22px;
+            background-color: rgb(180, 180, 180);
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        #btn:hover{
+            background-color: rgb(190, 190, 190);
+        }
+        #code{
+            display: inline-block;
+            width: 75px;
+            height: 35px;
+            background-color: rgb(245, 244, 244);
+            position: absolute;
+            top: 6px;
+            left: 165px;
+            text-align: center;
+            line-height: 35px;
+            text-decoration: none;
+            color: rgb(185, 185, 185);
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body onload="createCode()">
+    <div class="wrapper">
+        <a href="javascript:;" id="code"></a>
+        <input type="text" name="" id="text" placeholder="请输入验证码">
+        <input type="button" id="btn" value="验证" >
+    </div>
+    <script>
+        var checkCode = document.getElementById("code");
+        var btn = document.getElementById("btn");
+        var input = document.getElementById("text");
+        var code = '';
+        checkCode.innerText = "abc"
+        // 生成验证码函数
+        function createCode()
+        {
+            code = '';
+            var length = 4;
+            var random = ['0','1','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R', 'S','T','U','V','W','X','Y','Z']
+            for( let i = 0 ; i < length ; i++)
+            {
+                var index = Math.floor(Math.random()*35);
+                code += random[index];
+            }
+            checkCode.innerText = code;
+        }
+        // 点击验证码图片切换
+        checkCode.onclick = function(){
+            createCode();
+        }
+        // 点击btn按钮验证
+        btn.onclick = function(){
+            if(input.value === ''){
+                alert("请输入验证码！")
+            }
+            else if(input.value.toUpperCase() != code){
+                alert("验证码输入不正确，请重新输入！")
+                input.value = "";
+                createCode();
+            }else{
+                alert("正确！")
+                input.value = "";
+                createCode();
+            }
+        }
+        // 加一个键盘事件 按回车也可验证
+        addEventListener("keyup",(event) => {
+            if(event.keyCode === 13)
+            {
+                    if(input.value === ''){
+                    alert("请输入验证码")
+                }
+                else if(input.value.toUpperCase() != code){
+                    alert("验证码输入不正确，请重新输入！")
+                    input.value = "";
+                    createCode();
+                }else{
+                    alert("正确！")
+                    input.value = "";
+                    createCode();
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

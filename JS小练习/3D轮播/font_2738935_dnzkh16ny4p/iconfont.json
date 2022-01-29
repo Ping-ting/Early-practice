@@ -1,0 +1,16 @@
+{
+  "id": "2738935",
+  "name": "3D轮播图上一个标签",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "3507710",
+      "name": "上一个",
+      "font_class": "xiayige",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    }
+  ]
+}

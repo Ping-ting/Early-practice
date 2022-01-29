@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 注：
+        先将图片转化为svg格式 再引用 放在 title 前作为 logo
+    -->
+    <link rel="icon" href="./天猫img/logo.svg">
+    <!-- 引入图标样式表 -->
+    <link rel="stylesheet" href="./fa/fa/css/all.css">
+    <link rel="stylesheet" href="./图标/font_2598603_612v4ewdh3w/iconfont.css">
+    <link rel="stylesheet" href="./天猫首页/天猫首页图标/iconfont.css">
+    <link rel="stylesheet" href="./天猫首页/天猫首页图标/font_2632475_oxtuqfvq59/iconfont.css">
+    <link rel="stylesheet" href="./天猫首页图标/font_2636283_xtr5jt12t8h/iconfont.css">
+    <!-- 引入重置样式表 -->
+    <link rel="stylesheet" href="./reset.css">
+    <title>天猫tmall.com--理想生活上天猫</title>
+    <style>
+        .clearfix::before,
+        .clearfix::after{
+            content: ' ';
+            display: table;
+            clear: both;
+        }
+        li{
+            list-style: none;
+        }
+        body{
+            background-color: #f5f5f5;
+        }
+        /* 顶部导航栏 */
+        .top-nav-outer
+        {
+            width: 100%;
+            min-width: 1230px;
+            height: 40px;
+            border-bottom-color: transparent;
+            box-shadow: 0 2px 4px 0 rgb(0 0 0 / 30%);
+            position: relative!important;
+            background: #f2f2f2;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .top-nav{
+            display: inline-block;
+            width: 1230px;
+            height: 32px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .top-nav-left{
+            
+            float: left;
+        }
+        .top-nav-right{
+            float: right;
+        }
+        .top-nav-left span,.top-nav-left a,.top-nav-right li{
+            display: inline-block;
+            height: 32px;
+            line-height: 32px;
+            width: auto;
+        }
+        .top-nav-left span,.top-nav-left a{
+            margin-right: 10px;
+        }
+        .top-nav-right li
+        {
+            margin-left: 15px;
+        }
+        .top-nav-left p{
+            line-height: 32px;
+        }
+        .top-nav span,.top-nav a,.top-nav .tri{
+            text-decoration: none;
+            color: #999;
+            font: 12px/1.5 tahoma,arial,"\4f53";
+        }
+        .top-nav a:hover{
+            color: #f40;
+        }
+        /* 商家支持 */
+        .menu-outer{
+            display: inline-block;
+        }
+        .menu-outer .menu-list{
+            display: inline-block;
+            width: 1150px;
+            height:130px;
+            padding: 20px 25px;
+            position: absolute;
+            top: 30px;
+            left: 28px;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            border-right: 1px solid #eee;
+            border-left: 1px solid #eee;
+            display: none;
+            z-index: 999;
+        }
+        .menu-list div:nth-child(1){
+            display: inline-block;
+            width: 465px;
+            height:130px ;
+        }
+        .menu-list div:nth-child(2)
+        {
+            display: inline-block;
+            width: 465px;
+            height:130px ;
+        }
+        .menu-list div:nth-child(3){
+            display: inline-block;
+            width: 220px;
+            height: 130px;
+        }
+        .menu-list div{
+            float: left;
+        }
+        .menu-list .list1,.menu-list .list2{
+            height: 130px;
+            width: 455px;
+        }
+        .menu-list .list3{
+            height: 140px;
+            width: 220px;
+        }
+        .menu-list .list2 a:hover{
+            color: rgb(40, 104, 177);
+            text-decoration:underline solid rgb(40, 104, 177) ;
+        }
+        .menu-list .list1 a:hover{
+            color: orange;
+            text-decoration:underline solid orange ;
+        }
+        .menu-list .list3 a:hover{
+            color: rgb(105, 104, 102);
+            text-decoration:underline solid rgb(105, 104, 102) ;
+        }
+        
+        .menu-list .menu-title{
+            font-size: 20px;
+        }
+        .menu-list a{
+            font-size: 14px;
+            color: #696666;
+        }
+        .menu-outer li{
+            border-right: 1px solid transparent;
+        }
+        .menu-outer li:hover{
+            background-color: #fff;
+            border-right: 1px solid #eee;
+        }
+        .menu-outer:hover li{
+            background-color: #fff;
+            border-right: 1px solid #eee;
+        }
+        .menu-outer li:hover~.menu-list{
+            display: inline-block;
+        }
+        .menu-outer:hover .menu-list{
+            display: inline-block;
+        }
+        
+        /* 顶部导航栏 h n 图片 */
+        .menu-list tr td{
+            position: relative;
+        }
+        .menu-list td .ico1{
+            display: inline-block;
+            position: absolute;
+            width: 9px;
+            height: 11px;
+            background-color: transparent;
+            background-image: url(./天猫img/backgroud-img.png);
+            background-position: -37px 0px;
+        }
+        .menu-list td .ico2{
+            display: inline-block;
+            position: absolute;
+            width: 9px;
+            height: 11px;
+            background-color: transparent;
+            background-image: url(./天猫img/backgroud-img.png);
+            background-position: -37px -11px;
+        }
+        /* 中间搜索框 */
+        .find-outer{
+            display: inline-block;
+            width: 1230px;
+            height: 130px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1;
+        }
+        .find-outer img{
+            width: 240px;
+            position: absolute;
+            left: -16px;
+            top: 2px;
+        }
+        /* 搜索条 */ 
+        .find-outer .find{
+            display: inline-block;
+            width: 623px;
+            height: 35px;
+            margin: 0 auto;
+            /* background-color: orchid; */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform:translateY(-40%) translateX(-50%) ;
+            border: 2px solid #f40;
+        }
+        .find-outer .find input{
+            width: 482px;
+            height: 20px;
+            line-height: 20px;
+            padding: 4px 3px 3px 5px;
+            font: 14px/1.5 tahoma,arial,"\5b8b\4f53";
+            outline: none;
+            border-width: 0px;
+        }
+        .find-outer .find button{
+            position: relative;
+            right: -1px;
+            background-color: #FF0036;
+            color: #fff;
+            width: 128px;
+            height: 36px;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            border-width: 0px;
+            
+        }
+        /* 中间部分导航 */
+        .middle-nav-outer{
+            width: 100%;
+            height: 37px;
+            min-width: 1230px;
+            position: relative;
+            z-index: -1;
+        }
+        .middle-nav{
+            width: 1230px;
+            height: 35px;
+            margin: 0 auto;
+            border-style: solid;
+            border-width: 0 0 1.5px;
+            border-color: #FF0036;
+            position: relative;
+        }
+        .middle-nav .one{
+            width: 200px;
+            float: left;
+            height: 36px;
+            color: #fff;
+            background-color: #FF0036;
+            
+        }
+        .middle-nav img{
+            width: 100px;
+            height: 30px;
+            margin-left: 10px;
+        }
+        .middle-nav .other{
+            display: inline-block;
+            position: relative;
+            bottom: 20%;
+            height:34px;
+            line-height: 34px;
+            padding-bottom: 14px;
+            margin-left: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            color: #333;
+        }
+        .middle-nav .other:hover{
+            cursor: cell;
+            color: #FF0036;
+        }
+        /* 左侧导航list + 中间轮播图 */
+        .middle-main-outer{
+            width: 100%;
+            height: 500px;
+            min-width: 1230px;
+            position: relative;
+        }
+        .middle-main{
+            display: inline-block;
+            width: 1230px;
+            height: 500px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgb(221, 148, 176);
+        }
+        .middle-main .left-list{
+            display: inline-block;
+            height: 500px;
+            width: 200px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            
+        }
+        .middle-main .bg{
+            height: 500px;
+            width: 200px;
+            background-color: rgb(31, 29, 29);
+            opacity: 0.5;
+        }
+        .middle-main .left-list li{
+            display: block;
+            padding-left: 20px;
+            font-size: 14px;
+            height: 31.25px;
+            line-height: 31px;
+            color: #fff;
+        }
+        
+        .middle-main .left-list li:hover{
+            color: #FF0036;
+            background-color: #fff;
+            font-weight: 700;
+        }
+        .middle-main .left-list .list1{
+            /* display: inline-block; */
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            width: 850px;
+            height: 500px;
+            left: 200px;
+            top: 0px;
+        }
+        .left-list .list1 .each{
+            width: 750px;
+            /* height: 40px; */
+            margin-left: 40px;
+            padding: 10px 0px 8px 0px;
+            background-color: #fff;
+            position: relative;
+            border-bottom: 1px solid #f0e5e5;
+        }
+        .left-list .list1 .each .title{
+            display: inline-block;
+            height: 100%;
+            color: #3c3c3c;
+            font-size: 15px;
+            font-weight: 700;
+            position: relative;
+            top: -20px;
+        }
+        .left-list .list1 .each div:nth-child(2)
+        {
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .left-list .list1 .each div:nth-child(2) a{
+            display: inline-block;
+            margin-left: 20px;
+            height: 24px;
+            font-size: 12px/1.5;
+            font-size: 14px;
+            text-decoration: none;
+            color: #868585;
+        }
+        .left-list .list1 .each div:nth-child(2) a:hover{
+            color: #FF0036;
+        }
+        .middle-main .left-list li:hover ~.list1{
+            display: inline-block;
+        }
+        .middle-main .left-list .list1-outer:hover .list1{
+            display: inline-block;
+        }
+        .middle-main .left-list .list1-outer:hover li{
+            color: #FF0036;
+            background-color: #fff;
+            font-weight: 700;
+        }
+        /* 轮播图 */
+        .show-outer{
+            width: 1230px;
+            height: 498px;
+            /* background-color: rgb(199, 204, 156); */
+            position: absolute;
+            top: 0px;
+            z-index: -1;
+        }
+        .show-outer{
+            display: inline-block;
+            width: auto;
+            height: 498px;
+            margin: 0 auto;
+            /* position: relative; */
+        }
+        .show-outer img{
+            height: 500px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .show-outer a{
+            width: 1230px;
+            display: inline-block;
+            margin: 0 auto;
+            position: absolute;
+        }
+        /* 轮播图动画 */
+        .show-outer a:nth-child(6){
+            animation: change5 20s infinite linear;
+        }
+        @keyframes change5{
+            0%,18%{
+                opacity: 1;
+            }
+            20%,100%{
+                opacity: 0;
+                display: none
+            }
+        }
+        .show-outer a:nth-child(5){
+            animation: change4 20s infinite linear;
+        }
+        @keyframes change4{
+            0%,38%{
+                opacity: 1;
+                /* display: inline-block; */
+            }
+            40%,100%{
+                opacity: 0;
+                display: none;
+            }
+        }
+        .show-outer a:nth-child(4){
+            animation: change3 20s infinite linear;
+        }
+        @keyframes change3{
+            0%,58%{
+                opacity: 1;
+            }
+            60%,100%{
+                opacity: 0;
+            }
+        }
+        .show-outer a:nth-child(3){
+            animation: change2 20s infinite linear;
+        }
+        @keyframes change2{
+            0%,78%{
+                opacity: 1;
+            }
+            80%,100%{
+                opacity: 0;
+            }
+        }
+        .show-outer a:nth-child(2){
+            animation: change1 20s infinite linear;
+        }
+        @keyframes change1{
+            0%,96%{
+                opacity: 1;
+            }
+            98%,100%{
+                opacity: 0;
+            }
+        }
+        /* 给每张图加背景颜色 */
+        .show-outer a:nth-child(6){
+            background-color: rgb(230, 164, 102);
+        }
+        .show-outer a:nth-child(5){
+            background-color: rgb(209, 206, 206);
+        }
+        .show-outer a:nth-child(4){
+            background-color: rgb(81, 134, 204);
+        }
+        .show-outer a:nth-child(3){
+            background-color: rgb(231, 229, 229);
+        }
+        .show-outer a:nth-child(2){
+            background-color: rgb(250, 148, 65);
+        }
+        .show-outer a:nth-child(1){
+            background-color: rgb(219, 150, 70);
+        }
+        /* 一大堆logo */
+        .logo-outer{
+            display: inline-block;
+            width: 1220px;
+            height: 330px;
+            background-color: #fff;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 80px 0px;
+            /* border: 1px solid rgb(182, 182, 182); */
+        }
+        .logo{
+            width: 1220px;
+            height: 330px;
+            
+        }
+        .logo tr td{
+            position: relative;
+            border: 1px solid rgb(245, 235, 235);
+        }
+        .logo tr td div:nth-child(1){
+            background-color: rgb(0, 0, 0);
+            opacity: 0.5;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        .logo tr td{
+            background-image: url(./天猫img/logo-bg.png);
+            background-size: 110%;
+            background-position: -5px -5px;
+        }
+        .logo tr td a{
+            display: none;
+            width: 100%;
+            height: 100%;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            font-size: 12px;
+            background-image: 10%;
+            transition: all .3s ease-out;
+            position: absolute;
+        }
+        .logo tr td:hover a{
+            display: inline-block;
+            transition: all .3s ease-out;
+        }
+        .logo tr td:hover div:nth-child(1)
+        {
+            transition: all .3s ease-out;
+            display: inline-block;
+        }
+        .logo tr td a p{
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 13px;
+            height: 28px;
+            line-height: 28px;
+        }
+        .logo tr td a div{
+            margin-top: 6px;
+            display: inline-block;
+            width: 70px;
+            text-align: center;
+            height: 22px;
+            line-height: 21px;
+            background-color: #FF0036;
+            border-radius: 14px;
+            
+        }
+        .logo tr:last-child td:last-child div:nth-child(1){
+            background-color: #fff;
+        }
+        .logo tr:last-child td:last-child:hover div:nth-child(1){
+            background-color:#FF0036;
+        }
+        .logo tr:last-child td:last-child:hover  p{
+            color: #fff;
+        }
+        /* 换一批加动画 */
+        .logo td:last-child:hover i
+        {
+            animation:change 0.5s linear ;
+        }
+        @keyframes change{
+            100%{
+                transform: rotate(360deg);
+            }
+            
+        }
+        /* 左边固定导航栏 */
+        .fixed-left{
+            width: 40px;
+            height: 400px;
+            position: fixed;
+            z-index: 999;
+            left: 3%;
+            top: 40%;
+            background-color: rgba(0, 0, 0,.6);;
+            
+        }
+        .fixed-left table{
+            width: 40px;
+            height: 400px;
+            
+        }
+        .fixed-left table td{
+            border: 2px solid #FFF;
+        }
+        .fixed-left table td a{
+            display: inline-block;
+            height: 24px;
+            margin: 6px;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+            overflow: hidden;
+            font-size: 12px;
+        }
+        .fixed-left table td:hover{
+            background-color: #FF0036;
+        }
+        /* 底部导航条foot */
+        .foot-outer{
+            display: inline-block;
+            width: 100%;
+            min-width: 1230px;
+            height: 650px;
+            background-color: #fff;
+            border-top: 1px solid #D1D7DC;
+            position: relative;
+        }
+        .foot-outer .foot1{
+            display: block;
+            width: 1220px;
+            height: 100px;
+            padding: 20px 0px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            border-bottom: 1px solid #e6ebf0;
+        }
+        .foot-outer .foot1 a{
+            display: inline-block;
+            width: 300px;
+            height: 100px;
+            background-image: url(./天猫img/天猫首页foot.png);
+        }
+        .foot-outer .foot1 a:nth-child(1){
+            background-position: 10px -15px;
+        }
+        .foot-outer .foot1 a:nth-child(2){
+            background-position: -300px -15px;
+        }
+        .foot-outer .foot1 a:nth-child(3){
+            background-position: -600px -15px;
+        }
+        .foot-outer .foot1 a:nth-child(4){
+            background-position: -900px -15px;
+        }
+        .foot-outer .foot2{
+            display: inline-block;
+            width: 1180px;
+            height: 220px;
+            padding-top: 20px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #fff;
+        }
+        .foot-outer .foot2 div{
+            display: inline-block;
+            margin-left: 50px;
+            width: 14%;
+        }
+        .foot-outer .foot2 div p{
+            color: #646464;
+            font-size: 16px;
+            font-weight: 700;
+            height: 24px;
+            line-height: 24px;
+            text-align: left;
+        }
+        .foot-outer .foot2 div p a{
+            font-weight: normal;
+            text-decoration: none;
+            font-size: 14px;
+            overflow: hidden;
+            text-align: left;
+            height: 20px;
+            line-height: 20px;
+            color: #8b8b8b;
+        }
+        .foot2-5 p:first-child{
+            position: relative;
+            top: -12px;
+            left: 8px;
+        }
+        .foot2-5 img{
+            width: 105px;
+        }
+        .foot-outer .foot3{
+            display: inline-block;
+            width: 1200px;
+            height: 260px;
+            padding-top: 10px;
+            border-top: 2px solid #FF0036;
+            background: #000;
+            text-align: left;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .foot-outer .foot3 a{
+            text-decoration: none;
+            
+        }
+        .foot-outer .foot3 div{
+            /* background-color: rgb(209, 131, 131); */
+            position: absolute;
+            top: -32px;
+            left: 50px;
+            width: 100px;
+            height: 30px;
+            overflow: hidden;
+        }
+        .foot-outer .foot3 div img{
+            display: inline-block;
+            width: 210px;
+            height: auto;
+            position: absolute;
+            top: -83px;
+            left: -60px;
+        }
+        .foot-outer .foot3 p:nth-child(2) a,.foot-outer .foot3 p:nth-child(3) a{
+            display: inline-block;
+            font-size: 12px;
+            margin-right: 5px;
+            height: 30px;
+            line-height: 25px;
+            color: #fff;
+        }
+        .foot-outer .foot3 p:nth-child(4) a,.foot-outer .foot3 p:nth-child(4) span,.foot-outer .foot3 p:nth-child(5) a,.foot-outer .foot3 p:nth-child(5) span,.foot-outer .foot3 p:nth-child(6) a,.foot-outer .foot3 p:nth-child(6) span,.foot-outer .foot3 p:nth-child(7) a,.foot-outer .foot3 p:nth-child(7) span,.foot-outer .foot3 p:nth-child(8) a,.foot-outer .foot3 p:nth-child(8) span{
+            display: inline-block;
+            font-size: 12px;
+            margin-right: 3px;
+            height: 30px;
+            line-height: 25px;
+            color: rgb(182, 181, 181);
+        }
+        /* 第二页广告栏 */
+        .ad-outer{
+            display: inline-block;
+            width: 1230px;
+            height: 618px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 80px;
+        }
+        
+        /* 左侧 */
+        .ad-outer .ad-left{
+            display: inline-block;
+            width: 235px;
+            height: 618px;
+            margin-right: 10px;
+        }
+        .ad-outer .ad-left .ad-left-bg{
+            display: inline-block;
+            width:235px ;
+            height: 618px;
+            background-image: url(./天猫img/天猫首页ad-left.png);
+            background-size: 100%;
+            position: relative;
+        }
+        .ad-outer .ad-left .ad-left-bg i{
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+        }
+        .ad-outer .ad-left:hover .ad-left-bg{
+            opacity: 0.7;
+        }
+        .ad-outer .ad-left-main{
+            display: inline-block;
+            width: 198px;
+            height: 64px;
+            /* background-color: thistle; */
+            position: absolute;
+            z-index: 99;
+            left: 0;
+            bottom: 20%;
+        }
+        .ad-outer .ad-left-main div:nth-child(1)
+        {
+            display: inline-block;
+            width: 70px;
+            height: 64px;
+            font-size: 18px;
+            background: rgba(0,0,0,.9);
+            overflow: hidden;
+            color: #FFF;
+            text-align: center;
+        }
+        .ad-outer .ad-left-main div:nth-child(1) p{
+            height: 28px;
+            line-height: 35px;
+        }
+        .ad-outer .ad-left-main div:nth-child(2)
+        {
+            display: inline-block;
+            width: 128px;
+            height: 64px;
+            position: absolute;
+            background: rgba(0,0,0,.6);
+            top: 0px;
+        }
+        .ad-outer .ad-left-main div:nth-child(2) p{
+            height: 28px;
+            line-height: 35px;
+            color: #FFF;
+            text-align: center;
+            font-size: 18px;
+            
+        }
+        /* 右侧 */
+        .ad-outer .ad-right{
+            display: inline-block;
+            width: 975px;
+            height: 620px;
+            /* background-color: rgb(173, 133, 133); */
+            position: absolute;
+            top: 0px;
+        }
+        
+        .ad-right .one-outer{
+            width: 480px;
+            height: 300px;
+            display: inline-block;
+            background-color: #fff;
+            position: relative;
+            top: -112px;
+        }
+        .ad-right .one{
+            width: 460px;
+            height: 280px;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            box-shadow:0px 2px 5px rgba(0, 0, 0,.1) ;
+        }
+        .ad-right .one-outer:hover img{
+            opacity: 0.7;
+        }
+        .ad-right .one-outer:hover i{
+            opacity: 0.7;
+        }
+        .ad-right .one-outer .top{
+            display: block;
+            width: 100%;
+            height: 57px;
+            background-color: #F1F1F1;
+        }
+        .ad-right .one-outer .top p{
+            display: inline-block;
+            width: 50%;
+            height: 57px;
+            line-height: 57px;
+            font-size: 18px;
+            font-weight: 400;
+            color: #fff;
+            background: #00B262;
+            cursor: pointer;
+            text-align: center;
+        }
+        .ad-right .one-outer .main{
+            display: block;
+            height: 223px;
+        }
+        .ad-right .one-outer .main img{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            right: 10px;
+            top: 20%;
+            z-index: -1;
+        }
+        .ad-right .one-outer .main div{
+            width: 100%;
+            height: 87px;
+            position: relative;
+            z-index: 99;
+            top: 70px;
+            overflow: hidden;
+        }
+        .ad-right .one-outer .main div p{
+            position: relative;
+            z-index: 99999;
+            display: block;
+            height: 30px;
+            line-height: 40px;
+            margin-left: 50px;
+        }
+        .ad-right .one-outer .main div p:nth-child(2)
+        {
+            font-size: 24px;
+            color: #00B262;
+            font-weight: 600;
+        }
+        .ad-right .one-outer .main div p:nth-child(3)
+        {
+            font-size: 22px;
+            color: #000;
+            
+        }
+        .ad-right li{
+            box-sizing: border-box;
+            display: inline-block;
+            margin-left: 7px;
+            width: 235px;
+            height: 300px;
+            background-color: #fff;
+            border: 1px solid #fff;
+        }
+        .ad-right li:hover{
+            border: 1px solid #f40;
+            cursor: pointer;
+        }
+        .ad-right li:hover img{
+            opacity: 0.8;
+        }
+        .ad-right li img{
+            width: 185px;
+            height: 185px;
+            position: relative;
+            /* top: 10%; */
+            left: 50%;
+            transform: translateX(-50%);
+            
+        }
+        .ad-right li p{
+            text-align: center;
+            color: #3c3c3c;
+            height: 24px;
+            line-height: 30px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="top-nav-outer">
+        <div class="top-nav">
+            <div class="top-nav-left">
+                <p><span>喵，欢迎来到天猫</span>
+                <a href="">请登录</a>
+                <a href="">免费注册</a></p>
+            </div>
+            <div class="top-nav-right">
+                <li><a href="">我的淘宝</a><i class="iconfont tri" style="display: inline-block; transform: scale(0.3); color: #bdbbbb;">&#xe622;</i></li>
+                <li><i class="iconfont" style="font-size: 10px; color: #f40;">&#xe600;&nbsp;</i><a href="">购物车</a></li>
+                <li><a href="">收藏夹</a><i class="iconfont tri" style="display: inline-block; transform: scale(0.3); color: #bdbbbb;">&#xe622;&nbsp;&nbsp;&nbsp;</i><span style="color: rgb(192, 191, 191); font-size: 14px; font-weight: 100"&nbsp;>|</span></li>
+                <li><i class="iconfont" style="font-size: 10px; color: #f40; font-weight: 600;">&#xe607;&nbsp;</i><a href="">手机版</a></li>
+                <li><a href="">淘宝网</a></li>
+                <li><a href="">商家支持</a><i class="iconfont tri" style="display: inline-block; transform: scale(0.3); color: #bdbbbb;">&#xe622;</i></li>
+                <div class="menu-outer">
+                    <li><i class="iconfont" style="font-size: 14px; color: #f40; vertical-align: -1px;font-weight: 700;">&nbsp;&#xe666;&nbsp;</i><a href="">网站导航</a><i class="iconfont tri" style="display: inline-block; transform: scale(0.3); color: #bdbbbb;">&#xe622;</i></li>
+                    <div class="menu-list">
+                        <!-- 热点推荐 -->
+                        <div >
+                            <table class="list1">
+                            <tr>
+                                <sapn class="menu-title" style="color: orange;">热点推荐 Hot</sapn>
+                            </tr>
+                            <tr>
+                                <td><a href="">天猫超市</a></td>
+                                <td><a href="">喵鲜生</a></td>
+                                <td><a href="">科技新品</a><div class="ico2"></div></td>
+                                <td><a href="">女装新品</a><div class="ico1"></div></td>
+                                <td><a href="">酷玩街</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="">内衣新品</a><div class="ico1"></div></td>
+                                <td><a href="">试美妆</a></td>
+                                <td><a href="">运动新品</a></td>
+                                <td><a href="">时尚先生</a><div class="ico1"></div></td>
+                                <td><a href="">精明妈咪</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="">吃乐会</a><div class="ico2"></div></td>
+                                <td><a href="">企业采购</a></td>
+                                <td><a href="">会员积分</a></td>
+                                <td><a href="">天猫国际</a></td>
+                                <td><a href="">品质频道</a></td>
+                            </tr>
+                            </table>
+                        </div>
+                        <!-- 行业市场 -->
+                        <div>
+                            <table class="list2">
+                                <tr>
+                                    <sapn class="menu-title" style="color: rgb(40, 104, 177);">行业市场 Market</sapn>
+                                </tr>
+                                <tr>
+                                    <td><a href="">美妆</a></td>
+                                    <td><a href="">电器</a></td>
+                                    <td><a href="">女装</a><div class="ico1"></div></td>
+                                    <td><a href="">男装</a><div class="ico1"></div></td>
+                                    <td><a href="">女鞋</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">男鞋</a></td>
+                                    <td><a href="">内衣</a><div class="ico1"></div></td>
+                                    <td><a href="">箱包</a></td>
+                                    <td><a href="">运动</a></td>
+                                    <td><a href="">母婴</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">家装</a></td>
+                                    <td><a href="">医药</a></td>
+                                    <td><a href="">食品</a></td>
+                                    <td><a href="">配饰</a><div class="ico2"></div></td>
+                                    <td><a href="">汽车</a></td>
+                                </tr>
+                                </table> 
+                        </div>
+                        <!-- 服务指南 -->
+                        <div>
+                            <table class="list3">
+                                <tr>
+                                    <span class="menu-title" style="color: rgb(92, 92, 91);">服务指南 Help</span>
+                                </tr>
+                                <tr>
+                                    <td><a href="">帮助中心</a></td>
+                                    <td><a href="">品质保障</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">特色服务</a></td>
+                                    <td><a href="">7天退换货</a></td>
+                                </tr>
+                                <tr>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    <!-- 中间搜索框 -->
+    <div class="find-outer">
+        <img src="./天猫img/TMALL01.png" alt="">
+        <div class="find">
+            <input type="text" placeholder="  搜索  天猫  商品 / 品牌 / 店铺">
+            <button>搜索</button>
+        </div>
+    </div>
+    <!-- 中间导航条 -->
+    <div class="middle-nav-outer">
+        <div class="middle-nav">
+            <div class="one"><i class="iconfont" style="font-size: 26px; color: #fff; vertical-align: -4px;font-weight: 600;display: inline-block;margin:0px 3px 0 20px;">&#xe666;</i><span style="font-size: 18px;font-weight: 700;line-height: 35px;"> 商品分类</span></div>
+            <a href=""><img src="./天猫img/chaoshi.png" alt=""></a>
+            <a href=""><img src="./天猫img/guoji.png" alt=""></a>
+            <a href="" class="other">天猫会员</a>
+            <a href="" class="other">秒鲜生</a>
+            <a href="" class="other">医药馆</a>
+            <a href="" class="other">魅力惠</a>
+            <a href="" class="other">飞猪旅行</a>
+            <a href="" class="other">苏宁易购</a>
+            <a href="" class="other">天猫内容</a>
+        </div>
+        
+    </div>
+    <!--左侧导航list + 中间轮播图-->
+    <div class="middle-main-outer">
+        <div class="middle-main">
+            <!-- 左侧导航list -->
+            <div class="bg"></div>
+            <div class="left-list">
+                <div class="list1-outer">
+                    <li  ><i class="iconfont" style="display: inline-block; margin-right: 2px; font-size: 17px;opacity: 0.5;" >&#xe60e;</i>女装&nbsp;/&nbsp;内衣</li>
+                    <div class="list1">
+                        <div class="each">
+                            <div class="title">当季流行 ></div>
+                            <div>
+                                <p><a href="" style="color: #FF0036;">女装新品</a><a href="">商场同款</a><a href=""style="color: #FF0036;">仙女连衣裙</a><a href="">T恤</a><a href="">衬衫</a><a href="">时髦外套</a><a href="">休闲裤</a><a href="">牛仔裤</a></p>
+                                <p><a href="" style="color: #FF0036;">无痕文胸</a><a href="">运动文胸</a><a href="" style="color: #FF0036;">潮流家居服</a><a href="">百搭船袜</a></p>
+                            </div>
+                        </div>
+                        <div class="each">
+                            <div class="title">精品上装 ></div>
+                            <div>
+                                <p><a href="" style="color: #FF0036;">毛呢外套</a><a href="" style="color: #FF0036;">羽绒服</a><a href="" style="color: #FF0036;">棉服</a><a href="">毛绒卫衣</a><a href="">外针织衫</a><a href="">皮毛一体</a><a href="">皮草</a><a href="">毛衣</a></p>
+                                <p><a href="">衬衫</a><a href="">卫衣</a><a href="">针织衫</a><a href="" style="color: #FF0036;">T恤</a><a href="">短外套</a><a href="" style="color: #FF0036;">小西装</a><a href="">风衣</a></p>
+                            </div>
+                        </div>
+                        <div class="each">
+                            <div class="title">浪漫裙装 ></div>
+                            <div>
+                                <p><a href="" style="color: #FF0036;">连衣裙</a><a href="">半身裙</a><a href="" style="color: #FF0036;">A字裙</a><a href="" style="color: #FF0036;">荷叶边裙</a><a href="">大裙摆</a><a href="">包臀裙</a><a href="" style="color: #FF0036;">百褶裙</a><a href="">长袖连衣裙</a></p>
+                                <p><a href="">棉麻连衣裙</a><a href="">牛仔裙</a><a href="">蕾丝连衣裙</a><a href="">真丝连衣裙</a><a href="">印花连衣裙</a></p>
+                            </div>
+                        </div>
+                        <div class="each">
+                            <div class="title">女士下装 ></div>
+                            <div>
+                                <p><a href="">休闲裤</a><a href="">阔腿裤</a><a href="">牛仔裤</a><a href="">打底裤</a><a href="" style="color: #FF0036;">开叉运动裤</a><a href="">哈伦裤</a><a href="">背带裤</a><a href="">小脚裤</a></p>
+                                <p><a href="">西装裤</a><a href="">短裤</a></p>
+                            </div>
+                        </div>
+                        <div class="each">
+                            <div class="title">特色女装 ></div>
+                            <div>
+                                <p><a href="" style="color: #FF0036;">时尚套装</a><a href="">休闲套装</a><a href="" style="color: #FF0036;">日系女装</a><a href="" style="color: #FF0036;">精选妈妈装</a><a href="">大码女装</a><a href="">职业套装</a></p>
+                                <p><a href="">优雅旗袍</a><a href="">精致礼服</a><a href="">婚纱</a><a href="">唐装</a><a href="">小码女装</a></p>
+                            </div>
+                        </div>
+                        <div class="each">
+                            <div class="title" style="top: 0px;">文胸塑身 ></div>
+                            <div>
+                                <p><a href="">时尚套装</a><a href="">光面文胸</a><a href="">运动文胸</a><a href="">美背文胸</a><a href="">聚拢文胸</a><a href="">大杯文胸</a><a href="">轻薄塑身</a></p>
+                            </div>
+                        </div>
+                        <div class="each">
+                            <div class="title">家 居 服 ></div>
+                            <div>
+                                <p><a href="">春夏家居服</a><a href="">纯棉家居服</a><a href="">莫代尔家居服</a><a href="">真丝家居服</a><a href="">春夏睡裙</a></p>
+                                <p><a href="">男士家居服</a><a href="">情侣家居服</a><a href="">性感睡裙</a></p>
+                            </div>
+                        </div>
+                        <div class="each" style="border-width: 0px;">
+                            <div class="title" style="top: 0px;">内裤背心 ></div>
+                            <div>
+                                <p><a href="">男士内裤</a><a href="">女士内裤</a><a href="">男士内裤多条装</a><a href="">女士内裤多条装</a><a href="">莫代尔内裤</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <li><i class="iconfont" style="display: inline-block; margin-right: 3px; font-size: 14px;opacity: 0.5;">&#xe66d;</i>男装&nbsp;/&nbsp;户外运动</li>
+                <li><i class="iconfont" style="display: inline-block; margin-right: 3px; font-size: 15px;opacity: 0.5;">&#xe60f;</i>女鞋&nbsp;/男鞋&nbsp;/箱包</li>
+                <li><i class="iconfont" style="display: inline-block; margin-right: 2px; font-size: 17px;opacity: 0.5;">&#xe60b;</i>美妆&nbsp;/个人护理</li>
+                <li><i class="iconfont" style="display: inline-block; margin-right: 1px; font-size: 20px;opacity: 0.5;">&#xe66f;</i>腕表&nbsp;/眼镜&nbsp;/珠宝饰品</li>
+                <li><i class="iconfont" style="display: inline-block; margin-right: 3px; font-size: 15px;opacity: 0.5;">&#xe607;</i>手机&nbsp;/数码&nbsp;/电脑办公</li>
+                <li><i class="iconfont" style="display: inline-block; margin-right: 3px; font-size: 15px;opacity: 0.5;">&#xe62f;</i>母婴玩具</li>
+                <li><i class="iconfont" style="display: inline-block; margin-right: 3px; font-size: 17px;opacity: 0.5;">&#xe61c;</i>零食&nbsp;/茶酒&nbsp;/珠宝饰品</li>
+                <li><i class="iconfont" style="display: inline-block; margin-right: 4px; font-size: 15px;opacity: 0.5;">&#xe608;</i>生鲜水果</li>
+                <li><i class="iconfont" style="display: inline-block; margin-right: 2px; font-size: 17px;opacity: 0.5;">&#xe60c;</i>大家电&nbsp;/生活电器</li>
+                <li><i class="iconfont" style="display: inline-block; margin-right: 5px; font-size: 14px;opacity: 0.5;">&#xe61e;</i>家具建材</li>
+                <li><i class="iconfont" style="display: inline-block; margin-right: 4px; font-size: 13px;opacity: 0.5;">&#xe656;</i>汽车&nbsp;/配件&nbsp;/用品</li>
+                <li><i class="iconfont" style="display: inline-block; margin-right: 4px; font-size: 15px;opacity: 0.5;">&#xe600;</i>家纺&nbsp;/家饰&nbsp;/鲜花</li>
+                <li><i class="iconfont" style="display: inline-block; margin-right: 3px; font-size: 15px;opacity: 0.5;">&#xe613;</i>医药保健</li>
+                <li><i class="iconfont" style="display: inline-block; margin-right: 2px; font-size: 18px;opacity: 0.5;">&#xe609;</i>厨具&nbsp;/收纳&nbsp;/宠物</li>
+                <li><i class="iconfont" style="display: inline-block; margin-right: 3px; font-size: 16px;opacity: 0.5;">&#xe691;</i>图书音像</li>
+            </div>
+            <!-- 轮播图 -->
+            <div class="show-outer">
+                <a href=""><img src="./天猫img/轮播-05.jpg" alt=""></a>
+                <a href=""><img src="./天猫img/轮播-01.png" alt=""></a>
+                <a href=""><img src="./天猫img/轮播-02.jpg" alt=""></a>
+                <a href=""><img src="./天猫img/轮播-03.jpg" alt=""></a>
+                <a href=""><img src="./天猫img/轮播-04.jpg" alt=""></a>
+                <a href=""><img src="./天猫img/轮播-05.jpg" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <!-- logo-table -->
+    <div class="logo-outer">
+        <table class="logo">
+            <tr>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div ></div>
+                    <a href="">
+                        <p>苏宁易购</p>
+                        <div>点击进入</div>
+                    </a>
+                </td>
+                <td>
+                    <div style="display: inline-block;  opacity: 1;"></div>
+                    <a href="" style="display: inline-block; color: #7c7a7a;">
+                        <p><i class="iconfont" style="font-size: 30px;margin-top: 10px;display: block;">&#xe641;</i></p>
+                        <p style=" font-size: 14px; display: block;margin-top: 0px;">换一批</p>
+                    </a>
+                </td>
+                
+            </tr>
+        </table>
+    </div>
+    <!-- 广告栏 -->
+    <div class="ad-outer">
+        <!-- title -->
+        <img src="./天猫img/天猫首页ad栏-天猫超市title.png" alt="" style="height: 25px;position: absolute;top: -35px;">
+        <a href=""class="ad-left">
+            <div class="ad-left-bg">
+                <i class="iconfont" style="display: inline-block; font-size: 34px;color: rgb(211, 208, 208);font-weight: 200;">&#xe602;</i>
+            </div>
+            <div class="ad-left-main">
+                <div><p>韩国</p><p>进口</p></div>
+                <div><p>天猫专享</p><p>进口水果季</p></div>
+            </div>            
+        </a>
+        <div class="ad-right">
+            <div class="one-outer">
+                <div class="one">
+                    <div class="top">
+                        <p>量贩卖</p>
+                    </div>
+                    <div class="main">
+                        <img src="./天猫img/天猫首页-虾.png" alt="">
+                        <div>
+                            <i class="iconfont" style="font-size: 320px;position: absolute;opacity: 0.05;top: -110px;left: -110px;">&#xe622;</i>
+                            <p><i class="iconfont" style="font-size: 24px;display: inline-block;margin-right: 10px; ">&#xe6fb;</i>单件包邮</p>
+                            <p>低价享不停</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <li style="position: relative;top: px;">
+                <img src="./天猫img/天猫首页ad-吹风机.jpg" alt="">
+                <p>飞科电吹风机家用宿</p>
+                <p>舍负离子护发可折叠</p>
+                <p style="color: #f40; font-style: 20px;"><i class="iconfont" >&#xe600;</i>79</p>
+            </li>
+            <li style="position: relative;top: px;" >
+                <img src="./天猫img/天猫首页ad-吹风机.jpg" alt="">
+                <p>飞科电吹风机家用宿</p>
+                <p>舍负离子护发可折叠</p>
+                <p style="color: #f40; font-style: 20px;"><i class="iconfont" >&#xe600;</i>79</p>
+            </li>
+            <li style="margin-left: 0px; position: relative;top: -94px;">
+                <img src="./天猫img/天猫首页ad-吹风机.jpg" alt="">
+                <p>飞科电吹风机家用宿</p>
+                <p>舍负离子护发可折叠</p>
+                <p style="color: #f40; font-style: 20px;"><i class="iconfont" >&#xe600;</i>79</p>
+            </li>
+            <li style="margin-left: 6px; position:relative; top: -94px;">
+                <img src="./天猫img/天猫首页ad-吹风机.jpg" alt="">
+                <p>飞科电吹风机家用宿</p>
+                <p>舍负离子护发可折叠</p>
+                <p style="color: #f40; font-style: 20px;"><i class="iconfont" >&#xe600;</i>79</p>
+            </li>
+            <li style="margin-left: 7px; position:relative; top: -94px;">
+                <img src="./天猫img/天猫首页ad-吹风机.jpg" alt="">
+                <p>飞科电吹风机家用宿</p>
+                <p>舍负离子护发可折叠</p>
+                <p style="color: #f40; font-style: 20px;"><i class="iconfont" >&#xe600;</i>79</p>
+            </li>
+            <li style="margin-left: 7px; position:relative;top: -94px;">
+                <img src="./天猫img/天猫首页ad-吹风机.jpg" alt="">
+                <p>飞科电吹风机家用宿</p>
+                <p>舍负离子护发可折叠</p>
+                <p style="color: #f40; font-style: 20px;"><i class="iconfont" >&#xe600;</i>79</p>
+            </li>
+        </div>
+    </div>
+    <!-- 左侧固定导航栏 -->
+    <div class="fixed-left">
+        <table>
+            <tr>
+                <td style="background-color: #FF0036;">
+                    <a href="" style="line-height: 26px;">导航</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="">天猫超市</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="">天猫国际</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="">美丽人生</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="">潮电酷玩</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="">居家生活</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="">打造爱巢</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="">户外出行</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="">猜你喜欢</a>
+                </td>
+            </tr>
+            <tr>
+                <td style="background-color: rgb(182, 177, 177);">
+                    <a href="#" ><p style="display: block; transform: rotate(90deg); font-size: 12px;"><</p>顶部</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- 底部大块 -->
+    <div class="foot-outer">
+        <div class="foot1">
+            <!-- 品质保障 -->
+            <a href=""></a>
+            <!-- 七天无理由退换货 -->
+            <a href=""></a>
+            <!-- 特色服务体验 -->
+            <a href=""></a>
+            <!-- 帮助中心 -->
+            <a href=""></a>
+        </div>
+        <div class="foot2">
+            <div class="foot2-1">
+                <p>购物指南</p>
+                <p><a href="">免费注册</a></p>
+                <p><a href="">开通支付宝</a></p>
+                <p><a href="">支付宝充值</a></p>
+                <p><a href=""> &nbsp;</a></p>
+                <p><a href=""> &nbsp;</a></p>
+                <p><a href=""> &nbsp;</a></p>
+                <p><a href=""> &nbsp;</a></p>
+                
+            </div>
+            <div class="foot2-2">
+                <p>天猫保障</p>
+                <p><a href="">发票保障</a></p>
+                <p><a href="">售后规则</a></p>
+                <p><a href="">缺货赔付</a></p>
+                <p><a href=""> &nbsp;</a></p>
+                <p><a href=""> &nbsp;</a></p>
+                <p><a href=""> &nbsp;</a></p>
+                <p><a href=""> &nbsp;</a></p>
+            </div>
+            <div class="foot2-3">
+                <p>支付方式</p>
+                <p><a href="">快捷支付</a></p>
+                <p><a href="">信用卡</a></p>
+                <p><a href="">余额宝</a></p>
+                <p><a href="">蚂蚁花呗</a></p>
+                <p><a href="">货到付款</a></p>
+                <p><a href=""> &nbsp;</a></p>
+                <p><a href=""> &nbsp;</a></p>
+            </div>
+            <div class="foot2-4">
+                <p>商家服务</p>
+                <p><a href="">天猫规则</a></p>
+                <p><a href="">商家入驻</a></p>
+                <p><a href="">商家中心</a></p>
+                <p><a href="">天猫智库</a></p>
+                <p><a href="">物流服务</a></p>
+                <p><a href="">喵言喵语</a></p>
+                <p><a href="">运营服务</a></p>
+            </div>
+            <div class="foot2-5">
+                <p>手机天猫</p>
+                <p><a href=""> &nbsp;</a></p>
+                <a href="">
+                <img src="./天猫img/天猫首页底部二维码.png" alt="">
+                </a>
+                <p><a href=""> &nbsp;</a></p>
+            </div>
+            
+        </div>
+        <div class="foot3">
+            <div>
+                <img src="./天猫img/TMALL01.png" alt="">
+            </div>
+            <p>
+                <a href="">关于天猫</a><a href="">商家服务大厅</a><a href="">开放平台</a><a href="">诚聘英才</a><a href="">联系我们</a><a href="">网站合作</a><a href="">法律声明</a><a href="">隐私权政策</a><a href="">知识产权</a><a href="">廉政举报</a><a href="">规则意见征集</a><a href="">不正当竞争举报</a>
+            </p>
+            <p>
+                <a href="">阿里巴巴集团</a><a href="">| 淘宝网</a><a href="">| 天猫</a><a href="">| 聚划算</a><a href="">| 全球速卖通</a><a href="">| 阿里巴巴国际交易市场</a><a href="">| 1688</a><a href="">| 阿里妈妈</a><a href="">| 飞猪</a><a href="">| 阿里云计算</a><a href="">| Alios</a><a href="">| 阿里通信</a><a href="">| 万网</a><a href="">| 高德</a><a href="">| UC</a><a href="">| 友盟</a><a href="">| 虾米</a><a href="">| 钉钉</a><a href="">| 支付宝</a><a href="">| 阿里安全</a>
+            </p>
+            <p>
+                <a href="" style="margin-right: 40px;">增值电信业务经营许可证：浙B2-20110446</a><span  style="margin-right: 40px;">市场名称登记证：工商网市字3301004119号</span><span>出版物网络交易平台服务经营备案证： 新出发浙备字第2019002号</span>
+            </p>
+            <p>
+                <span  style="margin-right: 40px;">互联网违法和不良信息举报电话：0571-81683755 blxxjb@alibaba-inc.com</span><span  style="margin-right: 40px;">互联网药品信息服务资质证书编号：浙-（经营性）-2017-0005</span><a href=""><img src="" alt="">浙江网安备 33010002000120</a>
+            </p>
+            <p>
+                <span>医疗器械网络交易服务第三方平台备案：（浙）网械平台备字[2018]第00002号</span>
+            </p>
+            <p>
+                <span  style="margin-right: 40px;">浙江省网络食品销售第三方平台提供者备案：浙网食A33010002</span><a href=""  style="margin-right: 40px;">12318举报</a><a href="">浙B2-20110446-1</a>
+            </p>
+            <p>
+                <span>© 2003-现在 TMALL.COM 版权所有</span>
+            </p>
+            <a href="" style="display: inline-block; margin-right: 10px;"><img src="./天猫img/天猫首页底部小图像01.gif" alt="" style="width: 30px;"></a>
+            <a href=""><img src="./天猫img/天猫首页底部小图像02.jpg" alt=""></a>
+        </div>
+    </div>
+</body>
+</html>

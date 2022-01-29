@@ -1,0 +1,16 @@
+{
+  "id": "2627106",
+  "name": "已购买宝贝4",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "10269078",
+      "name": "人民币",
+      "font_class": "renminbi",
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    }
+  ]
+}

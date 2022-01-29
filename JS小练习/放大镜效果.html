@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../code/CSS/reset.css">
+    <title>放大镜效果</title>
+    <style>
+        #normal{
+            width: 398px;
+            height: 298px;
+            position: relative;
+            border: 1px solid rgb(190, 145, 94);
+            top: 40px;
+            left: 40px;
+        }
+        #normal > img{
+            width: 100%;
+            height: 100%;
+        }
+        #piece{
+            background-color: rgba(190, 145, 94, 0.6);
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: move;
+            display: none;
+        }
+        #bigImg{
+            width: 400px;
+            height: 300px;
+            position: absolute;
+            left: 500px;
+            top: 40px;
+            border: 1px solid rgb(190, 145, 94);
+            overflow: hidden;
+            display: none;
+        }
+        #bigImg > img{
+            width: 400%;
+            height: 400%;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var normal = document.getElementById("normal")
+            var bigImg = document.getElementById("bigImg")
+            var piece = document.getElementById("piece")
+            var img = document.getElementsByTagName("img")[1];
+            console.log(normal,bigImg,piece,img);
+            // 鼠标移入时 piece bigImg 出现
+            normal.onmouseover = function(){
+                piece.style.display = "inline-block"
+                bigImg.style.display = "inline-block"
+            }
+            // 鼠标移出时 piece bigImg 消失
+            normal.onmouseout = function(){
+                piece.style.display = "none"
+                bigImg.style.display = "none"
+            }
+            // 鼠标在 normal 移动的反复触发的事件
+            normal.onmousemove = function(event){
+                // 放大比例
+                var scale = 4;
+                // 根据光标位置确定 piece 的left top
+                var x = event.clientX - piece.offsetWidth/2 - normal.offsetLeft;
+                var y = event.clientY - piece.offsetHeight/2 - normal.offsetTop;
+                // 根据比例设置 piece 大小
+                piece.style.width = Math.floor( normal.offsetWidth / scale ) + 'px'
+                piece.style.height = Math.floor( normal.offsetHeight / scale ) + 'px'
+                // 设置放大图片的大小
+                img.style.width = normal.offsetWidth * scale;
+                img.style.height = normal.offsetHeight * scale;
+                console.log(img.style.width,img.style.height)
+                // 查看边界问题
+                if( x < 0)//超过左边界
+                {
+                    x = 0;
+                }else if( x > normal.offsetWidth - piece.offsetWidth)//超过右边界
+                {
+                    x = normal.offsetWidth - piece.offsetWidth
+                }
+                if ( y < 0)//超过上边界
+                {
+                    y = 0;
+                }else if( y > normal.offsetHeight - piece.offsetHeight )//超过下边界
+                {
+                    y = normal.offsetHeight - piece.offsetHeight;
+                }
+                // 改变piece的left top
+                piece.style.top = y +'px';
+                piece.style.left = x +'px';
+                // bigimg图片的left top也需要改变
+                var left = scale *(piece.offsetLeft + piece.offsetWidth/2) - bigImg.offsetWidth/2; 
+                var top = scale *(piece.offsetTop + piece.offsetHeight/2) -  bigImg.offsetHeight/2;
+                img.style.left = -left + 'px';
+                img.style.top = -top + 'px';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="outer">
+        <div id="normal">
+            <img src="./IMG/放大镜效果图片.jpeg" alt="">
+            <span id="piece"></span>
+        </div>
+        <div id="bigImg">
+            <img src="./IMG/放大镜效果图片.jpeg" alt="">
+        </div>
+    </div>
+</body>
+</html>

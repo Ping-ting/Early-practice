@@ -1,0 +1,474 @@
+/* 设置左边导航栏 */
+.left-nav{
+    /* display: inline-block; */
+    width: 30%;
+    height: 100%;
+    background-color: #fff;
+    position: fixed;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    overflow: hidden;
+}
+/* 设置上部分 */
+.left-nav .left-top-nav{
+    box-sizing: border-box;
+    display: inline-block;
+    width: 100%;
+    height: 48px;
+    padding: 24px;
+    position: relative;
+    
+}
+/* 设置logo 的容器大小和图片大小*/
+.left-nav .left-logo{
+    margin-top: 0px;
+    display: inline-block;
+    width: 36px;
+    height: 48px;
+}
+.left-nav .left-logo img{
+    display: inline-block;
+    width: 100%;
+}
+/* 设置三个选项 */
+.left-nav .middle-choice-outer
+{
+    display: inline-block;
+    height: 48px;
+    position: absolute;
+    top: 20px;
+    
+}
+/* 设置下面的三个小选项 */
+.middle-choice-outer .shop,.account,.menu{
+    
+    display: inline-block;
+    height: 38px;
+    line-height: 38px;
+    margin: 5px 10px;
+}
+.left-nav .middle-choice-outer .shop a,.account a,.menu a{
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #212121;
+    text-decoration: none;
+}
+/* 设置图标小图片 */
+.left-nav .icon-menu{
+    margin-top: 10px;
+    float: right;
+    width: 24px;
+    height: 24px;
+    
+}
+/* 设置中部文字 */
+.left-nav .text-outer{
+    display: inline-block;
+    width: 100%;
+}
+.left-nav .text-outer p{
+    line-height: 36px;
+    margin: 230px 10px 20px 80px;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+/* 设置小图标 */
+/* 设置登录注册框框 */
+.left-nav .login-enroll-outer{
+    width: 300px;
+    margin-left: 80px;
+}
+/* 设置登录大框框 */
+.left-nav .login-enroll-outer .login-outer{
+    display: inline-block;
+    margin-right: 10px;
+    
+}  
+/* 设置登录小人图 */
+.left-nav  .login-outer img{
+    /* 设置小人的文字对齐 */
+    vertical-align: -8px;
+}
+/* 设置注册框 */
+.left-nav .login-enroll-outer .enroll
+{
+    display: inline-block;
+    width: 32.805;
+    height: 25.5px;
+    padding: 2px 12px;
+    border: 1px solid #00A862;
+    border-radius: 16px;
+}
+/* 设置登录注册文字 */
+.left-nav .login-enroll-outer a{
+    color: #00A862;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 25.5px;
+}
+/* 设置右边 */
+.right-main-outer{
+    overflow: hidden;
+    box-sizing: border-box;
+    margin-left: 30%;
+    width: 70%;
+    float: left;
+}
+/* 设置上面的大海报的外部容器 */
+.hello-star .hello img{
+    width: 100%;
+}
+.hello-star .hello .max640{
+    
+    display: none;
+    
+}
+/* 设置广告二字 */
+.hello-star .ad{
+    position: absolute;
+    width: 26px;
+    height: 21.5px;
+    padding: 0px 6px;
+    background-color: rgba(0, 0, 0,.6);
+    color: #9AC0C3;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    border-radius: 2px;
+    top: 10px;
+    right: 20px;
+    line-height: 21.5px;
+}
+/* 设置海报下的三个小块外部容器 */
+.three-outer{
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    /* height: 90%; */
+    background-color: #F7F7F7;
+    padding: 10px 10px 10px 10px;
+    
+}
+/*  设置三个小块*/
+.three-outer .one,.two,.three{
+    background-color: transparent;
+    box-sizing: border-box;
+    height:90%;
+    width: 31%;
+    float: left;
+    margin: 8px;
+    box-shadow: 1 1 10px rgba(0, 0, 0, .1);
+    
+}
+/* 设置三个小块的图片 */
+.three-outer img
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 2px; 
+    
+}
+/* 设置一个移入状态 */
+.three-outer .one:hover,.two:hover,.three:hover{
+    box-shadow: 1 0 10px rgba(0, 0, 0,.2);
+    position: relative;
+    top: -3px;
+}
+
+/* 设置星享俱乐部 */
+.club-outer
+{
+    width: 100%;
+    height: 249px;
+    padding: 0px 16px;
+    margin: 0px 62px;
+    background-color: #fff;
+    position: relative;
+}
+/* 设置左边 */
+.club-outer .club-left{
+    display: inline-block;
+    width: 60%;
+    /* width: 368px; */
+    height: 177px;
+    padding: 36px 0px;
+}
+/* 设置星享俱乐部样式 */
+/* .club-left{
+    width: 50%;
+} */
+.club-outer .club-text h1{
+    display: inline-block;
+    width: 90%;
+    height: 30.5px;
+    padding: 0px 24px;
+    margin-bottom: 18px;
+    color: #212121;
+    font-size: 22px;
+    line-height: 30.8px;
+    letter-spacing: 0.4px;
+    font-weight: 400px;
+}
+/* 设置下面的一段文字 */
+.club-outer .club-text p{
+    display: inline-block;
+    width: 320px;
+    height: 65px;
+    padding: 0px 24px;
+    margin-bottom: 24px;
+    color: rgba(0, 0, 0, 0.56);
+    letter-spacing: 0.4px;
+    line-height: 25.6px;
+}
+/* 设置了解更多的样式 */
+.club-outer .club-text a{
+    color: #C2A661;
+    text-decoration: none;
+}
+/* 设置右边图片 */
+.club-outer .club-right {
+    position: absolute;
+    left: 50%;
+    top: 90px; 
+}
+/* 设置图片大小 */
+.club-outer .club-right img{
+    width: 236px;
+}
+/* 设置登录注册外部容器大框框 */
+.register-outer{
+    display: inline-block;
+    width: 320px;
+    padding: 0px 24px;
+}
+/* 设置登录注册框框 */
+.register-outer .club-enroll,.club-login{
+    display: inline-block;
+    width: 32.805px;
+    height: 25.5px;
+    padding: 6px 18px;
+    border: 1px solid rgb(0, 168, 98);
+    vertical-align: middle;
+    line-height: 25.5px;
+    border-radius: 20px;
+}
+/* 设置字体颜色 */
+.register-outer a{
+    text-decoration: none;
+    letter-spacing: 0.4px;
+    font-size: 16px;
+    color: rgb(0, 168, 98);
+}
+/* 设置星巴克精选 */
+.choiceness-outer{
+    width: 100%;
+    height: 343.5px;
+    padding: 36px 0px;
+    background-color: #F7F7F7;
+}
+/* 设置星巴克精选外部容器· */
+.choiceness-outer .top h1,.paike-top h1{
+    display: inline-block;
+    width: 100%;
+    height: 30.5px;
+    margin-bottom: 18px;
+    color: #212121;
+    font-size: 22px;
+    line-height: 30.8px;
+    letter-spacing: 0.4px;
+    font-weight: 400px;
+    text-align: center;
+    
+}
+.choiceness-outer .top p,.paike-top p{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.56);
+    letter-spacing: 0.4px;
+    line-height: 25.6px;
+    margin-bottom: 24px;
+}
+/* 设置下面四小块的外部容器 */
+.choiceness{
+    padding-top:48px ;
+    margin-left: 70px;
+    position: relative;
+}
+/* 设置四小块 */
+.choiceness .bag-outer,.crad-outer,.ticket-outer,.life-outer{
+    display: inline-block;
+    width: 20%;
+    height: 197.5px;
+    margin: 12px;
+    background-color: #fff;
+    box-shadow: -1px 0px 10px rgba(0, 0, 0, .1);
+    border-radius: 4px;
+    position: relative;
+}
+/* 设置图片大小并且设置定位 */
+.choiceness img{
+    
+    height: 72px;
+}
+.bag-img,.crad-img,.ticket-img,.life-img{
+    position: absolute;
+    top:-18%;
+}
+/* 分别给图片设置定位 */
+.bag-img{
+    left: 50%;
+    transform: translateX(-50%) ;
+}
+.crad-img{
+    left: 50%;
+    transform: translateX(-50%) ;
+}
+.ticket-img{
+    left: 50%;
+    transform: translateX(-50%) ;
+}
+.life-img{
+    left: 50%;
+    transform: translateX(-50%) ;
+}
+.bag-outer:hover .bag-img{
+    top:-18%;
+    left: 50%;
+    transform: translateX(-50%) ;
+}
+.crad-outer:hover .crad-img{
+    top:-18%;
+    left: 50%;
+    transform: translateX(-50%) ;
+}
+.ticket-outer:hover .ticket-img{
+    top:-18%;
+    left: 50%;
+    transform: translateX(-50%) ;
+}
+.life-outer:hover .life-img{
+    top:-18%;
+    left: 50%;
+    transform: translateX(-50%) ;
+}
+/* 设置派克街的外部容器 */
+.paike-outer{
+    padding-top: 50px;
+    width: 100%;
+    position: relative;
+}
+/* 设置卡片内部文字外部容器 */
+.text-body{
+    margin-top: 55px;
+}
+.text-body h1{
+    font-size: 16px;
+    letter-spacing: 0.4px;
+    font-weight: 700;
+    text-align: center;
+    color: rgba(0, 0, 0, .87);
+}
+.text-body p{
+    font-size: 14px;
+    color: rgba(0, 0, 0, .56);
+    font-weight: 400;
+    line-height: 25.6px;
+    list-style: 0.4px;
+    text-align: center;
+}
+/* 设置了解更多样式 */
+.text-body .knowmore{
+    color: rgb(194, 166, 97);
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0.4px;
+    line-height: 19.2px;
+}
+/* 设置一个移入样式 */
+.bag-outer:hover,.crad-outer:hover,.ticket-outer:hover,.life-outer:hover{
+    box-shadow: -1px 0px 10px rgba(0, 0, 0, .2);
+    position: relative;
+    top: -3px;
+}
+
+/* 设置四个小块 */
+.plant-outer,.taste-outer,.bake-outer,.hand-outer{
+    display: inline-block;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .12);
+    width: 288px;
+    height: 225.5px;
+    border-radius: 2px;
+    /* margin-right: 12px; */
+}
+/* 设置上部分背景块 */
+.plant-outer .plant-top{
+    width: 290px;
+    height: 168px;
+    background-image: url(./img-all/coffee-cultivation-kv.jpg);
+    background-repeat:round;
+    border-radius: 2px;
+}
+.bake-outer .bake-top{
+    width: 290px;
+    height: 168px;
+    background-image: url(./img-all/4-fundamentals-kv.jpg);
+    background-repeat:round;
+    border-radius: 2px;
+}
+.taste-outer .taste-top{
+    width: 290px;
+    height: 168px;
+    background-image: url(./img-all/roast-story-kv.jpg);
+    background-repeat:round;
+    border-radius: 2px;
+}
+.hand-outer .hand-top{
+    width: 290px;
+    height: 168px;
+    background-image: url(./img-all/pour-over-kv.jpg);
+    background-repeat:round;
+    border-radius: 2px;
+}
+/* 设置图片上的小黄块文字块 */
+.top-text{
+    width: 57px;
+    height: 25.5px;
+    padding: 4px 12px;
+    background-color: rgb(194, 166, 97);
+    color: #fff;
+    font-size: 14px;
+    line-height: 25.5px;
+    margin-top: 6px;
+}
+/* 设置下部分文字块 */
+.bottom-text {
+    display: inline-block;
+    margin-top: 18px;
+    margin-left: 20px;
+    color: rgba(0, 0, 0, .87);
+    font-size: 16px;
+    letter-spacing: 0.4px;
+}
+/* 设置移入状态 */
+.plant-outer:hover,.taste-outer:hover,.bake-outer:hover,.hand-outer:hover{
+    box-shadow: -1px 0px 10px rgba(0, 0, 0, .3);
+    position: relative;
+    top:-3px
+}
+/* 设置底部文字 */
+.right-main-bottom{
+    margin:40px auto;
+    width: 470px;
+}
+.right-main-bottom a{
+    font-size: 14px;
+    color: rgb(102, 102, 102);
+    text-decoration: none;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.right-main-bottom img{
+    width: 10px;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算器</title>
+    <style>
+        p{
+            text-align: center;
+            color: rgb(143, 207, 209);
+            font-size: 18px;
+            height: 35px;
+            line-height: 45px;
+            font-style: italic;
+            font-weight: 600;
+        }
+        #content{
+            width: 310px;
+            height: 28px;
+            display: block;
+            margin: 0 auto;
+        }
+        #outer{
+            width: 380px;
+            height: 450px;
+            margin: 100px auto;
+            background-color: cadetblue;
+            border-radius: 20px;
+        }
+        table{
+            width: 320px;
+            height: 320px;
+            margin: 10px auto;
+        }
+        table td{
+            width: 40px;
+            background-color: #fff;
+            border: cadetblue 3px solid;
+            font-size: 20px;
+            color: cadetblue;
+            text-align: center;
+        }
+        table td:hover{
+            cursor:pointer;
+        }
+    </style>
+    <script>
+            var strs = "";
+            function Click(obj){
+                console.log(obj.innerText);
+                var input = obj.innerText;
+                var content = document.getElementById("content");
+                if(input == "AC")//全部清空
+                {
+                    strs = "";
+                    input = "";
+                    content.value = "";
+                }
+                if(input == "CE")//退格
+                {
+                    // 将字符串转换成数组然后pop再转换回来
+                    var arr = strs.split("");
+                    console.log(arr);
+                    arr.pop();
+                    console.log(arr);
+                    strs = arr.join("");
+                    content.value = strs;
+                }
+                // 输入数字
+                if((input >='0'&& input <= "9")||(input == '+'||input == '-'||input == '*'||input == '/'||input == '%'||input == '.'))
+                {
+                    // 拼接到后面
+                    strs += input;
+                    content.value = strs;
+                }
+                // 出答案
+                if( input == "Ans" || input == "=")
+                {
+                    // 运行字符串
+                    var answer = eval(strs);
+                    console.log(answer,isFinite(answer))
+                    if(!isNaN(answer) && isFinite(answer))
+                    {
+                        console.log("可以输出答案")
+                        content.value = answer;
+                        strs = "";
+                        input = ""
+                    }
+                    else
+                    {
+                        content.value = "错误"
+                        strs = "";
+                        input = ""
+                    }
+                    
+                    
+                }
+            }
+        
+        
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <p id="title">freeCodeCamp Calculator</p>
+        <input type="text" name="" id="content">
+        <table id="table" >
+            <tr>
+                <td onclick="Click(this)">AC</td>
+                <td onclick="Click(this)">CE</td>
+                <td onclick="Click(this)">%</td>
+                <td onclick="Click(this)">/</td>
+            </tr>
+            <tr>
+                <td onclick="Click(this)">7</td>
+                <td onclick="Click(this)">8</td>
+                <td onclick="Click(this)">9</td>
+                <td onclick="Click(this)">*</td>
+            </tr>
+            <tr>
+                <td onclick="Click(this)">4</td>
+                <td onclick="Click(this)">5</td>
+                <td onclick="Click(this)">6</td>
+                <td onclick="Click(this)">-</td>
+            </tr>
+            <tr>
+                <td onclick="Click(this)">1</td>
+                <td onclick="Click(this)">2</td>
+                <td onclick="Click(this)">3</td>
+                <td onclick="Click(this)">+</td>
+            </tr>
+            <tr>
+                <td onclick="Click(this)">.</td>
+                <td onclick="Click(this)">0</td>
+                <td onclick="Click(this)">Ans</td>
+                <td onclick="Click(this)">=</td>
+            </tr>
+        </table>
+    </div>   
+</body>
+    
+    
+</html>

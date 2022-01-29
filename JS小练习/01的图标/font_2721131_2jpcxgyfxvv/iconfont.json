@@ -1,0 +1,16 @@
+{
+  "id": "2721131",
+  "name": "随机报价器",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "16924651",
+      "name": "小鸟",
+      "font_class": "huaban2",
+      "unicode": "e6e6",
+      "unicode_decimal": 59110
+    }
+  ]
+}

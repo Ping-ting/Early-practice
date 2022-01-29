@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../code/CSS/reset.css">
+    <title>扇形导航</title>
+    <style>
+        body{
+            background-color: rgb(255, 239, 239);
+        }
+        #menu{
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            bottom: 120px;
+            right: 120px;
+        }
+        #list{
+            height: 42px;
+            width: 42px;
+            position: relative;
+            margin: 4px;
+        }
+        #list img{
+            display: inline-block;
+            height: 42px;
+            width: 42px;
+            border-radius: 21px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: 0.5s all ease;
+            user-select: none;
+        }
+        #list img:hover{
+            cursor: pointer;
+        }
+        #home{
+            background: url(./扇形导航IMG/home.png) no-repeat;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            transition: 1s;
+            left: 0;
+            top: 0;
+            position: absolute;
+        }
+        #home:hover{
+            cursor: pointer;
+        }
+    </style>
+    <!-- js加样式 -->
+    <script>
+        window.onload = function(){
+            var menu = document.getElementById("menu");
+            var imgs = document.getElementById("list").getElementsByTagName("img");
+            var home = document.getElementById("home");
+            var flag = true;//表示home的状态
+            var r = 150;
+            console.log(imgs)
+            // 给每个子按钮加单击事件
+            for (let i = 0; i < imgs.length ; i++)
+            {
+                imgs[i].onclick = function(){
+                    // 0.3s内变大两倍 再消失 再过0.3s后返回原来样式
+                    this.style.transition = '0.3s';
+                    this.style.transform = " scale(2)";
+                    this.style.opacity = "0";
+                    addEnd(this , end);
+                }
+            }
+            // 结束后返回原样式的函数
+            function end(){
+                this.style.transition = "0.3s";
+                this.style.transform = "scale(1)";
+                this.style.opacity = "1";
+                // 移除
+                removeEnd( this, end);
+            }
+            // 给主按钮添加单击事件
+            home.onclick = function(){
+                if(flag)//需要打开
+                {
+                    console.log("打开！")
+                    // 旋转两圈
+                    this.style.transform = "rotate(-720deg)"
+                    // 给每个子按钮确定位置
+                    for (let i = 0 ;i < imgs.length ;i++){
+                        console.log(i);
+                        var olt = toLT( r , 90/4*i)//传入半径和角度  计算left top
+                        console.log(olt.l,olt.t)
+                        imgs[i].style.transition = 0.3 + i*0.1 + 's';
+                        imgs[i].style.left = -olt.l + 'px';
+                        imgs[i].style.top = -olt.t + 'px';
+                        imgs[i].style.transfrom = "rotate(0deg)"
+                    }
+                }
+                else//关闭
+                {
+                    this.style.transform = "rotate(720deg)"
+                    // 给每个子按钮确定位置
+                    for (let i = 0 ;i < imgs.length ;i++){
+                        console.log(i);
+                        var olt = toLT( r , 90/4*i)//传入半径和角度  计算left top
+                        console.log(olt.l,olt.t)
+                        imgs[i].style.transition = 0.3 + (imgs.length - i - 1)*0.1 + 's';
+                        imgs[i].style.left = 0 + 'px';
+                        imgs[i].style.top = 0 + 'px';
+                        imgs[i].style.transfrom = "rotate(0deg)"
+                    }
+                }
+                flag = !flag;
+            }
+            function toLT(R,Deg) {
+                return {l:Math.round(Math.sin(Deg/180*Math.PI)*R),t:Math.round(Math.cos(Deg/180*Math.PI)*R)}
+            }
+            // 添加样式函数事件
+            function addEnd(obj,fn){
+                obj.addEventListener( 'transitionend',fn,false );
+            }
+            // 移除样式函数事件
+            function removeEnd(obj,fn){
+                obj.removeEventListener( 'transitionend',fn,false );
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="menu">
+        <div id="list">
+            <img src="./扇形导航IMG/close.png" alt="" title="close">
+            <img src="./扇形导航IMG/full.png" alt="" title="full">
+            <img src="./扇形导航IMG/open.png" alt="" title="open">
+            <img src="./扇形导航IMG/prev.png" alt=" " title="prev">
+            <img src="./扇形导航IMG/refresh.png" alt="" title="refresh">
+        </div>
+        <div id="home"></div>
+    </div>
+</body>
+</html>

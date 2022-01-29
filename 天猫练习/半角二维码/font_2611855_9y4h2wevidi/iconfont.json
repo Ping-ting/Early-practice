@@ -1,0 +1,23 @@
+{
+  "id": "2611855",
+  "name": "半角二维码",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "755615",
+      "name": "直角三角形",
+      "font_class": "zhijiao-triangle",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "993771",
+      "name": "二维码",
+      "font_class": "erweima",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    }
+  ]
+}

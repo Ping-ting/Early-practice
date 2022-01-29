@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>懒加载</title>
+    <style>
+        *{
+            margin: 0px;
+        }
+        #outer{
+            width: 500px;
+            margin: 0px auto;
+        }
+        #outer img{
+            display: block;
+            width: 500px;
+            height: 500px;
+            margin: 50px;
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var img = document.getElementsByTagName("img");
+            var h,s;
+            // 懒加载函数
+            function lazyLoad(img){
+                h = window.innerHeight;
+                s = document.body.scrollTop || document.documentElement.scrollTop;
+                //  遍历img 当offsetTop 小于可视区高度和滚动区高度时 
+                //  也就是进入了可视区  可以对src赋值
+                for( let i = 1 ; i < img.length + 1 ; i++)
+                {
+                    if(s + h > (i - 1)*500){
+                            img[i-1].style.display = "block";
+                            setTimeout(function(){
+                            img[i-1].src = "./模拟相册IMG/" + i + ".jpg";
+                            // img[i-1].style.display = "block";
+                        },2000)
+                    }
+                }
+            }
+            lazyLoad(img);
+            window.onscroll = function(){
+                lazyLoad(img);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <img alt="" src="./IMG/加载.png">
+        <img alt="" src="./IMG/加载.png">
+        <img alt="" src="./IMG/加载.png">
+        <img alt="" src="./IMG/加载.png">
+        <img alt="" src="./IMG/加载.png">
+        <img alt="" src="./IMG/加载.png">
+        <img alt="" src="./IMG/加载.png">
+        <img alt="" src="./IMG/加载.png">
+        <img alt="" src="./IMG/加载.png">
+        <img alt="" src="./IMG/加载.png">
+        <img alt="" src="./IMG/加载.png">
+        <img alt="" src="./IMG/加载.png">
+        <img alt="" src="./IMG/加载.png">
+        <img alt="" src="./IMG/加载.png">
+        <img alt="" src="./IMG/加载.png">
+        <img alt="" src="./IMG/加载.png">
+        <img alt="" src="./IMG/加载.png">
+        <img alt="" src="./IMG/加载.png">
+        <img alt="" src="./IMG/加载.png">
+        <img alt="" src="./IMG/加载.png">
+    </div>
+</body>
+</html>

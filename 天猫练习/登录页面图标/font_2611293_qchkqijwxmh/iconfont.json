@@ -1,0 +1,23 @@
+{
+  "id": "2611293",
+  "name": "天猫登录页面",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1621660",
+      "name": "锁",
+      "font_class": "suo",
+      "unicode": "e644",
+      "unicode_decimal": 58948
+    },
+    {
+      "icon_id": "5383817",
+      "name": "用户",
+      "font_class": "huabanfuben",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    }
+  ]
+}

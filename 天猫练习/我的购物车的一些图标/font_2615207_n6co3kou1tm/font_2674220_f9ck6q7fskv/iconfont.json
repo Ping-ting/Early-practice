@@ -1,0 +1,16 @@
+{
+  "id": "2674220",
+  "name": "我的购物车-笔",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "234102",
+      "name": "笔",
+      "font_class": "bi",
+      "unicode": "e6eb",
+      "unicode_decimal": 59115
+    }
+  ]
+}

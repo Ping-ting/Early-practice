@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘控制小球</title>
+    <style>
+        body{
+            background-color: #ccc;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            background-color: black;
+            border: 2px solid #fff;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload  =function(){
+            var box = document.getElementById("box")
+            var timer = null;
+            // body的宽高
+            var clientHeight = document.body.clientHeight;
+            // console.log(clientHeight,document.documentElement.clientHeight)
+            var clientWidth = document.body.clientWidth;
+            // 给document绑定键盘事件
+            // 按下移动
+            document.onkeydown = function(event){
+                clearInterval(timer)
+                timer  =setInterval(function(){
+                    // 对于不同的按键给出反应
+                    switch(event.keyCode){
+                        case 37://←
+                            if(box.offsetLeft > 0)
+                            {
+                                box.style.left = box.offsetLeft - 10 + 'px';
+                            }
+                            break;
+                        case 38://↑
+                            if(box.offsetTop > 0)
+                            {
+                                box.style.top = box.offsetTop - 10 + 'px';
+                            }
+                            break;
+                        case 39:// →
+                            if(clientWidth - box.clientWidth - box.offsetLeft > 0)
+                            {
+                                box.style.left = box.offsetLeft + 10 + 'px';
+                            }
+                            break;
+                        case 40:// ↓
+                            // 可以不需要设置下界
+                            box.style.top = box.offsetTop + 10 + 'px';
+                            break;
+                    }
+                },5)
+
+            }
+            // 放松消除
+            document.onkeyup = function () {
+                clearInterval(timer);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../code/CSS/reset.css">
+    <title>广告轮播</title>
+    <style>
+        #outer{
+            width: 950px;
+            height: 260px;
+            margin: 100px auto;
+            border: 4px solid rgb(100, 100, 100);
+            position: relative;
+            overflow: hidden;
+        }
+        #outer .tabs{
+            display: none;
+        }
+        #outer div{
+            height: 70px;
+            width: 260px;
+            position:absolute;
+            background-color: rgba(29, 29, 29, 0.8);
+            right: 0;
+        }
+        #outer div:hover{
+            cursor: pointer;
+            background-color: rgba(114, 114, 114, 0.6);
+        }
+        .bg1{
+            position:absolute;
+            top: 0;
+        }
+        .bg2{
+            position:absolute;
+            top: 65px;
+        }
+        .bg3{
+            top: 130px;
+        }
+        .bg4{
+            top: 195px;
+        }
+        dt{
+            height: 58px;
+        }
+        dt img{
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            position: relative;
+            top: 15px;
+            left: 10px;
+        }
+        dd{
+            height: 26px;
+            line-height: 26px;
+            position: relative;
+            top: -50px;
+            right: -60px;
+            font-size: 14px;
+        }
+        .title{
+            font-size: 14px;
+        }
+        .tp{
+            height: 0px;
+            display: block;
+        }
+        .tabs:checked + label>                div{
+            background-color: rgba(114, 114, 114, 0.6);
+            
+        }
+        input#tab1:checked ~ #img1{ height:260px; }
+		input#tab2:checked ~ #img2{ height:260px; }
+		input#tab3:checked ~ #img3{ height:260px; }
+		input#tab4:checked ~ #img4{ height:260px; }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <!-- 用label来绑定 -->
+        <input type="radio" name="tab" id="tab1" class="tabs" check="checked">
+        <label for="tab1">
+            <div class="bg1">
+                <dl class="dl1">
+                    <dt><img src="./广告轮播IMG/but1.png" alt=""></dt>
+                    <dd class="title">精选挑选，倾情推荐</dd>
+                    <dd>推荐精品应用，享受多彩上网</dd>
+                </dl>
+            </div>
+        </label>
+        <input type="radio" name="tab" id="tab2" class="tabs">
+        <label for="tab2">
+            <div class="bg2">
+                <dl class="dl2">
+                    <dt><img src="./广告轮播IMG/but2.png" alt=""></dt>
+                    <dd class="title">精选挑选，倾情推荐</dd>
+                    <dd>推荐精品应用，享受多彩上网</dd>
+                </dl>
+            </div>
+        </label>
+        <input type="radio" name="tab" id="tab3" class="tabs">
+        <label for="tab3">
+            <div class="bg3">
+                <dl class="dl3">
+                    <dt><img src="./广告轮播IMG/but3.png" alt=""></dt>
+                    <dd class="title">精选挑选，倾情推荐</dd>
+                    <dd>推荐精品应用，享受多彩上网</dd>
+                </dl>
+            </div>
+        </label>
+        <input type="radio" name="tab" id="tab4" class="tabs">
+        <label for="tab4">
+            <div class="bg4">
+                <dl class="dl4">
+                    <dt><img src="./广告轮播IMG/but4.png" alt=""></dt>
+                    <dd class="title">精选挑选，倾情推荐</dd>
+                    <dd>推荐精品应用，享受多彩上网</dd>
+                </dl>
+            </div>
+        </label>
+        <!-- 左边图片 -->
+        <img src="./广告轮播IMG/1.png" alt="" id="img1" class="tp">
+        <img src="./广告轮播IMG/2.png" alt="" id="img2" class="tp">
+        <img src="./广告轮播IMG/3.png" alt="" id="img3" class="tp">
+        <img src="./广告轮播IMG/4.png" alt="" id="img4" class="tp">
+
+    </div>
+</body>
+</html>

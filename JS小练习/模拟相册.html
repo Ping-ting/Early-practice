@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./3D轮播/font_2738935_dnzkh16ny4p/iconfont.css">
+    <link rel="stylesheet" href="../code/CSS/reset.css">
+    <title>模拟相册</title>
+    <style>
+        #outer{
+            width: 100%;
+            height: 1000px;
+            margin: 0 auto;
+            background-color: rgb(216, 232, 233);
+            position: relative;
+        }
+        .imgs li{
+            box-shadow: 2px 2px 5px #333;
+            display: inline-block;
+            margin: 10px 30px;
+            border-radius: 5px;
+        }
+        .imgs li img{
+            width: 200px;
+            height: 200px;
+            vertical-align: -3px;
+        }
+        #black{
+            width: 100%;
+            height:100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        #img{
+            width: 500px;
+            height: 500px;
+        }
+        #flag{
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            border: 10px solid #fff;
+            top: 12%;
+            left: 30%;
+        }
+        i{
+            color: rgb(218, 218, 218);
+            user-select: none;
+        }
+        #left,#right{
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            position: absolute;
+            top: 250px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 25px;
+        }
+        #left:hover,#right:hover{
+            background-color: rgba(44, 44, 44, 0.6);
+        }
+        #left{
+            left: -70px;
+        }
+        #right{
+            right: -70px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var outer = document.getElementById("outer");
+            var black = document.getElementById("black")
+            var flag = document.getElementById("flag")
+            var left = document.getElementById("left")
+            var right = document.getElementById("right")
+            var img = document.getElementById("img")
+            var imgs = outer.getElementsByTagName("img")
+            var cur = 0;
+            // 为每张图片绑定单击事件
+            for( let i = 0;i < imgs.length ;i++)
+            {
+                cur = i;
+                imgs[i].onclick = function(){
+                    black.style.display = "block";
+                    var src = imgs[i].src;
+                    img.src = src;
+                    console.log(img.src)
+                    return false;
+                }
+                // 点击向左按钮
+                left.onclick = function(){
+                    cur--;
+                    if(cur < 1) cur = 20;
+                    img.src = "./模拟相册IMG/" + cur + ".jpg";
+                }
+                // 点击向右按钮
+                right.onclick = function () {
+                    cur ++;
+                    if( cur > 20) cur = 1;
+                    img.src = "./模拟相册IMG/" + cur + ".jpg";
+                }
+                
+                // 点击esc消失  给键盘 ← → 加事件
+                addEventListener("keydown",(event) => {
+                    if(event.keyCode == 27)
+                    {
+                        black.style.display = "none";
+                    }
+                    else if(event.keyCode == 37)
+                    {
+                        cur--;
+                        if(cur < 1) cur = 20;
+                        img.src = "./模拟相册IMG/" + cur + ".jpg";
+                    }
+                    else if(event.keyCode == 39)
+                    {
+                        cur ++;
+                        if( cur > 20) cur = 1;
+                        img.src = "./模拟相册IMG/" + cur + ".jpg";
+                    }
+                })
+            }
+            
+        }
+    </script>
+
+</head>
+<body>
+    <div id="outer">
+        <div class="imgs">
+            <ul>
+                <li><a href=""><img src="./模拟相册IMG/1.jpg" alt=""></a></li>
+                <li><a href=""><img src="./模拟相册IMG/2.jpg" alt=""></a></li>
+                <li><a href=""><img src="./模拟相册IMG/3.jpg" alt=""></a></li>
+                <li><a href=""><img src="./模拟相册IMG/4.jpg" alt=""></a></li>
+                <li><a href=""><img src="./模拟相册IMG/5.jpg" alt=""></a></li>
+                <li><a href=""><img src="./模拟相册IMG/6.jpg" alt=""></a></li>
+                <li><a href=""><img src="./模拟相册IMG/7.jpg" alt=""></a></li>
+                <li><a href=""><img src="./模拟相册IMG/8.jpg" alt=""></a></li>
+                <li><a href=""><img src="./模拟相册IMG/9.jpg" alt=""></a></li>
+                <li><a href=""><img src="./模拟相册IMG/10.jpg" alt=""></a></li>
+                <li><a href=""><img src="./模拟相册IMG/11.jpg" alt=""></a></li>
+                <li><a href=""><img src="./模拟相册IMG/12.jpg" alt=""></a></li>
+                <li><a href=""><img src="./模拟相册IMG/13.jpg" alt=""></a></li>
+                <li><a href=""><img src="./模拟相册IMG/14.jpg" alt=""></a></li>
+                <li><a href=""><img src="./模拟相册IMG/15.jpg" alt=""></a></li>
+                <li><a href=""><img src="./模拟相册IMG/16.jpg" alt=""></a></li>
+                <li><a href=""><img src="./模拟相册IMG/17.jpg" alt=""></a></li>
+                <li><a href=""><img src="./模拟相册IMG/18.jpg" alt=""></a></li>
+                <li><a href=""><img src="./模拟相册IMG/19.jpg" alt=""></a></li>
+                <li><a href=""><img src="./模拟相册IMG/20.jpg" alt=""></a></li>
+            </ul>
+        </div>
+        <div id="black">
+            <div id="flag">
+                <div id="left"><i class="iconfont" style="font-size: 22px;">&#xe643;</i></div>
+                <div id="right"><i class="iconfont" style="display: block; transform: rotateY(180deg);font-size: 22px;">&#xe643;</i></div>
+                <img src="" alt="" id="img">
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

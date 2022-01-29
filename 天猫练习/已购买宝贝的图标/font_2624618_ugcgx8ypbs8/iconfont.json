@@ -1,0 +1,37 @@
+{
+  "id": "2624618",
+  "name": "已购买宝贝2",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1652457",
+      "name": "短信通道保护",
+      "font_class": "xinxi",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "2029343",
+      "name": "大于号",
+      "font_class": "dayuhao",
+      "unicode": "e702",
+      "unicode_decimal": 59138
+    },
+    {
+      "icon_id": "7898855",
+      "name": "大于号",
+      "font_class": "dayuhao1",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "19817534",
+      "name": "更  多",
+      "font_class": "gengduo",
+      "unicode": "e644",
+      "unicode_decimal": 58948
+    }
+  ]
+}

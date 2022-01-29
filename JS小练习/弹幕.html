@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹幕</title>
+    <style>
+        .outer{
+            width: 1200px;
+            height: 700px;
+            border-radius: 20px;
+            margin: 0 auto;
+            border: 2px solid #b2b2b2;
+        }
+        .screen-outer{
+            width: 100%;
+            height: 570px;
+            /* position: relative; */
+            overflow: hidden;
+        }
+        .foot-outer{
+            border-top: 2px solid #b2b2b2;
+        }
+        .foot-outer input{
+            display: block;
+            width: 300px;
+            height: 40px;
+            margin: 10px auto;
+            border-radius: 15px;
+            border:  2px #c8c3c3 solid;
+            outline: none;
+        }
+        .foot-outer p{
+            width: 490px;
+            display: block;
+            margin: 0 auto;
+        }
+        .foot-outer p button{
+            display: inline-block;
+            width: 140px;
+            height: 34px;
+            line-height: 30px;
+            background-color: #e2e2e2;
+            text-align: center;
+            border-radius: 17px;
+            margin: 10px;
+            color: #6e6e6e;
+            border:  2px #c8c3c3 solid;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        span{
+            width: auto;
+            height: auto;
+            display: inline;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="screen-outer">
+            
+        </div>
+        <div class="foot-outer">
+            <input type="text" name="" id="text">
+            <p>
+                <button id="submit">发送</button>
+                <button id="hidden">隐藏</button>
+                <button id="visible">显示</button>
+            </p>
+        </div>
+    </div>
+    <script>
+        var text = document.getElementById("text");
+        var submit = document.getElementById("submit");
+        var hidden = document.getElementById("hidden");
+        var visible = document.getElementById("visible");
+        var screen = document.getElementsByClassName("screen-outer")[0];
+        var spans = document.getElementsByTagName("span");
+        // 给hidden visible加单击事件
+        hidden.onclick = function () {
+            for(let  i = 0 ; i < spans.length ; i++)
+            {
+                spans[i].style.display = "none";
+            }
+        }
+        visible.onclick = function () {
+            for(let  i = 0 ; i < spans.length ; i++)
+            {
+                spans[i].style.display = "inline-block";
+            }
+        }
+        // 给submit加单击事件
+        submit.onclick = function () {
+            if( text.value === "")//为空时
+            {
+                alert("弹幕不可为空！！")
+            }
+            // 主体 
+                barrage();
+            // 清空输入框
+            text.value = "";
+        }
+        // 添加一个键盘事件
+        document.addEventListener("keydown",function(event){
+            // 如果按了回车键
+            if(event.keyCode == 13)
+            {
+                    if( text.value === "")//为空时
+                {
+                    alert("弹幕不可为空！！")
+                }
+                // 主体
+                barrage();
+                // 清空输入框
+                text.value = "";
+            }
+        })
+        // 生成一些随机的颜色
+        function randomColor(){
+            var arr = [];
+            for(var i = 0 ; i < 3 ;i++)
+            {
+                arr[i] = Math.round(Math.random()*(16-1)+1);
+            }
+            var color = "#" + arr[0].toString(16) + arr[1].toString(16) + arr[2].toString(16);
+            return color;
+        }
+        // console.log(randomColor(),typeof (randomColor()))
+        // 生成 m-n 之间的整数
+        function randomNum( m , n ){
+            return Math.round(Math.random()*( n - m ) + m );
+        }
+        // 添加弹幕函数
+        var lastRandom = 0 ;
+        var nowRandom;
+        function barrage()
+        {
+            // 创建新的span元素
+            var span = document.createElement("span");
+            span.innerText = text.value;
+            console.log(span.innerText);
+            // 随机颜色·
+            span.style.color = randomColor();
+            // 随机位置
+            nowRandom = randomNum(1,20);
+            if(lastRandom == nowRandom)
+            {
+                // 重新生成
+                nowRandom = randomNum(1,20)
+            }
+            span.style.top = nowRandom*26 + 'px';
+            lastRandom = nowRandom;
+            // 随机大小
+            span.style.fontSize = randomNum(12,18) + 'px';
+            span.style.right = 150 + 'px'
+            console.log(span.style.top,span.style.right)
+            // 加入
+            screen.appendChild(span);
+            var right = 150;
+            setInterval(() => {
+                right++;
+                span.style.right = right + 'px';
+                if(right > 1100)
+                {
+                    right = 150;
+                }
+            },5)
+        }
+        // 加一些默认的
+        var arrText = ["qdxee3fer","vbnqiruvhq","48716984kajcb","sxww","wc89c02834p","9732fgc9","0932qhhv","29  fgc2","rvg8397017v","f983qhbhbfc9q","ibvye78bc"]
+        var i = 0;
+        var time = setInterval(() => {
+            text.value = arrText[i];
+            barrage();
+            text.value = ""
+            i++;
+            if(i > 10)
+            {
+                clearInterval(time)
+            }
+        },200)
+    </script>
+</body>
+</html>

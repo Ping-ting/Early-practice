@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./01的图标/font_2721131_2jpcxgyfxvv/iconfont.css">
+    <title>随机报价器</title>
+    <style>
+        #outer{
+            background-color: #fff;
+            display: block;
+            width: 400px;
+            height: 150px;
+            margin: 300px auto;
+            padding: 20px;
+        }
+        #p1,#p2{
+            display: block;
+            text-align: center;
+            height: 28px;
+            line-height: 28px;
+        }
+        #i1,#i2{
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+            display: inline-block;
+            text-align: center;
+            margin: 70px 10px ;
+        }
+        #i3{
+            display: inline-block;
+            width: 100px;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            margin-left: 170px;
+            /* background-color: rgb(124, 170, 200); */
+        }
+        #i1,#i2,#i3{
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bgc">
+    <div id="outer">
+        <div id="p1" class="c">wxdsqauyfg27390r7y13hfc</div>
+        <div id="p2" class="c">cew9uyoilgqefvbciur</div>
+        <div class="foot">
+            <div id="i1" class="bgc"><i class="iconfont" >&#xe6e6;</i></div>
+            <div id="i2" class="bgc"><i class="iconfont" >&#xe6e6;</i></div>
+            <div id="i3" class="bgc">New quote</div>
+        </div>
+    </div>
+    <script>
+        //颜色数组
+        var colorArr = ["rgb(161, 129, 212)","rgb(199, 153, 153)","rgb(211, 147, 118)","rgb(154, 200, 124)","rgb(124, 170, 200)"]
+        //文本数组
+        var textArr = ["yuawbicl238909ryu8042yvb","y86ybq8wp4","gydg475xcwqi48ry3892y","hucdwqbyfhre","buyidqx4785vy8c"]
+        var colorIndex = Math.round(Math.random()*4);
+        var textIndex = colorIndex;
+        console.log(colorIndex);
+        var bgc = document.getElementsByClassName("bgc");
+        var c = document.getElementsByClassName("c");
+        for(var i = 0 ; i < bgc.length ; i++)
+            bgc[i].style.backgroundColor = colorArr[colorIndex]
+        for( var i = 0 ; i< c.length ;i++)
+        {
+            c[i].style.color = colorArr[colorIndex]
+        }
+        c[0].innerText = textArr[textIndex]
+        c[1].innerText = textArr[(textIndex+1)%4]
+            
+    </script>
+</body>
+</html>

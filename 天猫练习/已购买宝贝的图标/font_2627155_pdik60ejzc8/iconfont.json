@@ -1,0 +1,16 @@
+{
+  "id": "2627155",
+  "name": "已购买宝贝5",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "17553029",
+      "name": "三角下标（正方形）",
+      "font_class": "down",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}

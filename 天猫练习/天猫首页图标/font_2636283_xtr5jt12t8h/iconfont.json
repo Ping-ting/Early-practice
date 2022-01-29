@@ -1,0 +1,44 @@
+{
+  "id": "2636283",
+  "name": "天猫首页ad图标",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "10012511",
+      "name": "人民币",
+      "font_class": "fl-renminbi",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "11454643",
+      "name": "标签",
+      "font_class": "biaoqian",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "11867100",
+      "name": "向右",
+      "font_class": "xiangyou",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "16866289",
+      "name": "标签",
+      "font_class": "tag",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "21423426",
+      "name": "line-calendar check（日历完成）",
+      "font_class": "line-calendarcheckriliwancheng",
+      "unicode": "e6fb",
+      "unicode_decimal": 59131
+    }
+  ]
+}

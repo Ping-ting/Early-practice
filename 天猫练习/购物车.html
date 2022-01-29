@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淘宝网 - 我的购物车</title>
+    <!-- icon +  svg -->
+    <link rel="icon" href="./天猫img/我的购物车小logo.svg">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./我的购物车顶部导航图标/font_2612733_sd79bo0du0b/iconfont.css">
+    <link rel="stylesheet" href="./我的购物车顶部导航图标/font_2612764_v16m1af9rl/iconfont.css">
+    <link rel="stylesheet" href="./我的购物车顶部导航图标/font_2612833_ggst6g36856/">
+    <link rel="stylesheet" href="./图标/font_2598603_612v4ewdh3w/iconfont.css">
+    <link rel="stylesheet" href="./我的购物车顶部导航图标/font_2614732_nhec31hafgm/iconfont.css">
+    <link rel="stylesheet" href="./我的购物车顶部导航图标/font_2612833_3p4y2t31loe/iconfont.css">
+
+    <link rel="stylesheet" href="./我的购物车的一些图标/font_2615207_n6co3kou1tm/iconfont.css">
+    <link rel="stylesheet" href="./我的购物车的一些图标/font_2615207_n6co3kou1tm/font_2674220_f9ck6q7fskv/iconfont.css">
+    <style>
+        body
+        {
+            height: 1200px;
+        }
+        .clearfix::after
+        .clearfix::before
+        {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        /* 设置顶部导航条样式 */
+        .top-nav-outer
+        {
+            height: 35px;
+            width: 990px;
+            position: relative;
+            margin: 0px auto;
+            background-color: #f5f5f5;
+        }
+        .top-nav-wrapper
+        {
+            height: 35px;
+            width: 100%;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            
+        }
+        .nickname-outer,.phone,.home,.my-taobao-outer,.cart-outer,.favarite-outer,.classify,.free,.cow-outer,.contact-outer,.www-outer
+        {
+            display: inline-block;
+            text-align: center;
+            position: relative;
+            padding: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-left: 4px;
+        }
+        
+        /* 各块文字样式 */
+        .top-nav-outer a{
+            text-decoration: none;
+            font-size: 12px;
+            color: #6C6C6C;
+        }
+        .top-nav-outer a:hover{
+            color: #ff4400;
+        }
+        
+        /* 倒三角和竖杠 */
+        .top-nav-outer .tri{
+            display: inline-block;
+            font-size: 10px;
+            transform: scale(0.6);
+            color: #b4b2b2;
+        }
+        .top-nav-outer span
+        {
+            display: inline-block;
+            font-size: 10px;
+            color: #b4b2b2;
+        }
+        /*   左侧logo + 搜索框 */
+        .find-outer
+        {
+            width: 990px;
+            height: 45px;
+            margin: 0px auto;
+            padding: 20px 0px 40px 0px;
+            position: relative;
+        }
+        /* 左侧图片 */
+        .find-outer img
+        {
+            display: inline-block;
+            position: absolute;
+            width: 181px;
+            height: 45px;
+            left: 0px;
+        }
+        /* 右侧大容器 */
+        .find-wrapper{
+            float: right;
+            width: 515px;
+            height: 31px;
+            border: 2px solid #f50;
+            position: relative;
+        }
+        /* 左侧宝贝 */
+        .find-left{
+            /* display:inline-block; */
+            text-align: center;
+            width: 74px;
+            height: 31px;
+            background: #f5f5f5;
+            color: #6b6b6b;
+            font-weight: 400;
+            font-size: 12px;
+            border-right: 1px solid #e0d9d9;
+            float: left;
+            
+        }
+        /* 宝贝 */
+        .find-left span{
+            display: inline-block;
+            position:relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        /* 倒三角 */
+        .tri{
+            display: inline-block;
+            font-size: 10px;
+            transform: scale(0.6);
+            position:relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        /* 输入框框 */
+        .kuang
+        {
+            
+            float: left;
+            width:343px ;
+            height: 28px;
+            border: none;
+        }
+        /* 放大镜图标 */
+        .find-wrapper .ico-find{
+            display: inline-block;
+            color: #B0B0B0;
+            font-size: 18px;
+            position: absolute;
+            left: 16%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .find-wrapper button{
+            position: relative;
+            top: 0px;
+            right: -1px;
+            width: 93px;
+            height: 32px;
+            color: #fff;
+            background-color: #f50;
+            outline: none;
+            margin: 0;
+            padding: 0;
+            border:0px;  
+            outline: none;    
+            font-size: 20px;
+        }
+        li{
+            list-style: none;
+        }
+        /* 购物车主体导航条 */
+        /* 外部容器 */
+        .middle-nav-outer{
+            width: 990px;
+            margin: 0px auto;
+        }
+        /* 上部分容器 */
+        .middle-nav-top{
+            width: 100%;
+            height:33px;
+            border-bottom: 2px solid #e6e6e6;
+            overflow: visible;
+            position: relative;
+        }
+        /* 上部分四块 */
+        .middle-nav-top .one,.two,.three,.four{
+            display: inline-block;
+        }
+        .four div
+        {
+            display: inline-block;
+        }
+        /* 下部分 */
+        .middle-nav-bottom li
+        {
+            display: inline-block;
+            height: 50px;
+            line-height: 50px;
+            color: #3c3c3c;
+            padding: 0 0 0 10px;
+            font-size: 12px;
+        }
+        .middle-nav-bottom li:nth-child(2)
+        {
+            margin-left: 7%;
+            margin-right: 26%;
+        }
+        .middle-nav-bottom li:nth-child(3),.middle-nav-bottom li:nth-child(4),.middle-nav-bottom li:nth-child(5),.middle-nav-bottom li:nth-child(6)
+        {
+            width: 6%;
+            text-align: center;
+        }
+        .middle-nav-bottom li:nth-child(3){
+            margin-left: 4%;
+        }
+        .middle-nav-bottom li:nth-child(4)
+        {
+            margin-left: 4%;
+        }
+        .middle-nav-bottom li:nth-child(5)
+        {
+            margin-left: 4%;
+        }
+        .middle-nav-bottom li:nth-child(6)
+        {
+            margin-left: 3%;
+        }
+        /* 底部结算导航 */
+        .footer-outer
+        {
+            /* 设置定位于居中 */
+            position: fixed; 
+            z-index: 99;
+            bottom: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 990px;
+            width: 990px;
+            height: 50px;
+            overflow: hidden;
+            background: #e5e5e5;
+        }
+        .footer-outer li{
+            display: inline-block;
+            line-height: 50px;
+            color: #3c3c3c;
+            padding: 0 0 0 10px;
+            font-size: 12px;
+        }
+        .footer-outer p
+        {
+            display: inline-block;
+            color: #f50;
+            font-size: 20px;
+            font-weight: 900;
+        }
+        .footer-outer li:nth-child(2)
+        {
+            text-align: center;
+            width: 8%;
+        }
+        .footer-outer li:nth-child(3),.footer-outer li:nth-child(4)
+        {
+            text-align: center;
+            width: 8%;
+        }
+        .footer-outer li:nth-child(5)
+        {
+            margin-left: 20%;
+        }
+        .footer-outer li:nth-child(6)
+        {
+            margin-left: 3%;
+            margin-right: 3%;
+        }
+        .footer-outer button
+        {
+            display: inline-block;
+            position: absolute;
+            right: 0px;
+            width: 119px;
+            height: 100%;
+            background: #B0B0B0;
+            color: #fff;
+            border-left: 1px solid #e7e7e7;
+            height: 50px;
+            line-height: 50px;
+            font-size: 20px;
+        }
+        /* 右侧固定定位导航 */
+        .right-nav-outer
+        {
+            
+            width: 40px;
+            height: 81px;
+            position: fixed;
+            right: 5px;
+            top: 60%;
+            z-index: 999;
+        }
+        .top-outer,.bottom-outer{
+            position: relative;
+            display: inline-block;
+            width: 38px;
+            height: 38px;
+            
+        }
+        a{
+            text-decoration: none;
+        }
+        
+        .right-nav-outer i{
+            color: #b4b2b2;
+            line-height: 38px;
+        }
+        .right-nav-outer .two{
+            position: absolute;
+            top: 0px;
+            width: 38px;
+            height: 38px;
+            line-height: 20px;
+            font-size: 12px;
+            text-align: center;
+            color: #fff;
+            background-color:rgb(153, 151, 151);
+            /* display: none; */
+        }
+        .right-nav-outer .one{
+            position: absolute;
+            top: 0px;
+            display: inline-block;
+            width: 38px;
+            height: 38px;
+            text-align: center;
+            background: #f5f5f5;
+            border: 1px solid #ebebeb;
+            color: #3c3c3c;
+        }
+        .top-outer:hover .one
+        {
+            display: none;
+        }
+        .bottom-outer:hover .one
+        {
+            display: none;
+        }
+        /* 购物车主体导航条的上部分 */
+        .middle-nav-top .one,.middle-nav-top .two,.middle-nav-top .three{
+            display: inline-block;
+            font-weight: 700;
+            font-size: 16px;
+            height: 16px;
+            line-height: 1.1;
+            font-family: 'Hiragino Sans GB','Lantinghei SC','Microsoft Yahei',SimSun;
+            text-align: center;
+            padding: 0 0 15px 0;
+        }
+        .middle-nav-top div:nth-child(1)
+        {
+            color: #ff4400;
+        }
+        .middle-nav-top span{
+            font-size: 16px;
+            font-weight: 400;
+            color: #ff4400;
+        }
+        .middle-nav-top p{
+            display: inline-block;
+            width: auto;
+            font-size: 12px;
+            color:#3c3c3c;
+        }
+        .middle-nav-top .three:hover{
+            cursor:not-allowed;
+        }
+        .middle-nav-top .four {
+            float: right;
+        }
+        .middle-nav-top .four span{
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .middle-nav-top strong{
+            font-size: 12px;
+            font-weight: 100;
+            color: #B0B0B0;
+        }
+        .middle-nav-top .four button{
+            font-size: 12px;
+            border-radius: 2px;
+            width: 55px;
+            height: 25px;
+            background-color:#b4b2b2;
+            color: #fff;
+        }
+        /* 某家店铺加购商品块 */
+        .store-outer{
+            width: 990px;
+            
+            margin: 0px auto;
+        }
+        /* 店铺名称条条 */
+        .store-id-outer{
+            width: 100%;
+            line-height: 38px;
+            padding-left: 10px;
+        }
+        /* 设置文字呀 */
+        .store-id-outer span,.coupon-outer div,.coupon-outer span,li span,li p,li a{
+            text-decoration: none;
+            line-height: 38px;
+            color: #3c3c3c;
+            font-size: 12px;
+        } 
+        /* 商品容器 */
+        .goods-outer
+        {
+            width: 988px;
+            /* height: 1000px; */
+            border: 1px solid #cccccc;
+        }
+        .coupon-outer
+        {
+            width: 988px;
+            height: 28px;
+            border-bottom: 1px solid #e8e8e8;
+            padding: 0px 0px 0px 40px;
+            position: relative;
+            display: table-cell;
+            vertical-align:middle ;
+            
+        }
+        /* 优惠券样式 */
+        .coupon-outer img{
+            display:inline-block;
+            vertical-align: -2px;
+            width: 56px;
+            height: 16px;
+            margin-right: 1%;
+            
+        }
+        .coupon-outer span{
+            display: inline-block;
+        }
+        .goods-outer li{
+            width: 988;
+            height: 119px;
+            position: relative;
+            border-bottom: 1px solid #e8e8e8;
+            background-color: #fcfcfc;
+            padding: 0px 0px 0px 18px;
+        }
+        .goods-outer li img{
+            width: 90px;
+        }
+        .goods-outer li .choice-kuang{
+            display: inline-block;
+            position: relative;
+            top: -66px;
+            margin-right: 10px;
+        }
+        .describe{
+            width: 30%;
+            display: inline-block;
+            padding-top: 20px;
+        }
+        .describe span{
+            width: 55%;
+            line-height: 18px;
+            float: right;
+        }
+        .describe span:hover,.other-outer a:hover{
+            color: #f50;
+            text-decoration:underline solid #f50;
+        }
+        .goods-outer p{
+            display: inline-block;
+        }
+        /* 尺码样式 */
+        .kind{
+            display: inline-block;
+            box-sizing: border-box;
+            width: 20%;
+            height: 90%;
+            border: 1px #fff dotted;
+            position: relative;
+            padding-left: 20px;
+            top: -60px;
+            
+        }
+        li:hover .kind .bi{
+            display: inline-block;
+        }
+        li:hover .kind{
+            border: 1px rgb(221, 211, 211) dashed;
+        }
+        
+        li .kind:hover{
+            border: 1px #f40 dashed;
+        }
+        li .kind:hover .bi{
+            display: none;
+        }
+        li .kind:hover .change{
+            display: inline-block;
+        }
+        .kind p{
+            display: inline-block;
+            width: 80%;
+            height: 20px;
+            color: #9c9c9c;
+            font-size: 14x;
+        }
+        /* 价格,数量，金额 */
+        .price{
+            width: 11%;
+            display: inline-block;
+            position: relative;
+        }
+        .all{
+            width: 10%;
+            display: inline-block;
+            position: relative;
+        }
+        .count{
+            width: 12%;
+            display: inline-block;
+            position: relative;
+        }
+        .count p{
+            text-align: center;
+            line-height: 24px;
+            width: 34px;
+            height: 24px;
+            display: inline-block;
+            position: absolute;
+            border: 1px #aca7a7 solid;
+            border-radius: 2px;
+            top: -80px;
+        }
+        .price p,.all p{
+            position: absolute;
+            top:-90px;
+            font-size: 12px;
+            font-weight: 600;
+            
+        }
+        .price i,.all i{
+            font-size: 12px;
+        }
+        .price p,.price i{
+            color: #3c3c3c;
+        }
+        .all p,.all i{
+            color: #f50;
+        }
+        /* 操作 */
+        .other-outer{
+            display: inline-block;
+            width: 12%;
+            height: 100%;
+            position: absolute;
+            top: 10px;
+        }
+        .other-outer a{
+            display: inline-block;
+            position: relative;
+            height: 20px;
+            width: 100%;
+        }
+        .other-outer a:nth-child(3){
+            display: none;
+        }
+        .other-outer a:nth-child(3) i{
+            display: none;
+        }
+        .other-outer a:nth-child(3):hover i{
+            display: inline-block;
+        }
+        li:hover .other-outer a:nth-child(3)
+        {
+            display: inline-block;
+        }
+        /* 红色条条 */
+        .middle-nav-top .red-strip{
+            display: inline-block;
+            width: 132px;
+            height: 2px;
+            background: #f40;
+            position: absolute;
+            bottom: -2px;
+            left: 0px;
+            
+        }
+        /* 给红色条条加动态 */
+        .middle-nav-top .two:hover ~.red-strip{
+            
+            animation:change1 8s infinite ease-in-out  ;
+        }
+        .middle-nav-top .three:hover ~.red-strip{
+            animation:change2 8s infinite ease-in-out  ;
+        } 
+        @keyframes change1{
+            0%,5%{
+                transform: translateX(1px);
+            }
+            5%,100%{
+                transform: translateX(132px);
+                }
+        }
+        @keyframes change2{
+            0%,5%{
+                transform: translateX(135px);
+            }
+            5%,100%{
+                transform: translateX(265px);
+                }
+        }
+        /* 商品kind中的笔和修改样式 */
+        li .kind .bi{
+            display: inline-block;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            z-index: 999;
+            background-color: #d6d6d6;
+            width:20px ;
+            height: 20px;
+            display: none;
+        }
+        li .kind .change{
+            display: inline-block;
+            width: 35px;
+            height: 20px;
+            line-height: 20px;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            background-color: #f40;
+            font-size: 12px;
+            text-align: center;
+            color: #f5f5f5;
+            font-weight: 200;
+            display: none;
+        }
+        .show-outer{
+            display: inline-block;
+            width: 990px;
+            min-width: 990px;
+            height: 350px;
+            margin: 30px auto;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            /* overflow: hidden; */
+        }
+        .show-nav{
+            width: 980px;
+            height: 30px;
+            line-height: 40px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0dddd;
+            position: relative;
+        }
+        .show-nav a{
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            color: #5c5858;
+            font-weight: 600;
+            width: 110px;
+            top: -10px;
+            
+        }
+        .show-nav a:last-child{
+            color: #f40;
+            border-bottom: 2px solid #f40;
+        }
+        /* .show-foot-outer{
+            width: 980px;
+            height: 30px;
+            margin-top: 40px;
+            position: relative;
+        }
+        .show-foot{
+            display: inline-block;
+            width: auto;
+            position: relative;
+            left: 50%;
+            transform:translateX(-50%);
+            margin: 0px auto;
+        }
+        .show-foot a{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            background-color: #e7e7e7;
+            margin-right: 8px;
+        }
+        .show-foot a:active{
+            background-color: #f40;
+        }
+        .show-wrapper
+        {
+            width: 5000px;
+        }
+        .show{
+            width: 990px;
+            overflow: hidden;
+        } */
+        .show-outer li{
+            display: inline-block;
+            position: absolute;
+            width: 990px;
+            height: 1px;
+        }
+        .show-outer li div{
+            display: none;
+            width: 990px;
+            height: 300px;
+        }
+        li>label{
+            position: absolute;
+            top: 320px;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            background-color: #e7e7e7;
+        }
+        li:nth-child(2)>label{
+            left: 380px;
+        }
+        li:nth-child(3)>label{
+            left: 420px;
+        }
+        li:nth-child(4)>label{
+            left: 460px;
+        }
+        li:nth-child(5)>label{
+            left: 500px;
+        }
+        li:nth-child(6)>label{
+            left: 540px;
+        }
+        li>label:active{
+            background-color: #f40;
+        }
+        li>input{
+            display: none;
+        }
+        li>input:checked~div{
+            display: inline-block;
+        }
+        .show-outer li div a{
+            display: inline-block;
+            width: 184px;
+            height: 295px;
+            border: 2px solid transparent;
+            margin-right: 5px;
+            background-color: #fff;
+        }
+        .show-outer li div a:hover{
+            cursor: pointer;
+            border: 2px solid #f40;
+        }
+        .show-outer li div a img{
+            width: 180px;
+        }
+        .show-outer li div a p:nth-child(2){
+            font-size: 24px;
+            height: 36px;
+            line-height: 24px;
+            text-align: center;
+            font-weight: 600;
+            color: #f40;
+        }
+        .show-outer li div a p:nth-child(3)
+        {
+            color: #353434;
+            line-height: 24px;
+            font-size: 14px;
+            text-align: left;
+        }
+        .show-outer li div a p:nth-child(4)
+        {
+            color: #6c6c6c;
+            line-height: 22px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .show-outer li div a p:nth-child(5)
+        {
+            height: 15px;
+            line-height: 20px;
+            color: #6c6c6c;
+            font-size: 12px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <div class="top-nav-wrapper">
+        <div class="top-nav-outer">
+        
+        <div class="nickname-outer">
+            <a href="" class="nickname" style="vertical-align: -3px;">娉婷</a>
+            <i class=" tri iconfont" style="vertical-align: -2px;">&#xe646;</i>
+        </div>
+        <a href="" class="phone">手机逛淘宝</a>
+        <a href="" class="home">淘宝逛首页</a>
+        <div class="my-taobao-outer">
+            <a href="" class="my-taobao" style="vertical-align: -3px; ">我的淘宝</a>
+            <i class="tri iconfont" style="vertical-align: -3px; ">&#xe646;</i>
+        </div>
+        <div class="cart-outer">
+            <a href="" class="cart"><i class="iconfont" style="color: #ff4400; font-size: 12px;">&#xe600;&nbsp;</i>购物车<i class="iconfont" style=" font-size: 12px; color: #ff4400;font-weight: 700;">30</i> </a>
+            <i class="tri iconfont">&#xe646;</i>
+        </div>
+        <div class="favarite-outer">
+            <a href="" class="favorite" style="vertical-align: -3px; "><i class="iconfont" style="color: #b4b2b2; font-size: 12px;">&#xe61a;&nbsp;</i>收藏夹</a>
+            <i class="tri iconfont" style="vertical-align: -3px; ">&#xe646;</i>
+        </div>
+        <a href="" class="classify">商品分类</a>
+        <a href="" class="free">免费开店&nbsp;&nbsp;<span>|</span></a>
+        
+        <div class="cow-outer">
+            <a href="" class="cow" style="vertical-align: -3px; ">千牛卖家中心</a>
+            <i class="tri iconfont" style="vertical-align: -3px; ">&#xe646;</i>
+        </div>
+        <div class="contact-outer">
+            <a href="" class="contact" style="vertical-align: -3px; ">联系客服</a>
+            <i class="tri iconfont" style="vertical-align: -3px; ">&#xe646;</i>
+        </div>
+        <div class="www-outer">
+            <i class="iconfont" style="vertical-align: -3px; color: #ff4400; font-size: 12px;">&#xe62a;</i>
+            <a href="" style="vertical-align: -3px; ">网站导航</a>
+            <i class="tri iconfont" style="vertical-align: -3px; ">&#xe646;</i>
+        </div>
+    </div>
+    </div>
+    <!-- 左侧logo + 搜索框 -->
+    <div class="find-outer">
+        <img src="./天猫img/购物车左侧大logo.png" alt="">
+        <div class="find-wrapper">
+            <div class="find-left">
+                <span>宝贝&nbsp;&nbsp;</span>
+                <i class="tri iconfont">&#xe646;</i>
+            </div>
+            <i class="iconfont ico-find">&#xe634;</i>
+            <input type="text" class="kuang" style=" outline: none;" placeholder="">
+            <button style=" outline: none;">&nbsp;&nbsp;搜&nbsp;索</button>
+        </div>
+    </div>
+    <!-- 购物车主体导航条 -->
+    <div class="middle-nav-outer">
+        <!-- 上部分 -->
+        <div class="middle-nav-top">
+            <div class="one">全部商品&nbsp;<span> 105</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>|</strong> </div>
+            <div class="two">&nbsp;&nbsp;&nbsp;降价商品&nbsp;<span> 0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>|</strong> </div>
+            <div class="three">&nbsp;&nbsp;&nbsp;库存紧张&nbsp;<span> 0</span>&nbsp;&nbsp;&nbsp;</div>
+            <div class="four">
+                <p>已选商品（不含运费）</p>
+                <span>0.00</span>
+                <button style=" outline: none; border: 0px;">结&nbsp;算</button>
+            </div>
+            <div class="red-strip"></div>
+        </div>
+        <!-- 下部分 -->
+        <div class="middle-nav-bottom">
+            <li><input type="checkbox" style="color: #3c3c3c;">&nbsp;&nbsp;全选</li>
+            <li>商品信息</li>
+            <li>单价</li>
+            <li>数量</li>
+            <li>金额</li>
+            <li>操作</li>
+        </div>
+    </div>
+    <!-- 底部结算固定导航条-->
+    <div class="footer-outer">
+        <li><input type="checkbox" style="color: #3c3c3c;">&nbsp;&nbsp;全选</li>
+        <li>删除</li> 
+        <li>清除失效宝贝</li>
+        <li>移入收藏夹</li>
+        <li>已选商品&nbsp;<p>0</p>&nbsp;件</li>
+        <li>合计（不含运费）：&nbsp;&nbsp;<p>0.00</p></li>
+        <button style=" outline: none; border: 0px;">结&nbsp;算</button>
+    </div>
+    <!-- 右侧固定小导航 -->
+    <div class="right-nav-outer">
+        <a href="#" class="top-outer clearfix">
+            <div class="two">回到<br>顶部</div>
+            <div class="one"><i class="iconfont">&#xe602;</i></div>
+            
+        </a>
+        <a href="" class="bottom-outer clearfix">
+            <div class="two">我要<br>反馈</div>
+            <div class="one"><i class="iconfont">&#xe61b;</i></div>
+            
+        </a>
+    </div>
+    <!-- 某家店铺购买的衣服 -->
+    <div class="store-outer">
+        <!-- 店铺id条 -->
+        <div class="store-id-outer">
+            <input type="checkbox" style="color: #3c3c3c;">
+            <i class="iconfont" style="color: rgb(212, 188, 48); font-size: 25px; vertical-align: -3px;">&#xe68c;</i>
+            <span>店铺：&nbsp;奶兔星球&nbsp;Milk&nbsp;Rabbit</span>
+        </div>
+        <!-- 商品外部容器 -->
+        <div class="goods-outer">
+            <!-- 满减条 -->
+            <div class="coupon-outer">
+                <img src="./我的购物车的一些图片/跨店满减.png" alt="">
+                <span>6.16-6.20每满199减20，可跨店</span>
+            </div>
+            <!-- 商品栏 -->
+            <!-- 第一个商品 -->
+            <li>
+                <div class="describe">
+                    <input class="choice-kuang" type="checkbox" style="color: #3c3c3c;">
+                    <a href="">
+                        <img src="./我的购物车的一些图片/我的购物车商品图片01.jpg" alt="">
+                        <span>奶兔星球-自制 童年纸飞机短袖t恤女日系宽松背面印花</span>
+                    </a>
+                </div>
+                <div class="kind">
+                    <p>尺码：M</p>
+                    <p>主要颜色：&nbsp;黑色[现货]</p>
+                    <div class="bi"><i class="iconfont" style="color: #f5f5f5;font-size: 14px;">&nbsp;&#xe6eb;</i></div>
+                    <div class="change">修改</div>
+                </div>
+                <div class="price">
+                    <p><i class="iconfont">&#xe66b;</i>61.75</p>
+                    
+                </div>
+                <div class="count">
+                    <p>1</p>
+                </div>
+                <div class="all">
+                    <p><i class="iconfont">&#xe66b;</i>61.75</p>
+                </div>
+                <div class="other-outer">
+                    <a href="">移入收藏夹</a>
+                    <a href="">删除</a>
+                    <a href="">相似宝贝<i class="tri iconfont" style="color: #f40;font-size: 12px; transform: scale(0.5);position: relative;top: 0px; ">&#xe646;</i></a>
+                </div>
+            </li>
+            <!-- 第二个商品 -->
+            <li>
+                <div class="describe">
+                    <input class="choice-kuang" type="checkbox" style="color: #3c3c3c;">
+                    <a href="">
+                        <img src="./我的购物车的一些图片/我的购物车商品图片02.jpg" alt="" ">
+                        <span>奶兔星球-自制 “等周日”大版复古卡通频道T恤宽松印花短袖女夏</span>
+                    </a>
+                </div>
+                <div class="kind">
+                    <p>尺码：L</p>
+                    <p>主要颜色：&nbsp;奶酪黄[预售]</p>
+                    <div class="bi"><i class="iconfont" style="color: #f5f5f5;font-size: 14px;">&nbsp;&#xe6eb;</i></div>
+                    <div class="change">修改</div>
+                </div>
+                <div class="price">
+                    <p><i class="iconfont">&#xe66b;</i>65.00</p>
+                    
+                </div>
+                <div class="count">
+                    <p>2</p>
+                </div>
+                <div class="all">
+                    <p><i class="iconfont">&#xe66b;</i>130.00</p>
+                </div>
+                <div class="other-outer">
+                    <a href="">移入收藏夹</a>
+                    <a href="">删除</a>
+                    <a href="">相似宝贝<i class="tri iconfont" style="color: #f40;font-size: 12px; transform: scale(0.5);position: relative;top: 0px; ">&#xe646;</i></a>
+                </div>
+            </li>
+            <li>
+                <div class="describe">
+                    <input class="choice-kuang" type="checkbox" style="color: #3c3c3c;">
+                    <a href="">
+                        <img src="./我的购物车的一些图片/我的购物车商品图片03.jpg" alt="">
+                        <span>奶兔星球-自制 薄款西装长裤宽松妥地看女垂感夏季裤子</span>
+                    </a>
+                </div>
+                <div class="kind">
+                    <p>尺码：L</p>
+                    <p>主要颜色：&nbsp;粉色[预售]</p>
+                    <div class="bi"><i class="iconfont" style="color: #f5f5f5;font-size: 14px;">&nbsp;&#xe6eb;</i></div>
+                    <div class="change">修改</div>
+                </div>
+                <div class="price">
+                    <p><i class="iconfont">&#xe66b;</i>128.00</p>
+                    
+                </div>
+                <div class="count">
+                    <p>1</p>
+                </div>
+                <div class="all">
+                    <p><i class="iconfont">&#xe66b;</i>128.00</p>
+                </div>
+                <div class="other-outer">
+                    <a href="">移入收藏夹</a>
+                    <a href="">删除</a>
+                    <a href="">相似宝贝<i class="tri iconfont" style="color: #f40;font-size: 12px; transform: scale(0.5);position: relative;top: 0px; ">&#xe646;</i></a>
+                </div>
+            </li>
+        </div>
+    </div>
+    <!-- 底下手动轮播图 -->
+    <div class="show-outer">
+        <div class="show-nav">
+            <a href="" >掌柜热卖<span style="color: #cccccc;font-size: 14px;font-weight: 200;display: inline-block;margin-left: 10px;">|</span></a>
+            <a href="" >最近收藏的<span style="color: #cccccc;font-size: 14px;font-weight: 200;display: inline-block;margin-left: 10px;">|</span></a>
+            <a href="" >最近浏览过的<span style="color: #cccccc;font-size: 14px;font-weight: 200;display: inline-block;margin-left: 10px;">|</span></a>
+            <a href="" >猜你喜欢的</a>
+        </div>
+        <li>
+            
+            <label for="show1"></label>
+            <input type="radio" name="dian" id="show1">
+            <div style="background-color: #fff;display: inline-block;">
+                <a href="" tabindex="1">
+                    <img src="./我的购物车的一些图片/手动轮播01.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>229<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>李潇洒微胖mm复古赫本风裙</p>
+                    <p>月销 1726</p>
+                    <p>最近已购买 1726件</p>
+                </a>
+                <a href="">
+                    <img src="./我的购物车的一些图片/手动轮播01.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>229<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>李潇洒微胖mm复古赫本风裙</p>
+                    <p>月销 1726</p>
+                    <p>最近已购买 1726件</p>
+                </a>
+                <a href="">
+                    <img src="./我的购物车的一些图片/手动轮播01.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>229<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>李潇洒微胖mm复古赫本风裙</p>
+                    <p>月销 1726</p>
+                    <p>最近已购买 1726件</p>
+                </a>
+                <a href="">
+                    <img src="./我的购物车的一些图片/手动轮播01.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>229<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>李潇洒微胖mm复古赫本风裙</p>
+                    <p>月销 1726</p>
+                    <p>最近已购买 1726件</p>
+                </a>
+                <a href="" style="margin-right: 0px;">
+                    <img src="./我的购物车的一些图片/手动轮播01.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>229<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>李潇洒微胖mm复古赫本风裙</p>
+                    <p>月销 1726</p>
+                    <p>最近已购买 1726件</p>
+                </a>
+            </div>
+        </li>
+        <li>
+            <label for="show2"></label>
+            <input type="radio" name="dian" id="show2">
+            <div style="background-color: #fff;">
+                <a href="" tabindex="1">
+                    <img src="./我的购物车的一些图片/手动轮播02.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>209<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>碎花修身连衣裙</p>
+                    <p>月销 2226</p>
+                    <p>最近已购买 2226件</p>
+                </a>
+                <a href="" tabindex="1">
+                    <img src="./我的购物车的一些图片/手动轮播02.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>209<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>碎花修身连衣裙</p>
+                    <p>月销 2226</p>
+                    <p>最近已购买 2226件</p>
+                </a>
+                <a href="" tabindex="1">
+                    <img src="./我的购物车的一些图片/手动轮播02.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>209<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>碎花修身连衣裙</p>
+                    <p>月销 2226</p>
+                    <p>最近已购买 2226件</p>
+                </a>
+                <a href="" tabindex="1">
+                    <img src="./我的购物车的一些图片/手动轮播02.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>209<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>碎花修身连衣裙</p>
+                    <p>月销 2226</p>
+                    <p>最近已购买 2226件</p>
+                </a>
+                <a href="" tabindex="1">
+                    <img src="./我的购物车的一些图片/手动轮播02.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>209<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>碎花修身连衣裙</p>
+                    <p>月销 2226</p>
+                    <p>最近已购买 2226件</p>
+                </a>
+            </div>
+        </li>
+        <li>
+            <label for="show3"></label>
+            <input type="radio" name="dian" id="show3">
+            <div style="background-color: #fff;">
+                <a href="" tabindex="1">
+                    <img src="./我的购物车的一些图片/手动轮播03.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>79.9<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>棉麻宽松休闲裤夏季舒适</p>
+                    <p>月销 108</p>
+                    <p>最近已购买 108件</p>
+                </a>
+                <a href="" tabindex="1">
+                    <img src="./我的购物车的一些图片/手动轮播03.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>79.9<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>棉麻宽松休闲裤夏季舒适</p>
+                    <p>月销 108</p>
+                    <p>最近已购买 108件</p>
+                </a>
+                <a href="" tabindex="1">
+                    <img src="./我的购物车的一些图片/手动轮播03.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>79.9<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>棉麻宽松休闲裤夏季舒适</p>
+                    <p>月销 108</p>
+                    <p>最近已购买 108件</p>
+                </a>
+                <a href="" tabindex="1">
+                    <img src="./我的购物车的一些图片/手动轮播03.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>79.9<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>棉麻宽松休闲裤夏季舒适</p>
+                    <p>月销 108</p>
+                    <p>最近已购买 108件</p>
+                </a>
+                <a href="" tabindex="1">
+                    <img src="./我的购物车的一些图片/手动轮播03.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>79.9<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>棉麻宽松休闲裤夏季舒适</p>
+                    <p>月销 108</p>
+                    <p>最近已购买 108件</p>
+                </a>
+            </div>
+        </li>
+        <li>
+            <label for="show4"></label>
+            <input type="radio" name="dian" id="show4">
+            <div style="background-color: #fff;">
+                <a href="" tabindex="1">
+                    <img src="./我的购物车的一些图片/手动轮播04.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>149<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>背带裙学院风宽松夏季</p>
+                    <p>月销 368</p>
+                    <p>最近已购买 368件</p>
+                </a>
+                <a href="" tabindex="1">
+                    <img src="./我的购物车的一些图片/手动轮播04.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>149<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>背带裙学院风宽松夏季</p>
+                    <p>月销 368</p>
+                    <p>最近已购买 368件</p>
+                </a>
+                <a href="" tabindex="1">
+                    <img src="./我的购物车的一些图片/手动轮播04.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>149<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>背带裙学院风宽松夏季</p>
+                    <p>月销 368</p>
+                    <p>最近已购买 368件</p>
+                </a>
+                <a href="" tabindex="1">
+                    <img src="./我的购物车的一些图片/手动轮播04.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>149<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>背带裙学院风宽松夏季</p>
+                    <p>月销 368</p>
+                    <p>最近已购买 368件</p>
+                </a>
+                <a href="" tabindex="1">
+                    <img src="./我的购物车的一些图片/手动轮播04.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>149<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>背带裙学院风宽松夏季</p>
+                    <p>月销 368</p>
+                    <p>最近已购买 368件</p>
+                </a>
+            </div>
+        </li>
+        <li>
+            <label for="show5"></label>
+            <input type="radio" name="dian" id="show5">
+            <div style="background-color: #fff;">
+                <a href="" tabindex="1">
+                    <img src="./我的购物车的一些图片/手动轮播05.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>49.9<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>辣妹短上衣扎染风夏</p>
+                    <p>月销 1198</p>
+                    <p>最近已购买 1198件</p>
+                </a>
+                <a href="" tabindex="1">
+                    <img src="./我的购物车的一些图片/手动轮播05.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>49.9<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>辣妹短上衣扎染风夏</p>
+                    <p>月销 1198</p>
+                    <p>最近已购买 1198件</p>
+                </a>
+                <a href="" tabindex="1">
+                    <img src="./我的购物车的一些图片/手动轮播05.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>49.9<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>辣妹短上衣扎染风夏</p>
+                    <p>月销 1198</p>
+                    <p>最近已购买 1198件</p>
+                </a>
+                <a href="" tabindex="1">
+                    <img src="./我的购物车的一些图片/手动轮播05.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>49.9<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>辣妹短上衣扎染风夏</p>
+                    <p>月销 1198</p>
+                    <p>最近已购买 1198件</p>
+                </a>
+                <a href="" tabindex="1">
+                    <img src="./我的购物车的一些图片/手动轮播05.jpg" alt="">
+                    <p><span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span><i class="iconfont" style="font-size: 23px;">&#xe66b;</i>49.9<span style="font-size: 22px;color: #d6d6d6;font-weight: 200;">-----</span></p>
+                    <p>辣妹短上衣扎染风夏</p>
+                    <p>月销 1198</p>
+                    <p>最近已购买 1198件</p>
+                </a>
+            </div>
+        </li>
+        <!-- <div class="show" >
+            <div class="show-wrapper">
+                <img src="./我的购物车的一些图片/手动轮播图01.png" alt="" id="show1" style="width: 990px;">
+                <img src="./我的购物车的一些图片/手动轮播02.png" alt="" id="show2" style="width: 990px;">
+                <img src="./我的购物车的一些图片/手动轮播03.png" alt="" id="show3" style="width: 990px;">
+                <img src="./我的购物车的一些图片/手动轮播04.png" alt="" id="show4" style="width: 990px;">
+                <img src="./我的购物车的一些图片/手动轮播05.png" alt="" id="show5" style="width: 990px;">
+            </div>
+        </div>
+        <div class="show-foot-outer">
+            <div class="show-foot">
+                <a href="#show1"></a>
+                <a href="#show2"></a>
+                <a href="#show3"></a>
+                <a href="#show4"></a>
+                <a href="#show5"></a>
+            </div>
+        </div> -->
+        
+    </div>
+</body>
+</html>

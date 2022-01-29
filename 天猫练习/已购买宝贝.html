@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./天猫img/我的购物车小logo.svg">
+    <title>已买到的宝贝</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./已购买宝贝的图标/font_2624190_yamgr3dpr2i/iconfont.css">
+    <link rel="stylesheet" href="./已购买宝贝的图标/font_2624618_ugcgx8ypbs8/iconfont.css">
+    <link rel="stylesheet" href="./已购买宝贝的图标/font_2624743_evldd4bkq5d/iconfont.css">
+    <link rel="stylesheet" href="./已购买宝贝的图标/font_2627106_x2df86a2mt/iconfont.css">
+    <link rel="stylesheet" href="./已购买宝贝的图标/font_2627155_pdik60ejzc8/iconfont.css">
+    <style>
+        .clearfix::after,
+        .clearfix::before{
+            content: ' ';
+            display: table;
+            clear: both;
+        }
+        .top-nav-outer{
+            height: 36px;
+            background: #ff4401;
+            padding: 12px 0;
+            position: relative;
+            z-index: 5;
+            border-bottom: 1px #e7e7e7 solid;
+            overflow: hidden;
+            min-width: 990px;
+        }
+        .top-nav-outer a{
+            text-decoration: none;
+            text-align: center;
+            padding: 0 25px;
+            color: #fff;
+            height: 50px;
+            float: left;
+            font: 400 14px/36px tahoma;
+        }
+        .top-nav-outer button{
+            display: inline-block;
+            text-indent: 0;
+            font-size: 12px;
+            color: #666;
+            background: #f5f5f5;
+            height: 27px;
+            width: 72px;
+            border-left: 1px solid #d9d9d9;
+            border: 0px;
+            border-radius: 0px 2px 2px 0px;
+            margin-top: 1%;
+        }
+        .top-nav-outer input{
+            outline: none;
+            position: relative;
+            right: -5px;
+            border-top: 0;
+            border-width: 0px;
+            border-radius: 2px 0px 0px 2px;
+            padding: 5px 3px 4px 0px;
+            background-position: 0 -40px;
+            background-color: #fff;
+            width: 259px;
+            height: 18px;
+            
+        }
+        .top-nav-outer .find-outer{
+            width: auto;
+            float: right;
+            transform: translateX(-10%);
+        }
+        /* 主体部分外部容器 */
+        .main-outer{
+            /* background-color: rgb(199, 207, 207); */
+            width: 990px;
+            min-width: 990px;
+            min-height: 10px;
+            margin: 0 auto;
+            padding: 25px 0 40px 0;
+        }
+        li{
+            list-style: none;
+        }
+        /* 主体部分左边 */
+        .main-outer .main-left-outer{
+            float: left;
+            width: 110px;
+            
+        }
+        .main-left-outer p{
+            font-size: 15px;
+            line-height: 28px;
+            margin: 5px 10px 1px 0;
+            color: #f40;
+            display: block;
+            margin: 5px 0px 1px 2px;
+        }
+        .main-left-outer a{
+            display: block;
+            overflow: hidden;
+            text-decoration: none;
+            line-height: 28px;
+            color: #000;
+            height: 28px;
+            font-size: 12px;
+            padding-left: 3px;
+            
+        }
+        .main-left-outer a:hover{
+            color: #f40;
+        }
+        /* 主体部分右边 */
+        .main-right-outer
+        {
+            width: 870px;
+            float: right;
+            overflow: hidden;
+        }
+        /* 主体部分右边 导航条*/
+        .main-right-outer .right-nav{
+            width: 100%;
+            height: 30px;
+            margin: 22px 0px;
+            border-bottom: 2px solid #e8e8e8;
+            position: relative;
+            
+        }
+        .right-nav a,.show-nav a{
+            display: inline-block;
+            padding: 0px 20px 12px 20px;
+            font-size: 16px;
+            font-weight: 700;
+            font-family: Microsoft YaHei;
+            text-decoration: none;
+            color: #3c3c3c;
+            
+        }
+        .right-nav a:hover{
+            color: #ff6000;
+        }
+        .recover{
+            float: right;
+            height: 15px;
+            
+            
+        }
+        .recover a,.recover i{
+            font-size: 12px;
+            color: #6c6c6c;
+            font-weight: 400;
+            
+        }
+        .right-nav .red-strip{
+            display: inline-block;
+            width: 104px;
+            height: 2px;
+            background: #f40;
+            position: absolute;
+            bottom: -2px;
+            left: 0px;
+        }
+        /* 右侧中部搜索框 */
+        .main-right-outer .find-outer{
+            width: 100%;
+            height: 26px;
+            margin-bottom: 20px;
+        }
+        /* 左侧搜素部分 */
+        .main-right-outer .find-outer .find-wrapper
+        {
+            display: inline-block;
+        }
+        /* 文本输入框 */
+        .main-right-outer .find-outer .find-wrapper input{
+            width: 234px;
+            box-sizing: border-box;
+            padding: 4px 8px;
+            margin: 1px;
+            display: inline-block;
+            height: 26px;
+            vertical-align: middle;
+            border: 1px solid #bfbfbf;
+            outline: none;
+            font-size: 12px;
+            border-radius: 2px;
+            margin-right: -6px;
+        }
+        /* 按钮框 */
+        .main-right-outer .find-outer .find-wrapper button{
+            box-sizing: border-box;
+            width: 82px;
+            display: inline-block;
+            height: 26px;
+            vertical-align: middle;
+            border: 1px solid #bfbfbf;
+            margin-right: 12px;
+            color: #3c3c3c;
+            font-size: 12px;
+        }
+        /* 右侧更多 */
+        .main-right-outer .find-outer .more{
+            display: inline-block;
+            font-size: 12px;
+            color: #6c6c6c;
+            font-weight: 400;
+        }
+        /*右侧订单导航条 上部分  */
+        .order-nav{
+            width: 100%;
+            margin-bottom:12px;
+        }
+        .order-nav-top{
+            box-sizing: border-box;
+            width: 100%;
+            height: 40px;
+            margin: 10px 0px;
+            background-color: #f5f5f5;
+            border: 1px solid #e8e8e8;
+            text-align: center;
+            
+        }
+        /* 整体设置部分样式 */
+        .order-nav-top div{
+            height: 38px;
+            display: inline-block;
+            padding: 5px 0px;
+            line-height: 28px;
+            text-decoration: none;
+            color: #3c3c3c;
+            font-weight: 400;
+            font-size: 12px;
+            text-align: center;
+        }
+        .order-nav-top a{
+            box-sizing: border-box;
+            height: 24px;
+            display: inline-block;
+            line-height: 24px;
+            text-decoration: none;
+            color: #3c3c3c;
+            font-weight: 400;
+            font-size: 12px;
+            text-align: center;
+        }
+        /* 单独小个样式 */
+        .order-nav-top div:nth-child(1)
+        {
+            width: 310px;
+        }
+        .order-nav-top div:nth-child(2)
+        {
+            width: 87px;
+        }
+        .order-nav-top div:nth-child(3)
+        {
+            width: 43.5px;
+        }
+        .order-nav-top div:nth-child(4)
+        {
+            width: 104.5px;
+        }
+        .order-nav-top div:nth-child(5)
+        {
+            width: 104px;
+        }
+        .order-nav-top div:nth-child(6)
+        {
+            width: 114px;
+        }
+        .order-nav-top a{
+            width: 85.5px;
+            border: 1px solid transparent;
+        }
+        .order-nav-top a:hover{
+            border: 1px solid rgb(160, 158, 158);
+            border-radius: 2px;
+        }
+        /* 下部分 */
+        .order-nav-foot span,.order-nav-foot div{
+            display: inline-block;
+            color: #3c3c3c;
+            font-weight: 400;
+            font-size: 12px;
+            text-align: center;
+        }
+        .order-nav-foot .some
+        {
+            display: inline-block;
+            width: 96px;
+            height: 22px;
+            line-height: 22px;
+            padding: 0px 12px;
+            margin-left: 20px;
+            background-color: #fff;
+            border: 1px solid #dcdcdc;
+            border-radius: 2px;
+        }
+        .order-nav-foot a{
+            line-height: 22px;
+            color: #3c3c3c;
+            font-weight: 400;
+            font-size: 12px;
+            text-align: center;
+            text-decoration: none;
+        }
+        .order-nav-foot .next,.order-nav-foot .last{
+            float: right;
+            height: 22px;
+            padding: 0px 12px;
+            background-color: #fff;
+            border: 1px solid #dcdcdc;
+            border-radius: 2px;
+            margin-left: 8px;
+        }
+        .order-nav-foot .next:hover,.order-nav-foot .last:hover,.order-nav-foot .some:hover{
+            border: 1px solid #f40;
+            color: #f40;
+        }
+        /* 固定小蜜蜂的样式 */
+        .bee-outer{
+            width: 120px;
+            height: 100px;
+            display: inline-block;
+            position: fixed;
+            right: 20px;
+            top: 400px;
+        }
+        .bee-outer .bee-img img{
+            width: 61px;
+            height: 84px;
+            position: absolute;
+            z-index: 1;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -70px;
+        }
+        .bee-outer .bee-box{
+            box-sizing: border-box;
+            width: 120px;
+            height: 100px;
+            background: #fff;
+            border: 2px solid #ffb300;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px 0 rgb(0 0 0 / 30%);
+            position: relative;
+            z-index: 2;
+        }
+        .bee-box .bee-foot{
+            display: block;
+            width: 100%;
+            height: 22px;
+            line-height: 22px;
+            margin: 0;
+            padding: 5px 0 3px 0px;
+            border: 0;
+            border-radius: 0 0 6px 6px;
+            background: #ffb300;
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+            text-decoration: none;
+            position: absolute;
+            bottom: 0px;
+            font-weight: 500;
+        }
+        .bee-box .bee-top{
+            display: inline-block;
+            width: 100%;
+            position: absolute;
+            bottom: 28px;
+        }
+        .bee-top a{
+            text-decoration: none;
+            display: inline-block;
+            width: 106px;
+            height:18px ;
+            line-height: 18px;
+            padding: 5px;
+            color: #333;
+            font-size: 12px;
+            transition: .3s;
+            text-align: center;
+        }
+        .bee-top a:nth-child(2)
+        {
+            background: #fff8e8;
+        }
+        .bee-top a:hover{
+            background-color: #faeccb;
+        }
+        /* 订单块 */
+        .good-outer{
+            box-sizing: border-box;
+            width: 870px;
+            height: 334px;
+            border: 1px solid #ececec;
+            margin-bottom: 30px;
+        }
+        .good-outer:hover{
+            border: 1px solid #bdb9b9;
+        }
+        .good-nav{
+            height: 38px;
+            width: 100%;
+            background-color:#f5f5f5;
+            border-bottom: 1px solid #ececec;
+        }
+        .good-nav .all div{ 
+            display: inline-block;
+            color: #3c3c3c;
+            font: 12px/1.5 tahoma,arial,Hiragino Sans GB,\\5B8B\4F53,sans-serif;
+        }
+        .good-nav .all{
+            box-sizing: border-box;
+            display: inline-block;
+            width: 330px;
+            height: 100%;
+            padding: 10px 0px 10px 10px;
+        }
+        .good-nav .store-name{
+            display: inline-block;
+            margin-left: 50px;
+            width: 70px;
+            height: 18px;
+            line-height: 18px;
+            overflow: hidden;
+            color: #3c3c3c;
+            text-align: right;
+            vertical-align: -2px;
+            text-decoration: none;
+            font: 12px/1.5 tahoma,arial,Hiragino Sans GB,\\5B8B\4F53,sans-serif;
+        }
+        .good-nav .store-name ~ span{
+            color: #3c3c3c;
+        }
+        .good-nav .store-name:hover{
+            color: #f40;
+        }
+        .good-nav .store-name:hover~span{
+            color: #f40;
+        }
+        .good-nav a{
+            text-decoration: none;
+        }
+        .good-nav .touch{
+            display: inline-block;
+            margin: 0 30px;
+            text-align: center;
+            width: 67px;
+            height: 20px;
+            background-image: url(./已购买宝贝img/已购买宝贝-和我联系.gif);
+            background-size: 180%;
+        }
+        .good-nav i{
+            width: 40px;
+            float: right;
+            height:38px;
+            padding: 10px 0px;
+        }
+        .good-nav .flag,.good-nav .relay{
+            display: none;
+        }
+        .good-outer:hover .flag{
+            display: inline-block;
+            width: 40px;
+            float: right;
+            height:38px;
+            padding: 2px 0px;
+        }
+        .good-outer:hover .flag,.good-outer:hover .relay{
+            display: inline-block;
+            width: 40px;
+            float: right;
+            height:38px;
+            padding: 2px 0px;
+        }
+        .good-main{
+            width: 100%;
+        }
+        /* 左侧  l1 */
+        .good-left{
+            display: inline-block;
+            width: 564px;
+            float: left;
+        }
+        .good-left .l1{
+            width: 544px;
+            height: 80px;
+            border-bottom: 1px solid #ececec;
+            padding: 18.5px 0px 18.5px 20px;
+            position: relative;
+        }
+        .good-left .l1 .l1-1{
+            display: inline-block;
+        }
+        .good-left .l1 .l1-2{
+            display: inline-block;
+            width: 210px;
+            height: 80px;
+            position: relative;
+            top: -35px;
+            
+        }
+        
+        .good-left .l1 .l1-1 img{
+            width: 80px;
+            height: 80px;
+            margin-right: 10px;
+            display: inline-block;
+        }
+        .good-left .l1 .l1-2 p{
+            position: relative;
+            top: 10px;
+            display: inline-block;
+            
+        }
+        .good-main a,.good-main p,.good-main div{
+            color: #3c3c3c;
+            text-decoration: none;
+            line-height: 16px;
+            font-size: 12px;
+        }
+        .good-main a:hover,.l3 a:hover{
+            color: #f40;
+        }
+        .good-left .l1 .l1-3{
+            display: inline-block;
+            width: 77px;
+            height: 80px;
+            margin-left: 20px;
+            text-align: center;
+            vertical-align: top;
+            
+        }
+        .good-left .l1 .l1-4{
+            display: inline-block;
+            width: 43px;
+            height: 80px;
+            text-align: center;
+            vertical-align: top;
+        }
+        .good-left .l1 .l1-5{
+            display: inline-block;
+            position: relative;
+            top: -25px;
+            width: 89px;
+            height: 70px;
+        }
+        .good-left .l1 .l1-5 a,.good-right .r2 a,.good-right .r2 p,.good-right .r3 a,.good-right .r1 a,.good-right .r1 p{
+            line-height: 22px;
+            text-align: center;
+            display: block;
+        }    
+        /* 保险服务 */
+        .good-left .l3{
+            width: 100%;
+            height: 53px;
+            position: relative;
+            
+        }
+        .good-left .l3 a{
+            display: inline-block;
+            margin-left: 20px;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .good-left .l3 span{
+            display: inline-block;
+            margin-left: 50%;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+         /*右侧 */
+        .good-right{
+            
+            width: 303px;
+            float: right;
+        }
+        .good-right .r1{
+            border-left: 1px solid #ececec;
+            display: inline-block;
+            position: relative;
+            top: -29px;
+            width: 100px;
+            height: 279px;
+            padding-top: 15px;
+        }
+        .good-right .r3
+        {
+            border-left: 1px solid #ececec;
+            display: inline-block;
+            position: relative;
+            top: -22px;
+            width: 100px;
+            height: 276px;
+            padding-top: 20px;
+        }
+        .good-right .r2{
+            display: inline-block;
+            position: relative;
+            top: -29px;
+            width: 89px;
+            height: 276px;
+            border-left: 1px solid #ececec;
+            padding-top: 20px;
+        }
+        .good-right .r3 a:first-child
+        {
+            display: inline-block;
+            width: 24px;
+            height: 28px;
+            font-weight: 600;
+            border: 1px solid #dcdcdc;
+            line-height: 26px;
+            padding: 0 12px;
+            border-radius: 3px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            
+        }
+        .good-right .r3 a:first-child:hover{
+            border: 1px solid #f40;
+        }
+        /* 顶部导航三角 */
+        .top-nav-outer .tri{
+            position: absolute;
+            bottom: -5px;
+            left: 223px;
+        }
+        /* 底部分页栏 */
+        .paging-outer {
+            width: 870px;
+            height: 35px;
+            position: relative;
+        }
+        .paging{
+            width: auto;
+            height: 35px;
+            position: absolute;
+            right: 0px;
+            
+        }
+        .paging-outer li{
+            display: inline-block;
+            width: 33px;
+            height: 33px;
+            line-height: 33px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 12px;
+            color: #3c3c3c;
+        }
+        .paging-outer a:last-child{
+            color: #3c3c3c;
+        }
+        .paging-outer li:nth-child(1),.paging-outer li:nth-child(2),.paging-outer li:nth-child(3),.paging-outer li:nth-child(4),.paging-outer li:nth-child(5),.paging-outer li:nth-child(6),.paging-outer li:nth-child(8),.paging-outer li:nth-child(9),.paging-outer li:nth-child(12),.paging-outer li:nth-child(14)
+        {
+            border: 1px solid #e8e8e8;
+        }
+        .paging-outer li:nth-child(1):hover,.paging-outer li:nth-child(3):hover,.paging-outer li:nth-child(4):hover,.paging-outer li:nth-child(5):hover,.paging-outer li:nth-child(6):hover,.paging-outer li:nth-child(8):hover,.paging-outer li:nth-child(9):hover,.paging-outer li:nth-child(14):hover
+        {
+            color: #f40;
+            border-color: #f40;
+        }
+        .paging-outer li:hover i{
+            text-decoration: #f40;
+            color: #f40;
+        }
+        .paging-outer i,.show-foot i{
+            font-size: 10px;
+            color: #e8e8e8;
+            display: inline-block; 
+            transform: scale(0.7);
+        }
+        .paging-outer a{
+            text-decoration: none;
+        }
+        .paging-outer li:hover a{
+            color: #f40;
+        }
+        .paging-outer li:last-child{
+            border-radius: 4px;
+        }
+        .paging-outer li:nth-child(12):hover{
+            border-color:skyblue;
+        }
+        /* 轮播图样式 */
+        .show-outer{
+            display: inline-block;
+            width: 990px;
+            min-width: 990px;
+            height: 600px;
+            margin: 30px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .show-outer .show1-outer{
+            width: 100%;
+            height: 400px;
+            
+        }
+        .show-outer li{
+            display: inline-block;
+            box-sizing: border-box;
+            width: 232px;
+            height: 392px;
+            margin-right: 11px;
+            padding: 4px;
+            border: 1px solid #e5e5e5;
+            background-color: #fff;
+        }
+        .show-outer li a:nth-child(1){
+            display: inline-block;
+            position: relative;
+            width: 222px;
+            height: 222px;
+        }
+        .show-outer li img{
+            display: inline-block;
+            position: relative;
+            width: 210px;
+            height: 210px;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        .show-outer li a:nth-child(2){
+            display: inline-block;
+            width: 222px;
+            height: 77px;
+            margin: 3px 0px;
+            background: #ff8b00;
+        }
+        .show-outer li a:nth-child(2) p:nth-child(1)
+        {
+            display: inline-block;
+            text-align: center;
+            margin: 7px 10px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 24px;
+            color: #fff;
+            overflow: hidden;
+            display: block;
+            font-weight: bold;
+        }
+        .show-outer li a:nth-child(2) p:nth-child(2){
+            margin: 5px 10px;
+            height: 22px;
+            line-height: 22px;
+            font-size: 14px;
+            font-weight: normal;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            display: block;
+        }
+        .show-outer li a{
+            text-decoration: none;
+        }
+        
+        .show1-outer,.show2-outer,.show3-outer,.show4-outer,.show5-outer,.show6-outer{
+            position: absolute;
+        }
+        /* 添加轮播动画 */
+        .show5-outer{
+            animation: change5 40s infinite linear;
+        }
+        @keyframes change5{
+            0%,18%{
+                opacity: 1;
+                /* top: 83px; */
+            }
+            20%,100%{
+                opacity: 0;
+                top: -400px;
+                
+            }
+            
+        }
+        .show4-outer{
+            animation: change4 40s infinite linear;
+        }
+        @keyframes change4{
+            0%,38%{
+                /* top: 83px; */
+                opacity: 1;
+            }
+            40%,100%{
+                opacity: 0;
+                top: -400px;
+
+                
+            }
+            
+        }
+        .show3-outer{
+            animation: change3 40s infinite linear;
+        }
+        @keyframes change3{
+            0%,58%{
+                opacity: 1;
+                /* top: 83px; */
+            }
+            60%,100%{
+                
+                opacity: 0;
+                top: -400px;
+
+                
+            }
+            
+        }
+        .show2-outer{
+            animation: change2 40s infinite linear;
+        }
+        @keyframes change2{
+            0%,78%{
+                opacity: 1;
+                /* top: 83px; */
+            }
+            80%,100%{
+                
+                opacity: 0;
+                top: -400px;
+                
+            }
+            
+        }
+        .show1-outer{
+            animation: change1 40s infinite linear;
+        }
+        @keyframes change1{
+            0%,96%{
+                /* top: 83px; */
+                opacity: 1;
+            }
+            98%,100%{
+                
+                opacity: 0;
+                /* top: -400px; */
+                
+            }
+        }
+        .show-nav{
+            width: 980px;
+            height: 30px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0dddd;
+            position: relative;
+        }
+        .show-nav a{
+            position: relative;
+            border-bottom: 2px solid #f40;
+            top: -4px;
+        }
+        .show-foot-outer{
+            width: 980px;
+            height: 30px;
+            /* background-color: #ffb300; */
+            margin-top: 450px;
+            position: relative;
+        }
+        .show-foot{
+            display: inline-block;
+            width: auto;
+            position: relative;
+            left: 50%;
+            transform:translateX(-50%);
+            /* background-color: aquamarine; */
+            margin: 0px auto;
+        }
+        .show-foot div{
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e7e7e7;
+            margin-right: 8px;
+        }
+        .show-foot a{
+            display: inline-block;
+            padding: 0px 5px;
+            height: 20px;
+            line-height: 20px;
+            vertical-align: middle;
+            color: #acacac;
+            border: 1px solid #bfbfbf;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 2px;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        .show-foot a:nth-child(6):hover,.show-foot a:nth-child(7):hover{
+            
+            color: #f40;
+        }
+        .show-foot div:nth-child(1)
+        {
+            animation: switch1 20s infinite linear;
+        }
+        .show-foot div:nth-child(2)
+        {
+            animation: switch2 20s infinite linear;
+        }
+        .show-foot div:nth-child(3)
+        {
+            animation: switch3 20s infinite linear;
+        }
+        .show-foot div:nth-child(4)
+        {
+            animation: switch4 20s infinite linear;
+        }
+        .show-foot div:nth-child(5)
+        {
+            animation: switch5 20s infinite linear;
+        }
+        @keyframes switch1{
+            0%,1%{
+                background-color: #e7e7e7;
+            }
+            1%,20%{
+                background-color: #f40;
+            }
+            20%,21%{
+                background-color: #e7e7e7;
+            }
+        }
+        @keyframes switch2{
+            20%,21%{
+                background-color: #e7e7e7;
+            }
+            21%,40%{
+                background-color: #f40;
+            }
+            40%,41%{
+                background-color: #e7e7e7;
+            }
+        }
+        @keyframes switch3{
+            40%,41%{
+                background-color: #e7e7e7;
+            }
+            41%,60%{
+                background-color: #f40;
+            }
+            60%,61%{
+                background-color: #e7e7e7;
+            }
+        }
+        @keyframes switch4{
+            60%,61%{
+                background-color: #e7e7e7;
+            }
+            61%,80%{
+                background-color: #f40;
+            }
+            80%,81%{
+                background-color: #e7e7e7;
+            }
+        }
+        @keyframes switch5{
+            80%,81%{
+                background-color: #e7e7e7;
+            }
+            81%,98%{
+                background-color: #f40;
+            }
+            98%,99%{
+                background-color: #e7e7e7;
+            }
+        }
+        .show1-outer li:hover{
+            border: 2px solid #ff8b00;
+            padding: 3px;
+        }
+        .show2-outer li:hover{
+            border: 2px solid rgb(70, 105, 180);
+            padding: 3px;
+        }
+        .show3-outer li:hover{
+            border: 2px solid rgb(196, 61, 173);
+            padding: 3px;
+        }
+        .show4-outer li:hover{
+            border: 2px solid rgb(233, 192, 139);
+            padding: 3px;
+        }
+        .show5-outer li:hover,.show6-outer li:hover{
+            border: 2px solid rgb(82, 197, 139);
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <div class="top-nav-outer">
+        <!-- 左边我的淘宝图片 -->
+        <a  href=""><img style="width: 140px; height: 32px;" src="./已购买宝贝img/我的淘宝图像.png" alt=""></a>
+        <a href="" class="top1">首页</a>
+        <a href="" class="top2">账户设置<i class="iconfont"></i></a>
+        <div class="find-outer">
+            <input style="text-align: 10px;"type="text" name="" id="">
+            <button>搜索</button>
+        </div>
+        <!-- 倒三角 -->
+        <i class="iconfont tri" style="color: #fff; font-size: 15px;">&#xe600;</i>
+    </div>
+    <!-- 主体部分 -->
+    <div class="main-outer clearfix">
+        <!-- 左侧 -->
+        <div class="main-left-outer">
+            <p>全部功能</p>
+            <li><a href="">我的购物车</a></li>
+            <li><a href="" style="color: #f40;">已买到的宝贝&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont" style="font-size: 10px; display: inline-block;transform: scale(0.7);color: #9e9e9e;">&#xe609;</i></a></li>
+            <li><a href="" style="padding-left: 11px;">我的拍卖</a></li>
+            <li><a href="" style="padding-left: 11px;">机票酒店保险</a></li>
+            <li><a href="" style="padding-left: 11px;">我的彩票</a></li>
+            <li><a href="" style="padding-left: 11px;">官方集运</a></li>
+            <li><a href="">购买过的店铺</a></li>
+            <li><a href="">我的发票&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont" style="font-size: 10px; display: inline-block;transform: scale(0.7);color: #9e9e9e;">&#xe609;</i></a></li>
+            <li><a href="">我的收藏</a></li>
+            <li><a href="">我的积分</a></li>
+            <li><a href="">我的优惠信息</a></li>
+            <li><a href="">评价管理</a></li>
+            <li><a href="">退款维权&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="iconfont" style="font-size: 10px; display: inline-block;transform: scale(0.7);color: #9e9e9e;">&#xe609;</i></a></li>
+            <li><a href="">我的足迹</a></li>
+            <li><a href="">流量钱包</a></li>
+        </div>
+        <!-- 右侧 -->
+        <div class="main-right-outer">
+            <!-- 右侧上部导航栏 -->
+            <div class="right-nav">
+                <a href="" class="right-nav-each" style="color: #ff6000;">所有订单</a><span style="color: #e8e8e8; font-size: 14px; font-weight: 100;">|</span>
+                <a href="" class="right-nav-each">待付款</a><span style="color: #e8e8e8; font-size: 14px; font-weight: 100;">|</span>
+                <a href="" class="right-nav-each">待发货&nbsp;<span style="color: #ff6000; font-weight: 400;">2</span></a><span style="color: #e8e8e8; font-size: 14px; font-weight: 100;">|</span>
+                <a href="" class="right-nav-each">待收货&nbsp;<span style="color: #ff6000; font-weight: 400;">4</span></a><span style="color: #e8e8e8; font-size: 14px; font-weight: 100;">|</span>
+                <a href="" class="right-nav-each">待评价</a><span style="color: #e8e8e8; font-size: 14px; font-weight: 100;">|</span>
+                <a href="" class="right-nav-each" style="font-size: 14px;">分阶段</a>
+                <div class="recover" style="padding: 0px 0px 12px 0px;">
+                    <i class="iconfont">&#xe60f;</i>
+                    <a href="">订单回收站</a>
+                </div>
+                <div class="red-strip"></div>
+            </div>
+            <!-- 右侧中部分的搜索框 -->
+            <div class="find-outer">
+                <div class="find-wrapper">
+                    <input style="text-align: 10px;" type="text" name="" id="" placeholder="输入商品标题或订单进行搜索">
+                    <button>订单搜索</button>
+                </div>
+                <div class="more">更多筛选条件<i class="iconfont" style="font-size: 10px; display: inline-block;transform: scale(0.7);">&#xe609;</i></div>
+            </div>
+            <!-- 右侧订单导航条 -->
+            <div class="order-nav">
+                <!-- 上部分 -->
+                <div class="order-nav-top">
+                    <div>宝贝</div>
+                    <div>单价</div>
+                    <div>数量</div>
+                    <div>商品操作</div>
+                    <div>实付款</div>
+                    <a href="">交易状态<i class="iconfont" style="font-size: 10px; display: inline-block;transform: scale(0.7);">&#xe609;</i></a>
+                    <div>交易操作</div>
+                </div>
+                <!-- 下部分 -->
+                <div class="order-nav-foot">
+                    <input type="checkbox" style="vertical-align: -2px;">
+                    <span>全选</span>
+                    <a href="" class="some">批量确认收货</a>
+                    <a href="" class="last">下一页</a>
+                    <a href="" class="next">上一页</a>
+                </div>
+            </div>
+            <!-- 订单信息1 -->
+            <div class="good-outer clearfix">
+                <!-- 商品导航 -->
+                <div class="good-nav clearfix">
+                    <div class="all clearfix">
+                        <input type="checkbox" style="vertical-align: -2px;">
+                        <div class="time" style="font-weight: 800;">2021-06-15</div>
+                        <div class="num">&nbsp;订单号: 1328339209338110290</div>
+                    </div>
+                    <a href=""class="store-name" style="vertical-align: -4px;">羡小鲜茶叶旗舰店</a><span style="font-size: 12px; vertical-align: 0px;">...</span>
+                    <a href=""class="touch"></a>
+                    <a href=""class="bin"><i class="iconfont" style="color:lightslategrey;font-size: 16px;">&#xe60f;</i></a>
+                    <a href=""class="flag"><i class="iconfont" style=" color:lightgray;font-size: 16px;">&#xe6b8;</i></a>
+                    <a href=""class="relay"><i class="iconfont"style="display: none; color:lightslategrey;font-size: 18px; " >&#xe628;</i></a>
+                </div>
+                <!-- 商品主体内容 --> 
+                <!-- 订单1 -->
+                <div class="good-main">
+                    <div class="good-left">
+                        <div class="l1">
+                            <a href="" class="l1-1"><img src="./已购买宝贝img/已购买宝贝-蜜桃乌龙.jpg" alt=""></a>
+                            <div class="l1-2">
+                                <a href="">蜜桃白桃乌龙茶花果茶冷跑茶包桂花茉莉袋泡茶泡水饮品水果叶包&nbsp;</a><a href="">[交易快照]</a> 
+                                <p style="color:#9e9e9e ;">种类：茉莉花茶茶包【罐装50包】</p>
+                            </div>
+                            <div class="l1-3"><i class="iconfont" style="font-size: 7px; font-weight: 200; transform: scale(0.7); display: inline-block;">&#xe648;</i>58.80</div>
+                            <div class="l1-4">1</div>
+                            <div class="l1-5">
+                                <a href="">申请售后</a>
+                                <a href="">投诉商家</a>
+                                <a href="">退运保险</a>
+                            </div>
+                        </div>
+                        <div class="l1">
+                            <a href="" class="l1-1"><img src="./已购买宝贝img/已购买宝贝-金桔柠檬.jpg" alt=""></a>
+                            <div class="l1-2">
+                                <a href="">金桔柠檬百香果茶水果茶包纯水果干花茶冷泡茶泡水冲泡果茶叶包</a><a href="">[交易快照]</a> 
+                                <p style="color:#9e9e9e ;">种类：金桔百香果茶【罐装25包】</p>
+                            </div>
+                            <div class="l1-3"><i class="iconfont" style="font-size: 7px; font-weight: 200; transform: scale(0.7); display: inline-block;">&#xe648;</i>24.80</div>
+                            <div class="l1-4">1</div>
+                            <div class="l1-5">
+                                <a href="">申请售后</a>
+                                <a href="">投诉商家</a>
+                                <a href="">退运保险</a>
+                            </div>
+                        </div>
+                        <div class="l3">
+                            <a href="">保险服务</a>
+                            <span><i class="iconfont" style="font-size: 7px; font-weight: 200; transform: scale(0.7); display: inline-block;">&#xe648;</i>0.00</span>
+                        </div>
+                    </div>
+                    <div class="good-right">
+                        <div class="r1">
+                            <p><i class="iconfont" style="font-size: 7px; font-weight: 200; transform: scale(0.7); display: inline-block;">&#xe648;</i>83.60</p>
+                            <p>(含运费：<i class="iconfont" style="font-size: 7px; font-weight: 200; transform: scale(0.7); display: inline-block;">&#xe648;</i>0.00)</p>
+                            <a href=""><img src="./已购买宝贝img/已购买宝贝-手机订单.png" alt=""></a>
+                        </div>
+                        <div class="r2">
+                            <p>交易成功</p>
+                            <a href="">订单详情</a>
+                            <a href="">查看物流</a>
+                        </div>
+                        <div class="r3">
+                            <a href="" >评价</a>
+                            <a href="">再次购买</a>
+                            <a href="">申请开票</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 订单2 -->
+                
+            </div>
+            <!-- 订单信息2 -->
+            <div class="good-outer clearfix">
+                <!-- 商品导航 -->
+                <div class="good-nav clearfix">
+                    <div class="all clearfix">
+                        <input type="checkbox" style="vertical-align: -2px;">
+                        <div class="time" style="font-weight: 800;">2021-06-12</div>
+                        <div class="num">&nbsp;订单号: 1325233993448110290</div>
+                    </div>
+                    <a href=""class="store-name" style="vertical-align: -4px;">蒙马特 Mentmate</a><span style="font-size: 12px; vertical-align: 0px;">...</span>
+                    <a href=""class="touch"></a>
+                    <a href=""class="bin"><i class="iconfont" style="color:lightslategrey;font-size: 16px;">&#xe60f;</i></a>
+                    <a href=""class="flag"><i class="iconfont" style="color:lightgray;font-size: 16px;">&#xe6b8;</i></a>
+                    <a href=""class="relay"><i class="iconfont"style="color:lightslategrey;font-size: 18px; " >&#xe628;</i></a>
+                </div>
+                <!-- 商品主体内容 --> 
+                <!-- 订单1 -->
+                <div class="good-main">
+                    <div class="good-left">
+                        <div class="l1">
+                            <a href="" class="l1-1"><img src="./已购买宝贝img/已购买宝贝-福黑.jpg" alt=""></a>
+                            <div class="l1-2">
+                                <a href="">蒙马特先生&nbsp;五福临门幻影重叠印花T恤衫男女情侣宽松百搭短袖tee&nbsp;</a><a href="">[交易快照]</a> 
+                                <p style="color:#9e9e9e ;">颜色：黑色&nbsp;&nbsp;尺码：M</p>
+                            </div>
+                            <div class="l1-3"><i class="iconfont" style="font-size: 7px; font-weight: 200; transform: scale(0.7); display: inline-block;">&#xe648;</i>69.00</div>
+                            <div class="l1-4">1</div>
+                            <div class="l1-5">
+                                <a href="">申请售后</a>
+                                <a href="">投诉商家</a>
+                                <a href="">运费险已出单</a>
+                            </div>
+                        </div>
+                        <div class="l1">
+                            <a href="" class="l1-1"><img src="./已购买宝贝img/已购买宝贝-福白.jpg" alt=""></a>
+                            <div class="l1-2">
+                                <a href="">蒙马特先生&nbsp;五福临门幻影重叠印花T恤衫男女情侣宽松百搭短袖tee&nbsp;</a><a href="">[交易快照]</a> 
+                                <p style="color:#9e9e9e ;">颜色：黑色&nbsp;&nbsp;尺码：L</p>
+                            </div>
+                            <div class="l1-3"><i class="iconfont" style="font-size: 7px; font-weight: 200; transform: scale(0.7); display: inline-block;">&#xe648;</i>69.00</div>
+                            <div class="l1-4">1</div>
+                            <div class="l1-5">
+                                <a href="">申请售后</a>
+                                <a href="">投诉商家</a>
+                                
+                            </div>
+                        </div>
+                        <div class="l3">
+                            <a href="">保险服务</a>
+                            <span><i class="iconfont" style="font-size: 7px; font-weight: 200; transform: scale(0.7); display: inline-block;">&#xe648;</i>0.00</span>
+                        </div>
+                    </div>
+                    <div class="good-right">
+                        <div class="r1">
+                            <p><i class="iconfont" style="font-size: 7px; font-weight: 200; transform: scale(0.7); display: inline-block;">&#xe648;</i>138.00</p>
+                            <p>(含运费：<i class="iconfont" style="font-size: 7px; font-weight: 200; transform: scale(0.7); display: inline-block;">&#xe648;</i>0.00)</p>
+                            <a href=""><img src="./已购买宝贝img/已购买宝贝-手机订单.png" alt=""></a>
+                        </div>
+                        <div class="r2">
+                            <p>交易成功</p>
+                            <a href="">订单详情</a>
+                            <a href="">查看物流</a>
+                            
+                        </div>
+                        <div class="r3">
+                            <a href="" >评价</a>
+                            <a href="">再次购买</a>
+                            <a href="">申请开票</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 订单2 -->
+                
+            </div>
+            <!-- 底部分页条 -->
+            <div class="paging-outer">
+                <div class="paging">
+                    <li><i class="iconfont" >&#xe60e;</i></li>
+                    <li style="color: #fff; background-color: #f40; border-color: #f40;">1</li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                    <li><a href="">4</a></li>
+                    <li><a href="">5</a></li>
+                    <li><i class="iconfont" style="font-size: 22px;color: #c2c2c2;display: inline-block;">&#xe644;</i></li>
+                    <li><a href="">13</a></li>
+                    <li><i class="iconfont" >&#xe702;</i></li>
+                    <li></li>   <!-- 空格 -->
+                    <li>跳至</li>
+                    <li>1</li>
+                    <li>页</li>
+                    <li style="width: 40px; "><a  href="">跳转</a></li>
+                </div>
+            </div>
+        </div>
+        <!-- 底部自动轮播图 -->
+        <div class="show-outer">
+            <!-- 轮播图导航 -->
+            <div class="show-nav">
+                <a href="" style="color: #f40; font-size: 22px;">热卖单品</a>
+            </div>
+            <!-- 底页商品 -->
+            <div class="show6-outer">
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-05.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="" style="background-color: rgb(82, 197, 139);">
+                        <p >UH润珠清爽不油</p>
+                        <p>——&nbsp;&nbsp;新品尝鲜&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color:rgb(82, 197, 139);font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>109.00</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">481人付款</a>
+                    
+                </li>
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-05.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="" style="background-color: rgb(82, 197, 139);">
+                        <p >UH润珠清爽不油</p>
+                        <p>——&nbsp;&nbsp;新品尝鲜&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color:rgb(82, 197, 139);font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>109.00</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">481人付款</a>
+                    
+                </li>
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-05.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="" style="background-color: rgb(82, 197, 139);">
+                        <p >UH润珠清爽不油</p>
+                        <p>——&nbsp;&nbsp;新品尝鲜&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color:rgb(82, 197, 139);font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>109.00</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">481人付款</a>
+                    
+                </li>
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-05.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="" style="background-color: rgb(82, 197, 139);">
+                        <p >UH润珠清爽不油</p>
+                        <p>——&nbsp;&nbsp;新品尝鲜&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color:rgb(82, 197, 139);font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>109.00</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">481人付款</a>
+                    
+                </li>
+            </div>
+            <!-- 第一页商品 -->
+            <div class="show1-outer">
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-01.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="">
+                        <p >还原漂白剂白衣服</p>
+                        <p>——&nbsp;&nbsp;优惠促销&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color: #ff8b00;font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>24.80</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">777人付款</a>
+                    
+                </li>
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-01.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="">
+                        <p >还原漂白剂白衣服</p>
+                        <p>——&nbsp;&nbsp;优惠促销&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color: #ff8b00;font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>24.80</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">777人付款</a>
+                    
+                </li>
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-01.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="">
+                        <p >还原漂白剂白衣服</p>
+                        <p>——&nbsp;&nbsp;优惠促销&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color: #ff8b00;font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>24.80</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">777人付款</a>
+                    
+                </li>
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-01.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="">
+                        <p >还原漂白剂白衣服</p>
+                        <p>——&nbsp;&nbsp;优惠促销&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color: #ff8b00;font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>24.80</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">777人付款</a>
+                    
+                </li>
+            </div>
+            <!-- 第二页商品 -->
+            <div class="show2-outer">
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-02.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="" style="background-color: rgb(70, 105, 180);">
+                        <p >无糖yyds瑾巷请安</p>
+                        <p>——&nbsp;&nbsp;特惠大促&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color: rgb(70, 105, 180);;font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>29.90</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">236人付款</a>
+                    
+                </li>
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-02.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="" style="background-color: rgb(70, 105, 180);">
+                        <p >无糖yyds瑾巷请安</p>
+                        <p>——&nbsp;&nbsp;特惠大促&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color: rgb(70, 105, 180);;font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>29.90</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">236人付款</a>
+                    
+                </li>
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-02.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="" style="background-color: rgb(70, 105, 180);">
+                        <p >无糖yyds瑾巷请安</p>
+                        <p>——&nbsp;&nbsp;特惠大促&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color: rgb(70, 105, 180);;font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>29.90</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">236人付款</a>
+                    
+                </li>
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-02.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="" style="background-color: rgb(70, 105, 180);">
+                        <p >无糖yyds瑾巷请安</p>
+                        <p>——&nbsp;&nbsp;特惠大促&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color: rgb(70, 105, 180);;font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>29.90</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">236人付款</a>
+                    
+                </li>
+                
+                
+            </div>
+            <!-- 第三页商品 -->
+            <div class="show3-outer">
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-03.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="" style="background-color: rgb(196, 61, 173);">
+                        <p >玫瑰蒲公英菊花茶</p>
+                        <p>——&nbsp;&nbsp;专属优惠&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color: rgb(196, 61, 173);font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>19.80</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">888人付款</a>
+                    
+                </li>
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-03.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="" style="background-color: rgb(196, 61, 173);">
+                        <p >玫瑰蒲公英菊花茶</p>
+                        <p>——&nbsp;&nbsp;专属优惠&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color: rgb(196, 61, 173);font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>19.80</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">888人付款</a>
+                    
+                </li>
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-03.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="" style="background-color: rgb(196, 61, 173);">
+                        <p >玫瑰蒲公英菊花茶</p>
+                        <p>——&nbsp;&nbsp;专属优惠&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color: rgb(196, 61, 173);font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>19.80</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">888人付款</a>
+                    
+                </li>
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-03.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="" style="background-color: rgb(196, 61, 173);">
+                        <p >玫瑰蒲公英菊花茶</p>
+                        <p>——&nbsp;&nbsp;专属优惠&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color: rgb(196, 61, 173);font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>19.80</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">888人付款</a>
+                    
+                </li>
+                
+            </div>
+            <!-- 第四页商品 -->
+            <div class="show4-outer">
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-04.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="" style="background-color: rgb(233, 192, 139);">
+                        <p >吵吵家 黑色短袖女</p>
+                        <p>——&nbsp;&nbsp;上新特惠&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color:rgb(233, 192, 139);font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>79.90</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">496人付款</a>
+                    
+                </li>
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-04.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="" style="background-color: rgb(233, 192, 139);">
+                        <p >吵吵家 黑色短袖女</p>
+                        <p>——&nbsp;&nbsp;上新特惠&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color:rgb(233, 192, 139);font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>79.90</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">496人付款</a>
+                    
+                </li>
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-04.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="" style="background-color: rgb(233, 192, 139);">
+                        <p >吵吵家 黑色短袖女</p>
+                        <p>——&nbsp;&nbsp;上新特惠&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color:rgb(233, 192, 139);font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>79.90</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">496人付款</a>
+                    
+                </li>
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-04.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="" style="background-color: rgb(233, 192, 139);">
+                        <p >吵吵家 黑色短袖女</p>
+                        <p>——&nbsp;&nbsp;上新特惠&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color:rgb(233, 192, 139);font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>79.90</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">496人付款</a>
+                    
+                </li>
+            </div>
+            <!-- 第五页商品 -->
+            <div class="show5-outer">
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-05.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="" style="background-color: rgb(82, 197, 139);">
+                        <p >UH润珠清爽不油</p>
+                        <p>——&nbsp;&nbsp;新品尝鲜&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color:rgb(82, 197, 139);font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>109.00</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">481人付款</a>
+                    
+                </li>
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-05.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="" style="background-color: rgb(82, 197, 139);">
+                        <p >UH润珠清爽不油</p>
+                        <p>——&nbsp;&nbsp;新品尝鲜&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color:rgb(82, 197, 139);font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>109.00</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">481人付款</a>
+                    
+                </li>
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-05.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="" style="background-color: rgb(82, 197, 139);">
+                        <p >UH润珠清爽不油</p>
+                        <p>——&nbsp;&nbsp;新品尝鲜&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color:rgb(82, 197, 139);font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>109.00</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">481人付款</a>
+                    
+                </li>
+                <li>
+                    <!-- 图片部分 -->
+                    <a href=""><img src="./已购买宝贝img/已购买宝贝-轮播图-05.jpg" alt=""></a>
+                    <!-- 文字部分 -->
+                    <a href="" style="background-color: rgb(82, 197, 139);">
+                        <p >UH润珠清爽不油</p>
+                        <p>——&nbsp;&nbsp;新品尝鲜&nbsp;&nbsp;——</p>
+                    </a>
+                    <!-- 价格 + 销量 -->
+                    
+                        <a href="" style="font-size: 24px; color:rgb(82, 197, 139);font-weight: 600;height: 60px; line-height: 60px;"><i class="iconfont" style="font-size: 20px; font-weight: 700; ">&#xe648;</i>109.00</a>
+                        <a href="" style="float: right;color: #888;background-color: transparent;font-size: 12px;height: 70px; line-height: 70px;">481人付款</a>
+                    
+                </li>
+            </div>
+            <!-- 轮播图·底部 -->
+            <div class="show-foot-outer">
+                <div class="show-foot">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <a href=""><</a>
+                    <a href="">></a>
+                    <a href="">换一组</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 小蜜蜂 -->
+    <div class="bee-outer">
+        <div class="bee-img"><img src="https://img.alicdn.com/tfs/TB1yJ1Qw3HqK1RjSZFgXXa7JXXa-119-164.svg" alt=""></div>
+        <div class="bee-box">
+            <div class="bee-top">
+                <a href="">如何查看物流信息</a>
+                <a href="">如何修改收货地址</a>
+            </div>
+            <a href="" class="bee-foot"><i class="iconfont" style="color: #fff; vertical-align: -2px; display: inline-block; width: 22px;">&#xe611;</i>点我提问</a>
+        </div>
+    </div>
+</body>
+</html>
